@@ -33,7 +33,9 @@ signal 	fifo_buffer : fifo_buffer_type;
 signal	ps,ns : fsm_type;
 
 
-
+signal 	head : natural range 0 to BUF_SIZE - 1 ;									
+signal 	tail : natural range 0 to BUF_SIZE - 1 ;							
+signal 	num_elements : natural range 0 to BUF_SIZE ;	
 
 signal 	reg_full : std_logic ;
 signal 	reg_empty : std_logic ;
@@ -57,18 +59,15 @@ end process;
 
 
 comb_process: process(ps,rw,en)	
-
-variable 	head : natural range 0 to BUF_SIZE - 1 ;									
-variable 	tail : natural range 0 to BUF_SIZE - 1 ;							
-variable 	num_elements : natural range 0 to BUF_SIZE ;				
+			
 begin
 case ps is
 	when reset => 
-		head := 0;
-		tail := 0;
+		head <= 0;
+		tail <= 0;
 		reg_full <= '0';
 		reg_empty <= '1';
-		num_elements := 0;
+		num_elements <= 0;
 		if en = '1' then 
 			ns <= wait_cmd;
 		else
@@ -79,22 +78,24 @@ case ps is
 			if rw = '0' then
 				if reg_empty = '0' then
 					data_out <= fifo_buffer(head);
-					num_elements := num_elements - 1;
+					num_elements <= num_elements - 1;
+					ns <= read_buffer;
 				else
 					data_out <= (others => 'Z');
-					num_elements := num_elements;
+					num_elements <= num_elements;
+					ns <= wait_cmd;
 				end if;
-				ns <= read_buffer;
 			else
 				if reg_full = '0' then 
 					fifo_buffer(tail) <= data_in;
-					num_elements := num_elements + 1;
+					num_elements <= num_elements + 1;
+					ns <= write_buffer;
 				else
 					fifo_buffer(tail) <= fifo_buffer(tail);
-					num_elements := num_elements;
+					num_elements <= num_elements;
+					ns <= wait_cmd;
 				end if;
 				data_out <= (others => 'Z');
-				ns <= write_buffer;
 			end if;
 		else
 			data_out <= (others => 'Z');
@@ -102,26 +103,32 @@ case ps is
 		end if;
 	when read_buffer =>
 		if num_elements /= 0 then
-			head := head + 1; 
+			if head /= BUF_SIZE -1 then
+				head <= head + 1 ;
+			else
+				head <= 0;
+			end if;
 			reg_empty <= '0';
 		else
 			reg_empty <= '1';
-			head := head;
 		end if;
-		tail := tail;
 		reg_full <= '0';
 		ns <= wait_cmd;
 		
 	when write_buffer => 
 		if num_elements = BUF_SIZE then
 			reg_full <= '1';
-			tail:= tail;
 		else
-			tail := tail + 1;
 			reg_full <= '0';
 		end if;
+		
+		if tail /= BUF_SIZE -1 then
+			tail <= tail + 1 ;
+		else
+			tail <= 0;
+		end if;
+		
 		reg_empty <= '0';
-		head := head;
 		ns <= wait_cmd;
 	end case;
 	
