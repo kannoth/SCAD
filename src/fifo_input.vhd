@@ -13,8 +13,8 @@ entity fifo_input is
 			
     Port (	clk			: in STD_LOGIC;			
 			rst			: in STD_LOGIC;									
-			read_data 	: in STD_LOGIC;	
-			write_data	: in STD_LOGIC;
+			rw 			: in STD_LOGIC;	
+			en 			: in STD_LOGIC;	
 			data_in		: in STD_LOGIC_VECTOR(DATA_WIDTH-1 downto 0);
 			
 			full		: out STD_LOGIC;
@@ -26,102 +26,107 @@ end fifo_input;
 
 architecture Behavioral of fifo_input is
 
-type 	write_fsm_type is (reset,wait_cmd,write_buffer,inc);
-type 	read_fsm_type is (reset,wait_cmd,read_buffer,dec);
+type 	fsm_type is (reset,wait_cmd,write_buffer,read_buffer);
 type 	fifo_buffer_type is array (0 to BUF_SIZE-1) of STD_LOGIC_VECTOR (DATA_WIDTH-1 downto 0);	
 
 signal 	fifo_buffer : fifo_buffer_type;													
-signal	ps_write,ns_write : write_fsm_type;
-signal	ps_read,ns_read : read_fsm_type;
-
-signal 	head : natural range 0 to BUF_SIZE - 1 ;									
-signal 	tail : natural range 0 to BUF_SIZE - 1 ;							
+signal	ps,ns : fsm_type;
 
 
-signal 	write_flag : std_logic ;
-signal 	data_available : std_logic ;
+
+
+signal 	reg_full : std_logic ;
+signal 	reg_empty : std_logic ;
 
 begin
 
-full <= not write_flag;
-empty <= not data_available;
+full 	<= reg_full;
+empty <= reg_empty;
 
-sequential_proc: process(rst,clk)
+sequential_proc: process(clk)
 begin
 	if rising_edge(clk) then
 		if rst = '1' then
-			ps_write <= reset;
-			ps_read  <= reset ;
+			ps <= reset;
 		else
-			ps_write <= ns_write;
-			ps_read	 <= ns_write;
+			ps <= ns;
 		end if;
 	end if;
 end process;
 
 
 
-read_process: process(ps_read,read_data)									
+comb_process: process(ps,rw,en)	
+
+variable 	head : natural range 0 to BUF_SIZE - 1 ;									
+variable 	tail : natural range 0 to BUF_SIZE - 1 ;							
+variable 	num_elements : natural range 0 to BUF_SIZE ;				
 begin
-case ps_read is
+case ps is
 	when reset => 
-		head <= 0;
-		ns_write <= wait_cmd;
+		head := 0;
+		tail := 0;
+		reg_full <= '0';
+		reg_empty <= '1';
+		num_elements := 0;
+		if en = '1' then 
+			ns <= wait_cmd;
+		else
+			ns <= reset;
+		end if;
 	when wait_cmd =>
-		if read_data = '1' then
-			if data_available = '1' then
-				ns_read => read_buffer;
+		if en = '1' then	
+			if rw = '0' then
+				if reg_empty = '0' then
+					data_out <= fifo_buffer(head);
+					num_elements := num_elements - 1;
+				else
+					data_out <= (others => 'Z');
+					num_elements := num_elements;
+				end if;
+				ns <= read_buffer;
 			else
-				ns_read => wait_cmd;
+				if reg_full = '0' then 
+					fifo_buffer(tail) <= data_in;
+					num_elements := num_elements + 1;
+				else
+					fifo_buffer(tail) <= fifo_buffer(tail);
+					num_elements := num_elements;
+				end if;
+				data_out <= (others => 'Z');
+				ns <= write_buffer;
 			end if;
 		else
-			ns_read => wait_cmd;
+			data_out <= (others => 'Z');
+			ns <= wait_cmd;
 		end if;
 	when read_buffer =>
-		data_out <= fifo_buffer(head);
-		ns_read <= dec;
-	when dec =>
-		head <= head + 1;
-		ns_read <= wait_cmd;
-	end case;
-end process;
-
-
-
-write_process: process(ps_write,write_data)
-begin
-case ps_write is
-	when reset =>
-		tail <= 0;
-		data_available <= '0';
-		write_flag <= '1';
-		ns_write => wait_cmd;
-	when wait_cmd =>
-		if write_data = '1' then
-			if write_flag then 
-				ns_write => write_buffer;
-			else
-				ns_write => wait_cmd;
-			end if;
+		if num_elements /= 0 then
+			head := head + 1; 
+			reg_empty <= '0';
 		else
-			ns_write <= wait_cmd;
+			reg_empty <= '1';
+			head := head;
 		end if;
-	when write_buffer =>
-		data_available <= '1';
-		fifo_buffer(tail) <= data_in;
-		ns_write <= inc;
-	when inc =>
-		tail <= tail + 1;
-		if tail = head then
-			write_flag <= '0';
-		else
-			write_flag <= '1';
-		end if;
-		ns_write <= wait_cmd;
-	end case;
-			
+		tail := tail;
+		reg_full <= '0';
+		ns <= wait_cmd;
 		
+	when write_buffer => 
+		if num_elements = BUF_SIZE then
+			reg_full <= '1';
+			tail:= tail;
+		else
+			tail := tail + 1;
+			reg_full <= '0';
+		end if;
+		reg_empty <= '0';
+		head := head;
+		ns <= wait_cmd;
+	end case;
+	
 end process;
+
 
 end Behavioral;
 
