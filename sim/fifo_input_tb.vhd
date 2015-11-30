@@ -10,9 +10,11 @@ END fifo_input_tb;
  
 ARCHITECTURE behavior OF fifo_input_tb IS 
  
-    -- Component Declaration for the Unit Under Test (UUT)
- 
     COMPONENT fifo_input
+	 GENERIC (
+			DATA_WIDTH	: natural := 32;
+			BUF_SIZE	: natural := 6
+			);
     PORT(
          clk : IN  std_logic;
          rst : IN  std_logic;
@@ -26,24 +28,56 @@ ARCHITECTURE behavior OF fifo_input_tb IS
     END COMPONENT;
     
 
-   --Inputs
-   signal clk : std_logic := '0';
+	
+	constant clk_period : time := 10 ns;
+	
+	procedure read_fifo (signal en : out std_logic;
+								signal rw : out std_logic) is 
+	begin
+		en <= '1';
+		rw <= '0';
+		wait for clk_period;
+		en <= '0';
+		wait for clk_period;
+	end read_fifo;
+	
+	
+	procedure write_fifo (signal en : out std_logic;
+								 signal rw : out std_logic;
+								 signal data_in : out std_logic_vector(31 downto 0);
+								 constant tmp : in std_logic_vector(31 downto 0) ) is 
+	begin
+		en <= '1';
+		rw <= '1';
+		data_in <= tmp;
+		wait for clk_period;
+		en <= '0';
+		wait for clk_period;
+	end write_fifo;
+	
+	procedure read_before_write(signal en : out std_logic;
+										 signal rw : out std_logic;
+										 signal data_in : out std_logic_vector(31 downto 0) ) is
+		begin
+		report "Read before write test";
+		read_fifo(en,rw);
+		read_fifo(en,rw);
+		write_fifo(en,rw,data_in,X"FF00FF00");
+		read_fifo(en,rw);
+	end read_before_write;
+	
+	signal clk : std_logic := '0';
    signal rst : std_logic := '0';
    signal rw : std_logic := '0';
    signal en : std_logic := '0';
    signal data_in : std_logic_vector(31 downto 0) := (others => '0');
 
- 	--Outputs
    signal full : std_logic;
    signal empty : std_logic;
    signal data_out : std_logic_vector(31 downto 0);
-
-   -- Clock period definitions
-   constant clk_period : time := 10 ns;
  
 BEGIN
  
-	-- Instantiate the Unit Under Test (UUT)
    uut: fifo_input PORT MAP (
           clk => clk,
           rst => rst,
@@ -55,7 +89,7 @@ BEGIN
           data_out => data_out
         );
 
-   -- Clock process definitions
+   
    clk_process :process
    begin
 		clk <= '0';
@@ -65,42 +99,13 @@ BEGIN
    end process;
  
 
-   -- Stimulus process
+   
    stim_proc: process
    begin		
       rst <= '1';
       wait for 5*clk_period;
 		rst <= '0';
-		
-		wait for clk_period;
-		en <= '1';
-		rw <= '1';
-		data_in <= X"FF00FF00";
-		wait for 2*clk_period;
-		data_in <= X"FF00FF01";
-		wait for 2*clk_period;
-		data_in <= X"FF00FF02";
-		wait for 2*clk_period;
-		data_in <= X"FF00FF03";
-		wait for 2*clk_period;
-		data_in <= X"FF00FF04";
-		wait for 2*clk_period;
-		data_in <= X"FF00FF05";
-		wait for 2*clk_period;
-		
-		wait for clk_period;
-		en <= '0';
-		
-		wait for 2*clk_period;
-		en <= '1';
-		rw <= '0';
-		 wait for clk_period;
-		 en <= '0';
-
-      wait for clk_period*10;
-
-      -- insert stimulus here 
-
+		read_before_write(en,rw,data_in);
       wait;
    end process;
 
