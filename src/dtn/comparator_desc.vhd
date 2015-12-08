@@ -19,25 +19,10 @@ end entity comp_descending;
 -------------------------------------
 architecture RTL of comp_descending is
 
-signal reg1 : fu_type;
-signal reg2 : fu_type;
-
 begin
 
-data_out_1 <= reg1;
-data_out_2 <= reg2;
+data_out_1 <= data_in_1 when data_in_1.address > data_in_2.address else data_in_2;
+data_out_2 <= data_in_2 when data_in_1.address > data_in_2.address else data_in_1;
 
-process(clk)
-	begin
-		if rising_edge(clk) then
-			if data_in_1.address < data_in_2.address then
-				reg2 <= data_in_1;
-				reg1 <= data_in_2;
-			else
-				reg1 <= data_in_1;
-				reg2 <= data_in_2;
-			end if;
-		end if;
-end process;
 end architecture RTL;
 

@@ -6,7 +6,6 @@ use work.dtn_global.all;
 entity comp_ascending is
 
 				port(
-					clk					: in std_logic;
 					data_in_1			: in fu_type;
 					data_in_2			: in fu_type;
 					data_out_1			: out fu_type;
@@ -21,26 +20,13 @@ end entity comp_ascending;
 -------------------------------------
 architecture RTL of comp_ascending is
 
-signal reg1 : fu_type;
-signal reg2 : fu_type;
 
 begin
 
-data_out_1 <= reg1;
-data_out_2 <= reg2;
+data_out_1 <= data_in_2 when data_in_1.address > data_in_2.address else data_in_1;
+data_out_2 <= data_in_1 when data_in_1.address > data_in_2.address else data_in_2;
 
-process(clk)
-	begin
-		if rising_edge(clk) then
-			if data_in_1.address > data_in_2.address then
-				reg2 <= data_in_1;
-				reg1 <= data_in_2;
-			else
-				reg1 <= data_in_1;
-				reg2 <= data_in_2;
-			end if;
-		end if;
-end process;
+		
 
 end architecture RTL;
 

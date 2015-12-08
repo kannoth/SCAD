@@ -14,7 +14,6 @@
 		COMPONENT comp_ascending 
 
 			port(
-				clk					: in std_logic;
 				data_in_1			: in fu_type;
 				data_in_2			: in fu_type;
 				data_out_1			: out fu_type;
@@ -22,7 +21,6 @@
 			);
 		 END COMPONENT;
 	
-		 signal clk : std_logic := '0';
 		 signal data_in_1 : fu_type;
 		 signal data_in_2 : fu_type;
 		 signal data_out_1 : fu_type;
@@ -35,20 +33,13 @@
   BEGIN
 
 		 uut: comp_ascending PORT MAP(
-					clk => clk,
 					data_in_1 => data_in_1,
 					data_in_2 => data_in_2,
 					data_out_1 => data_out_1,
 					data_out_2 => data_out_2
 		 );
 		 
-		clk_process :process
-			begin
-				clk <= '0';
-				wait for clk_period/2;
-				clk <= '1';
-				wait for clk_period/2;
-	end process;
+
 
 
      tb : PROCESS
