@@ -6,7 +6,6 @@ use work.dtn_global.all;
 entity comp_descending is
 
         port(
-               clk             : in std_logic;
                data_in_1			: in fu_type;
 					data_in_2			: in fu_type;
 					data_out_1			: out fu_type;
