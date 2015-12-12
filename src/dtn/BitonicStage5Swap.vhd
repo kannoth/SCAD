@@ -41,7 +41,7 @@ begin
     gen_5_2_1: for i in 0 to (FU_INPUT_W/16) generate
        swapInst_2: entity work.SwapAsc(Behaviour) port map ( inp_a  => wire_out_1((16*i) + j),
 					                     inp_b  => wire_out_1((16*i) + j + 8),
-					       		     out_a  => wire_out_2( 16*i) ,
+					       		     out_a  => wire_out_2((16*i) + j),
 					       	             out_b  => wire_out_2((16*i) + j + 8));
       end generate;
   end generate;
@@ -50,7 +50,7 @@ begin
     gen_5_3_1: for i in 0 to FU_INPUT_W/8 generate
       swapInst_3: entity work.SwapAsc(Behaviour) port map  ( inp_a  => wire_out_2((8*i) + j),
 					                     inp_b  => wire_out_2((8*i) + j + 4),
-					       		     out_a  => wire_out_3( 8*i) ,
+					       		     out_a  => wire_out_3((8*i) + j),
 					       	             out_b  => wire_out_3((8*i) + j + 4));
       end generate;
   end generate;

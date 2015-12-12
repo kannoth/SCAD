@@ -40,7 +40,7 @@ begin
     gen_4_2_1: for i in 0 to FU_INPUT_W/8 generate
       swapInst_10: entity work.SwapAsc(Behaviour) port map ( inp_a  => wire_out_1((8*i) + j),
 					                     inp_b  => wire_out_1((8*i) + j + 4),
-					       		     out_a  => wire_out_2( 8*i) ,
+					       		     out_a  => wire_out_2((8*i) + j),
 					       	             out_b  => wire_out_2((8*i) + j + 4));
       end generate;
   end generate;
@@ -53,8 +53,8 @@ begin
          				       	             out_b  => wire_out_3((4*i) + 2 + j));
       end generate;   				       	             
   end generate;
-					       	            
-  gen_4_3_3: for i in 0 to FU_INPUT_W/2 generate
+
+   gen_4_3_3: for i in 0 to FU_INPUT_W/2 generate
      swapInst_14: entity work.SwapAsc(Behaviour) port map ( inp_a  => wire_out_3( 2*i),
 					                    inp_b  => wire_out_3((2*i) + 1),
 					       		    out_a  => out_vector( 2*i),
