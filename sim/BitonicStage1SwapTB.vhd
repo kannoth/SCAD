@@ -1,7 +1,12 @@
 --+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
--- Testbench for statge 1		                                                        +
+-- Testbench for statge 1		                                                    +
 --                                                                                  +
 -- File : BitonicStage1SwapTB.vhd                                                   +
+--																					+
+-- This testbecnh can be used to test any stage of the bitonic network				+
+-- The values of the testVectpt_1 can be changed and tested.						+
+-- Two additional vectors for data and fifoIDX can also be used.					+
+-- Both are equated to 0 for simplicity.											+
 --+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 library IEEE;
@@ -27,9 +32,9 @@ begin
 	main_p : process begin
 		wait for 20 ns;
 		for i in 0 to 31 loop
-			inp_vector_s(i).address <= std_logic_vector(to_unsigned(testVector_1(i),5));
+			inp_vector_s(i).address   <= std_logic_vector(to_unsigned(testVector_1(i),5));
 			inp_vector_s(i).data	  <= std_logic_vector(to_unsigned(0,5));
-			inp_vector_s(i).fifoIDX <= std_logic_vector(to_unsigned(0,1));
+			inp_vector_s(i).fifoIDX   <= std_logic_vector(to_unsigned(0,1));
 		end loop;
 		wait for 20 ns;
 	end process;
