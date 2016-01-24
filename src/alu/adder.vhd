@@ -7,9 +7,6 @@ use work.glbSharedTypes.ALL;
 
 
 entity adder is
-	Generic (
-			  OP_WIDTH : natural := FU_DATA_W
-			 );
     Port ( op1 : in  signed (OP_WIDTH-1 downto 0);
            op2 : in  signed (OP_WIDTH-1 downto 0);
            res : out  signed (OP_WIDTH-1 downto 0));
