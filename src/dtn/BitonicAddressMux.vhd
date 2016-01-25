@@ -20,9 +20,9 @@ end entity;
 architecture Behaviour of BitonicAddressMux is	
 begin
 	gen_main:for i in 0 to FU_INPUT_W generate
-					out_vector(i).vld			<= inp_vector(i).vld;
-					out_vector(i).address 	<= InvAddr(i) when (inp_vector(i).vld = '0') else inp_vector(i).address ;
-					out_vector(i).data    	<= inp_vector(i).data ;
-					out_vector(i).fifoIdx   <= inp_vector(i).fifoIdx ;
+					out_vector(i).vld		<= inp_vector(i).vld;
+					out_vector(i).address	<= InvAddr(i) when (inp_vector(i).vld = '0') else inp_vector(i).address ;
+					out_vector(i).data		<= inp_vector(i).data ;
+					out_vector(i).fifoIdx	<= inp_vector(i).fifoIdx ;
 				end generate;
 end architecture;
