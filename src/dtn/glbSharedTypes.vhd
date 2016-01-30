@@ -13,8 +13,7 @@ use IEEE.math_real.all;
 package glbSharedTypes is
 
 	constant   FU_ADDRESS_W    : integer   := 5;
-	constant   FU_DATA_W       : integer   := 5;
-	constant   FU_FIFO_IDX_W   : integer   := 1; 
+	constant   FU_DATA_W       : integer   := 32;
 	constant   FU_INPUT_W      : integer   := (2 ** FU_ADDRESS_W)-1;
 	
 	-- Memory element constants. If there are multiple memory elements, first $MEM_SELECT_BITLENGTH bits
@@ -27,12 +26,15 @@ package glbSharedTypes is
 	constant   MEM_ADDR_LENGTH   		: integer   := integer(log2(REAL(MEM_NR_ELEMENTS * MEM_BANK_SIZE)));
 	constant   MEM_SELECT_BITLENGTH 	: integer 	:= integer(log2(REAL(MEM_NR_ELEMENTS)));
 	
+	constant    FIFO_BUF_SIZE		: integer := 6;
+	
+	
 	type ram_type is array (0 to MEM_BANK_SIZE - 1) of std_logic_vector (MEM_WORD_LENGTH - 1 downto 0);
 	
 	type sorterIOVector_t is record
 			address 	: std_logic_vector(FU_ADDRESS_W  -1 	downto 0);
 			data		: std_logic_vector(FU_DATA_W     -1 	downto 0);
-			fifoIdx  : std_logic_vector(FU_FIFO_IDX_W -1 	downto 0);
+			fifoIdx  	: std_logic;
 	end record;
 	
 	type bitonStageBus_t is array (0 to FU_INPUT_W) of sorterIOVector_t;

@@ -7,15 +7,15 @@ use work.glbSharedTypes.ALL;
 package alu_components is 
 
 component adder is
-    Port ( op1 : in  signed (OP_WIDTH-1 downto 0);
-           op2 : in  signed (OP_WIDTH-1 downto 0);
-           res : out  signed (OP_WIDTH-1 downto 0));
+    Port ( op1 : in  signed (FU_DATA_W-1 downto 0);
+           op2 : in  signed (FU_DATA_W-1 downto 0);
+           res : out  signed (FU_DATA_W-1 downto 0));
 end component;
 
 component subtractor is
-    Port ( op1 : in  signed (OP_WIDTH-1 downto 0);
-           op2 : in  signed (OP_WIDTH-1 downto 0);
-           res : out  signed (OP_WIDTH-1 downto 0));
+    Port ( op1 : in  signed (FU_DATA_W-1 downto 0);
+           op2 : in  signed (FU_DATA_W-1 downto 0);
+           res : out  signed (FU_DATA_W-1 downto 0));
 end component;
 
 component multiplier is
@@ -24,6 +24,16 @@ component multiplier is
     b : in std_logic_vector(8 downto 0);
     p : out std_logic_vector(17 downto 0)
   );
+end component;
+  
+component fu_adder is
+    Port ( 		clk	 		: in std_logic;
+				rst			: in std_logic;
+				en 			: in std_logic;
+				valid_inst 	: in std_logic;
+				rw 			: in std_logic;
+				inp 		: in sorterIOVector_t
+         );
 end component;
 
 end alu_components;
