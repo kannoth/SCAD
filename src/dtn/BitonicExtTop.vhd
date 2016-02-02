@@ -6,14 +6,16 @@ use work.glbSharedTypes.all;
 
 entity BitonicExtTop is 
 	port (
-    		inp_vector : in  bitonStageBus_t;
-    		out_vector : out bitonStageBus_t		
+			clk 			: in std_logic;
+			reset			: in std_logic;
+    		inp_vector	: in  bitonStageBus_t;
+    		out_vector	: out bitonStageBus_t		
 	);
 end entity;
 
 architecture Behaviour of BitonicExtTop is
 	signal wire  : bitonStageBus_t;
 begin
-	bitonAddrMuxInst : entity work.BitonicAddressMux(Behaviour) port map(inp_vector => inp_vector, out_vector => wire );
-	bitonNetworkInst : entity work.BitonicTop(Behaviour) 		port map(inp_vector => wire , out_vector => out_vector);
+	bitonAddrMuxInst:entity	work.BitonicAddressMux(Behaviour)port map(inp_vector => inp_vector, out_vector => wire );
+	bitonNetworkInst:entity	work.BitonicTop(Behaviour)port map(clk => clk, reset => reset, inp_vector => wire , out_vector => out_vector);
 end architecture;
