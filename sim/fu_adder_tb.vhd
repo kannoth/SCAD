@@ -16,6 +16,7 @@ use work.alu_components.ALL;
 			signal rw : std_logic := '0';
 			signal valid_inst : std_logic := '0';
          signal inp : sorterIOVector_t;
+			signal busy : std_logic := '0';
 			constant clk_period : time := 10 ns;
 
   BEGIN
@@ -27,7 +28,8 @@ use work.alu_components.ALL;
 						en  			=> en,
 						rw 			=> rw,
 						valid_inst	=> valid_inst,
-						inp			=> inp
+						inp			=> inp,
+						busy			=> busy
           );
 
 

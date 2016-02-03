@@ -7,9 +7,9 @@ use work.glbSharedTypes.ALL;
 
 
 entity subtractor is
-    Port ( op1 : in  signed (OP_WIDTH-1 downto 0);
-           op2 : in  signed (OP_WIDTH-1 downto 0);
-           res : out  signed (OP_WIDTH-1 downto 0));
+    Port ( op1 : in  signed (FU_DATA_W-1 downto 0);
+           op2 : in  signed (FU_DATA_W-1 downto 0);
+           res : out  signed (FU_DATA_W-1 downto 0));
 end subtractor;
 
 architecture RTL of adder is

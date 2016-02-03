@@ -34,7 +34,12 @@ signal reg_inp1_rw 		: std_logic;
 signal reg_inp2_rw 		: std_logic;
 signal reg_inp1_en 		: std_logic;
 signal reg_inp2_en 		: std_logic;
+signal reg_busy			: std_logic;
 
+
+type 	op_state_type is (read_input, write_output);
+signal op_state 			: op_state_type;
+ 
 
 
 
@@ -89,33 +94,53 @@ outp_rw <= '1' when (en = '1' and rw = '0') else reg_outp_rw;
 
 inp1_din	<= inp.data;
 inp2_din <= inp.data;
+
+busy		<= reg_busy;
 		
 process(clk)
 begin
 	if rising_edge(clk) then
 		if rst = '1' then
+			reg_busy 	<= '0';
+			op_state 	<= read_input;
 			reg_inp1_rw <= '0';
 			reg_inp2_rw <= '0';
 			reg_outp_rw <= '0';
 			reg_outp_en <= '0';
 			reg_inp1_en <= '0';
 			reg_inp2_en <= '0';
-		else
-			if valid_inst = '1' then
-				reg_inp1_rw <= '0';
-				reg_inp2_rw <= '0';
-				reg_outp_rw		<= '1';
-				reg_outp_en 	<= '1';
-				reg_inp1_en <= '1';
-				reg_inp2_en <= '1';
-			else
-				reg_inp1_rw <= '0';
-				reg_inp2_rw <= '0';
-				reg_outp_rw		<= '0';
-				reg_outp_en 	<= '0';
-				reg_inp1_en <= '0';
-				reg_inp2_en <= '0';
-			end if;	
+		else 
+			case op_state is
+				when read_input	=> 
+					if valid_inst = '1' then
+						reg_busy			<= '1';
+						reg_inp1_rw 	<= '0';
+						reg_inp2_rw 	<= '0';
+						reg_outp_rw		<= '0';
+						reg_outp_en 	<= '0';
+						reg_inp1_en 	<= '1';
+						reg_inp2_en 	<= '1';
+						op_state 		<= write_output;
+					else
+						reg_busy		<= '0';
+						reg_inp1_rw <= '0';
+						reg_inp2_rw <= '0';
+						reg_outp_rw		<= '0';
+						reg_outp_en 	<= '0';
+						reg_inp1_en <= '0';
+						reg_inp2_en <= '0';
+						op_state <= read_input;
+					end if;	
+				when write_output =>
+						reg_busy			<= '1';
+						reg_inp1_rw 	<= '0';
+						reg_inp2_rw 	<= '0';
+						reg_outp_rw		<= '1';
+						reg_outp_en 	<= '1';
+						reg_inp1_en 	<= '0';
+						reg_inp2_en 	<= '0';
+						op_state 		<= read_input;
+			end case;
 		end if;
 	end if;
 end process;
