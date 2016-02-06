@@ -2,6 +2,7 @@
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.NUMERIC_STD.ALL;
+use work.fifo_pkg.all;
 
  
 
@@ -11,25 +12,6 @@ END fifo_input_tb;
  
 ARCHITECTURE behavior OF fifo_input_tb IS 
  
-    COMPONENT fifo_input
-	 GENERIC (
-			DATA_WIDTH	: natural := 32;
-			BUF_SIZE	: natural := 6
-			);
-    PORT(
-         clk : IN  std_logic;
-         rst : IN  std_logic;
-         rw : IN  std_logic;
-         en : IN  std_logic;
-         data_in : IN  std_logic_vector(31 downto 0);
-         full : OUT  std_logic;
-         empty : OUT  std_logic;
-         data_out : OUT  std_logic_vector(31 downto 0)
-        );
-    END COMPONENT;
-    
-
-	
 	constant clk_period : time := 10 ns;
 	
 	procedure read_fifo (signal en : out std_logic;
@@ -79,7 +61,7 @@ ARCHITECTURE behavior OF fifo_input_tb IS
  
 BEGIN
  
-   uut: fifo_input PORT MAP (
+   uut: fifo_alu PORT MAP (
           clk => clk,
           rst => rst,
           rw => rw,
@@ -104,7 +86,7 @@ BEGIN
    stim_proc: process
    begin		
       rst <= '1';
-      wait for 5*clk_period;
+      wait for 5*clk_period - 5 ns;
 		rst <= '0';
 		read_before_write(en,rw,data_in);
       wait;

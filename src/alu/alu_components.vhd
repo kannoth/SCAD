@@ -28,12 +28,14 @@ end component;
   
 component fu_adder is
     Port ( 		clk	 		: in std_logic;
-				rst			: in std_logic;
-				en 			: in std_logic;
-				valid_inst 	: in std_logic;
-				rw 			: in std_logic;
-				inp 		: in sorterIOVector_t;
-				busy		: out std_logic
+				rst				: in std_logic;
+				en 				: in std_logic;
+				valid_inst 		: in std_logic;
+				rw 				: in std_logic;
+				inp 				: in sorterIOVector_t;
+				outp				: out sorterIOVector_t;
+				state				: out aluFUState_t;
+				busy				: out std_logic
          );
 end component;
 

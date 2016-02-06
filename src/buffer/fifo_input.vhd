@@ -44,7 +44,7 @@ full 			<= reg_full;
 empty 		<= reg_empty;
 data_out		<= reg_dout;
 
-sequential_proc: process(clk)
+process(clk)
 begin
 	if rising_edge(clk) then
 		if rst = '1' then
@@ -60,7 +60,7 @@ begin
 					if reg_empty = '0' then
 						reg_dout <= fifo_buffer(head);
 						num_elements <= num_elements - 1;
-						if num_elements /= 0 then
+						if num_elements /= 1 then
 							if head /= FIFO_BUF_SIZE -1 then
 								head <= head + 1 ;
 							else
@@ -78,7 +78,7 @@ begin
 					if reg_full = '0' then 
 						fifo_buffer(tail) <= data_in;
 						num_elements <= num_elements + 1;
-						if num_elements = FIFO_BUF_SIZE then
+						if num_elements = FIFO_BUF_SIZE - 1 then
 							reg_full <= '1';
 						else
 							reg_full <= '0';

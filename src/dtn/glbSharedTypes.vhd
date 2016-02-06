@@ -37,6 +37,15 @@ package glbSharedTypes is
 			fifoIdx  	: std_logic;
 	end record;
 	
+	type aluFUState_t is record
+			in1_full  : std_logic;
+			in1_empty : std_logic;
+			in2_full	 : std_logic;
+			in2_empty : std_logic;
+			out_full  : std_logic;
+			out_empty : std_logic;
+	end record;
+	
 	type bitonStageBus_t is array (0 to FU_INPUT_W) of sorterIOVector_t;
 	
 end glbSharedTypes;
