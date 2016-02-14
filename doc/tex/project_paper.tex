@@ -51,6 +51,35 @@
 	\maketitle \newpage
 	\tableofcontents \newpage
 	%\listoftodos \newpage
+	\section{Instruction Set Architecture}
+		Aside from the mandatory move instruction, our Instruction Set Architecture (ISA) needs to have instructions for loading immediate values, jumping to fixed addresses and branching.
+		
+		\begin{lstlisting}
+// Load operands from memory
+immediate <op1_address> // op1_address into the control unit output
+move ctrl.o0, load.i0
+immediate <op2_address>
+move ctrl.o0, load.i0
+
+// Load result destination address
+immediate <result_address>
+move ctrl.o0, store.i0 // tell 
+
+// Send parameters to compare unit
+move load.o0, cmp.i0
+move load.o0, cmp.i1
+
+move cmp.o0, ctrl.i0 //move to control unit input for branch
+branch yes // branch to yes if control unit input != 0
+no:
+	immediate 1
+	jump both
+yes:
+	immediate 0
+both
+	move ctrl.o0, store.i1 // move to data input of the store unit
+		\end{lstlisting}
+	
 	\section{Move Instruction Bus}
 		\subsection{2-Phase Commit}
 			To take into account both stalls of source and destination functional units, the control unit sends move instructions in two phases, both of which are indicated by a rising edge of the "valid" flag.
@@ -71,7 +100,7 @@
 			\end{figure}
 
 	\section{Control Unit and Data Network}
-		To keep the MIB simple, we will have the control unit send immediat values, and receive branch conditions through the data network.
+		To keep the MIB simple, we will have the control unit send immediate values, and receive branch conditions through the data network.
 		While broadcasting immediate values through either the MIB or a separate bus may be the faster alternative, having the control unit send them through the data network keeps the architecture cleaner\todo{nicer}.
 
 	\nocite{*}
