@@ -20,8 +20,25 @@
 
 \renewcommand{\abstractname}{Abstract}
 
+% Define Language
+\lstdefinelanguage{SCAD}
+{
+  % list of keywords
+  morekeywords={
+    immediate,
+    move,
+    branch,
+    jump
+  },
+  sensitive=false, % keywords are not case-sensitive
+  morecomment=[l]{//}, % l is for line comment
+  morecomment=[s]{/*}{*/}, % s is for start and end delimiter
+  morestring=[b]" % defines that strings are enclosed in double quotes
+}
+
 %TODO: center listings
-\lstset{language=C,frame=L,style=ESStyle,tabsize=2,basicstyle=\small\ttfamily}
+\lstset{language=SCAD,frame=L,style=ESStyle,tabsize=2,basicstyle=\small\ttfamily}
+%\lstset{language=C,frame=L,style=ESStyle,tabsize=2,basicstyle=\small\ttfamily}
 %\lstset{language=C,frame=L,basicstyle=\small\ttfamily,tabsize=2}
 \lstset{numbersep=10pt}
 \lstset{xleftmargin=5.0ex}
@@ -53,33 +70,23 @@
 	%\listoftodos \newpage
 	\section{Instruction Set Architecture}
 		Aside from the mandatory move instruction, our Instruction Set Architecture (ISA) needs to have instructions for loading immediate values, jumping to fixed addresses and branching.
+		An overview of those instructions is given in Figure \ref{fig:instruction_table}.
 		
-		\begin{lstlisting}
-// Load operands from memory
-immediate <op1_address> // op1_address into the control unit output
-move ctrl.o0, load.i0
-immediate <op2_address>
-move ctrl.o0, load.i0
-
-// Load result destination address
-immediate <result_address>
-move ctrl.o0, store.i0 // tell 
-
-// Send parameters to compare unit
-move load.o0, cmp.i0
-move load.o0, cmp.i1
-
-move cmp.o0, ctrl.i0 //move to control unit input for branch
-branch yes // branch to yes if control unit input != 0
-no:
-	immediate 1
-	jump both
-yes:
-	immediate 0
-both
-	move ctrl.o0, store.i1 // move to data input of the store unit
-		\end{lstlisting}
-	
+		\begin{figure}
+			\begin{center}
+				\begin{tabular}{| l | p{7cm} |}
+					\hline
+					\textbf{instruction} & \textbf{semantics} \\ \hline
+					\lstinline{move src, dest} & Move data from an output buffer to an input buffer by sending this instruction to the corresponding functional units. Data move will asynchronous \\ \hline
+					\lstinline{jump address} & Set pc to address. \\ \hline
+					\lstinline{immediate data} & Place data into output buffer of control unit. \\ \hline
+					\lstinline{branch address} & A no-op when the first data in the input buffer is a 0, jump to address otherwise. Will wait for data to arrive when there is none. \\ \hline
+				\end{tabular}
+				\label{fig:instruction_table}
+				\caption{SCAD Architecture Instructions}
+			\end{center}
+		\end{figure}
+		
 	\section{Move Instruction Bus}
 		\subsection{2-Phase Commit}
 			To take into account both stalls of source and destination functional units, the control unit sends move instructions in two phases, both of which are indicated by a rising edge of the "valid" flag.
@@ -103,8 +110,56 @@ both
 		To keep the MIB simple, we will have the control unit send immediate values, and receive branch conditions through the data network.
 		While broadcasting immediate values through either the MIB or a separate bus may be the faster alternative, having the control unit send them through the data network keeps the architecture cleaner\todo{nicer}.
 
+
+
+	\section{Future Work}
+		Having duplication as a seperate functional unit may cause it to be a significant bottleneck.
+		One feasible solution to this is the extension of the move instruction by an additional "non-destructive" move, where data sent is kept in the output buffer.
+		
+		\todo[inline]{at least two more ideas}
+
 	\nocite{*}
 	\bibliographystyle{eptcs}
 	%\bibliography{todo}
+
+	\newpage
+	\begin{appendices}
+		\newpage
+		\section{Memory Access and Branch}
+			\label{app:ex1}
+			
+			Basic example for memory access and branching:
+			
+			\begin{lstlisting}
+// Basic function:
+// *result = *op1 == *op2 ? 33 : 27;
+
+// Load operands from memory
+immediate <op1_address> // op1_address into the control unit output
+move ctrl.o0, load.i0
+immediate <op2_address>
+move ctrl.o0, load.i0
+
+// Send result destination to "store" function unit
+immediate <result_address>
+move ctrl.o0, store.i0
+
+// Send parameters to compare unit
+move load.o0, cmp.i0
+move load.o0, cmp.i1
+
+move cmp.o0, ctrl.i0 //move to control unit input for branch
+branch yes // branch to yes if control unit input != 0
+no:
+	immediate 27
+	jump both
+yes:
+	immediate 33
+both:
+	move ctrl.o0, store.i1 // move to data input of the store unit
+			\end{lstlisting}
+	
+	\end{appendices}
+	
 \end{document}
 
