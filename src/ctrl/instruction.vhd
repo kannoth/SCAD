@@ -32,23 +32,50 @@ PACKAGE BODY instruction IS
 		VARIABLE result: move_instruction;
 	BEGIN
 		result.op := instr.op;
-		result.src.fu(4 downto 0) := instr.param(15 downto 11);
-		result.src.buff(1 downto 0) := instr.param(10 downto 9);
-		result.src.fu(4 downto 0) := instr.param(7 downto 3);
-		result.src.buff(1 downto 0) := instr.param(2 downto 1);
+		
+		result.src.fu((ADDRESS_FU_WIDTH - 1) DOWNTO 0) :=
+			instr.param((DATA_WIDTH - 1) DOWNTO
+			(DATA_WIDTH - ADDRESS_FU_WIDTH));
+		
+		result.src.buff((ADDRESS_BUFF_WIDTH - 1) DOWNTO 0) :=
+			instr.param((DATA_WIDTH - ADDRESS_FU_WIDTH - 1) DOWNTO
+			(DATA_WIDTH - ADDRESS_FU_WIDTH - ADDRESS_BUFF_WIDTH));
+		
+		result.dest.fu((ADDRESS_FU_WIDTH - 1) DOWNTO 0) :=
+			instr.param((DATA_WIDTH - ADDRESS_FU_WIDTH - ADDRESS_BUFF_WIDTH - 1) DOWNTO
+			(DATA_WIDTH - (2 * ADDRESS_FU_WIDTH) - ADDRESS_BUFF_WIDTH));
+		
+		result.dest.buff((ADDRESS_BUFF_WIDTH - 1) DOWNTO 0) :=
+			instr.param((DATA_WIDTH - (2 * ADDRESS_FU_WIDTH) - ADDRESS_BUFF_WIDTH - 1) DOWNTO
+			(DATA_WIDTH - (2 * ADDRESS_FU_WIDTH) - (2 * ADDRESS_BUFF_WIDTH)));
+		
 		return result;
 	END to_move_instruction;
 
 	-- Most probably not required
 	FUNCTION to_instruction(instr: move_instruction)
 		RETURN instruction IS
-		VARIABLE result: instruction;
+		-- TODO: Do we really want bits not used by the move instruction to be 0?
+		VARIABLE result: instruction :=
+			(op => JUMP, param => (OTHERS => '0'));
 	BEGIN
 		result.op := instr.op;
-		-- TODO: insert known (0) values for missing bits?
-		result.param(15 downto 11) := instr.src.fu(4 downto 0);
-		result.param(10 downto 9) := instr.src.buff(1 downto 0);
-		result.param(7 downto 3) := instr.src.fu(4 downto 0);
-		result.param(2 downto 1) := instr.src.buff(1 downto 0);
+		result.param((DATA_WIDTH - 1) DOWNTO
+			(DATA_WIDTH - ADDRESS_FU_WIDTH)) :=
+				instr.src.fu((ADDRESS_FU_WIDTH - 1) DOWNTO 0);
+		
+		result.param((DATA_WIDTH - ADDRESS_FU_WIDTH - 1) DOWNTO
+			(DATA_WIDTH - ADDRESS_FU_WIDTH - ADDRESS_BUFF_WIDTH)) :=
+				instr.src.buff((ADDRESS_BUFF_WIDTH - 1) DOWNTO 0);
+		
+		result.param((DATA_WIDTH - ADDRESS_FU_WIDTH - ADDRESS_BUFF_WIDTH - 1) DOWNTO
+			(DATA_WIDTH - (2 * ADDRESS_FU_WIDTH) - ADDRESS_BUFF_WIDTH)) :=
+				instr.dest.fu((ADDRESS_FU_WIDTH - 1) DOWNTO 0);
+		
+		result.param((DATA_WIDTH - (2 * ADDRESS_FU_WIDTH) - ADDRESS_BUFF_WIDTH - 1) DOWNTO
+			(DATA_WIDTH - (2 * ADDRESS_FU_WIDTH) - (2 * ADDRESS_BUFF_WIDTH))) :=
+				instr.dest.buff((ADDRESS_BUFF_WIDTH - 1) DOWNTO 0);
+		
+		return result;
 	END to_instruction;
 END instruction;
