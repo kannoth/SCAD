@@ -14,16 +14,22 @@ USE IEEE.STD_LOGIC_1164.ALL;
 -- TODO: Replace STD_LOGIC by something less prone to error/forgetting cases
 
 PACKAGE common IS
+-- BASICS ----------------------------------------------------------------------
+	CONSTANT DATA_WIDTH: NATURAL := 32;
+	SUBTYPE data_word IS STD_LOGIC_VECTOR(DATA_WIDTH-1 downto 0);
 	
-	-- basic interface types
-	SUBTYPE address_fu IS STD_LOGIC_VECTOR(4 downto 0);
-	SUBTYPE buff_num IS STD_LOGIC_VECTOR(1 downto 0);
+	-- instruction memory (i.e. pc) address width
+	-- out of comission - pc is just another data word
+	--CONSTANT PC_WIDTH := DATA_WIDTH;
+	
+	CONSTANT ADDRESS_FU_WIDTH: NATURAL := 5;
+	CONSTANT ADDRESS_BUFF_WIDTH: NATURAL := 1;
+	SUBTYPE address_fu IS STD_LOGIC_VECTOR((ADDRESS_FU_WIDTH - 1) downto 0);
+	SUBTYPE buff_num IS STD_LOGIC_VECTOR((ADDRESS_BUFF_WIDTH - 1) downto 0);
 	TYPE address_fu_buff IS RECORD
 		fu: address_fu;
 		buff: buff_num;
 	END RECORD;
-	
-	SUBTYPE data_word IS STD_LOGIC_VECTOR(15 downto 0);
 	
 -- MOVE INSTRUCTION BUS --------------------------------------------------------
 	-- 2-phase commit for instructions required for broadcasting to work
