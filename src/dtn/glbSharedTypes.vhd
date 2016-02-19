@@ -35,7 +35,7 @@ package glbSharedTypes is
 	type ram_type is array (0 to MEM_BANK_SIZE - 1) of std_logic_vector (MEM_WORD_LENGTH - 1 downto 0);
 	
 	type sorterIOVector_t is record
-		vld		: std_logic;												-- Validity assertion register bits
+		vld		: std_logic;						-- Validity assertion register bits
 		address	: std_logic_vector(FU_ADDRESS_W  -1 downto 0);	-- FU address 
 		data		: std_logic_vector(FU_DATA_W     -1 downto 0);	-- data to be routed
 		fifoIdx  : std_logic;
