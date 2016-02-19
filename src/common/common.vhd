@@ -100,13 +100,13 @@ PACKAGE common IS
 		data: data_word;
 	END RECORD;
 	
-	TYPE data_port_sENDing IS RECORD
+	TYPE data_port_sending IS RECORD
 		message: data_message;
 		valid: STD_LOGIC;
 	END RECORD;
 	
 	TYPE data_port_receiving IS RECORD
-		IS_read: STD_LOGIC;
+		is_read: STD_LOGIC;
 	END RECORD;
 	
 END common;
