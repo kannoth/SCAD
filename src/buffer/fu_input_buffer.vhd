@@ -15,7 +15,8 @@ entity fu_input_buffer is
 			--- Signals from DTN
 			dtn_data	: in STD_LOGIC_VECTOR(FU_DATA_W-1 downto 0);
 			dtn_addr	: in STD_LOGIC_VECTOR(FU_ADDRESS_W-1 downto 0);
-			dtn_rw		: in STD_LOGIC;
+			--- Signals from FU 
+			fu_read		: in std_logic;
 			--- Signals to FU
 			available	: out STD_LOGIC;
 			full		: out STD_LOGIC;
@@ -25,22 +26,31 @@ entity fu_input_buffer is
 end fu_input_buffer;
 
 
-architecture Behavioral of fifo_alu is
+architecture Behavioral of fu_input_buffer is
 
-type fifo_entry is record
+type buffer_entry is record
+	ready: std_logic;
 	data : std_logic_vector(FU_DATA_W-1 downto 0);
 	addr : std_logic_vector(FU_ADDRESS_W-1 downto 0);
 end record;
 
-type 	fifo_buffer_type is array (0 to FIFO_BUF_SIZE-1) of fifo_entry;
+type lut_entry is record
+	found 	: std_logic;
+	idx		: natural range 0 to BUF_SIZE - 1;
+end record;
 
-signal 	fifo_buffer : fifo_buffer_type := (others => (data => (others => '0'), addr => (others => '0') ));													
 
 
+type 	buffer_type is array (0 to BUF_SIZE-1) of buffer_entry;
+type 	lut_type is array (0 to MAX_FUS-1) of lut_entry;
 
-signal 	head : natural range 0 to FIFO_BUF_SIZE - 1 ;									
-signal 	tail : natural range 0 to FIFO_BUF_SIZE - 1 ;							
-signal 	num_elements : natural range 0 to FIFO_BUF_SIZE ;	
+signal 	buf : buffer_type := (others => (ready => '0', data => (others => 'X'), addr => (others => '0')));													
+signal  	lut : lut_type 	:= (others => (found => '0', idx => 0 ));
+
+
+signal 	head : natural range 0 to BUF_SIZE - 1 ;									
+signal 	tail : natural range 0 to BUF_SIZE - 1 ;							
+signal 	num_elements : natural range 0 to BUF_SIZE ;	
 
 signal 	reg_full : std_logic ;
 signal 	reg_empty : std_logic ;
@@ -48,67 +58,93 @@ signal 	reg_available : std_logic;
 
 signal 	reg_dout  : std_logic_vector(data_out'range);
 
+
 begin
 
-
 full 			<= reg_full;
-empty 			<= reg_empty;
+empty 		<= reg_empty;
 data_out		<= reg_dout;
+available	<= reg_available;
 
 process(clk)
+variable index : natural range 0 to BUF_SIZE - 1 := 0;
+variable data_addr : std_logic_vector(FU_ADDRESS_W-1 downto 0);
+variable tmp_entry : lut_entry;
 begin
 	if rising_edge(clk) then
 		if rst = '1' then
-			head 				<= 0;
-			tail 				<= 0;
+			head 					<= 0;
+			tail 					<= 0;
 			reg_full 			<= '0';
 			reg_empty 			<= '1';
 			num_elements 		<= 0;
-			reg_available		<= '0'
-			reg_dout			<= (others => 'X');
+			reg_available		<= '0';
+			reg_dout				<= (others => 'X');
+			index					:= 0;
+			data_addr			:= (others => 'X');
+			buf					<= (others => (ready => '0', data => (others => 'X'), addr => (others => '0')));	
+			lut					<= (others => (found => '0', idx => 0 ));
 		else
-			if en = '1' then	
-				if rw = '0' then
-					if reg_empty = '0' then
-						reg_dout <= fifo_buffer(head);
-						num_elements <= num_elements - 1;
-						if num_elements /= 1 then
-							if head /= FIFO_BUF_SIZE -1 then
-								head <= head + 1 ;
-							else
-								head <= 0;
-							end if;
-							reg_empty <= '0';
-						else
-							reg_empty <= '1';
-						end if;
-						reg_full <= '0';
-					else
-						num_elements <= num_elements;
-					end if;
-				else
-					if reg_full = '0' then 
-						fifo_buffer(tail).addr <= addr;
+			if mib_en = '1' then
+				if reg_full = '0' then 
+						buf(tail).addr 	<= mib_addr;
+						buf(tail).ready 	<= '0';
+						lut(to_integer(unsigned(mib_addr))).found 	<= '1';
+						lut(to_integer(unsigned(mib_addr))).idx 		<= num_elements;
 						num_elements <= num_elements + 1;
-						if num_elements = FIFO_BUF_SIZE - 1 then
+						if num_elements = BUF_SIZE - 1 then
 							reg_full <= '1';
 						else
 							reg_full <= '0';
 						end if;
 						
-						if tail /= FIFO_BUF_SIZE -1 then
+						if tail /= BUF_SIZE -1 then
 							tail <= tail + 1 ;
 						else
 							tail <= 0;
 						end if;
 						reg_empty <= '0';
 					else
-						fifo_buffer(tail) <= fifo_buffer(tail);
-						num_elements <= num_elements;
+						buf(tail).addr 	<= buf(tail).addr;
+						num_elements 	<= num_elements;
+					end if;
+			else	
+				if fu_read = '1' then	--FU asserts enable iff available signal is 1
+					data_addr		:= buf(head).addr;
+					reg_dout 		<= buf(head).data;
+					num_elements 	<= num_elements - 1;
+					lut(to_integer(unsigned(data_addr))).found 	<= '0';
+					
+					if num_elements /= 0 then
+						if head /= BUF_SIZE -1 then
+							head <= head + 1 ;
+						else
+							head <= 0;
+						end if;
+						reg_empty <= '0';
+					else
+						reg_empty <= '1';
+					end if;
+					
+					if buf(head + 1).ready = '1' then
+						reg_available <= '1';
+					else
+						reg_available <= '0';
+					end if;
+					reg_full <= '0';
+				else	--Actual snooping
+					tmp_entry := lut(to_integer(unsigned(dtn_addr)));
+					index 	 := tmp_entry.idx;
+					if tmp_entry.found = '1' and buf(index).ready = '0'  then
+						buf(index).data	<= dtn_data;
+						buf(index).ready 	<= '1';
+						if index = head then
+							reg_available <= '1';
+						end if;
+					else
+						null;
 					end if;
 				end if;
-			else
-				null;
 			end if;
 		end if;
 	end if;
