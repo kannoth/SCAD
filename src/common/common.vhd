@@ -37,7 +37,7 @@ PACKAGE common IS
 	TYPE aluFUState_t IS RECORD
 			in1_full  	: STD_LOGIC;
 			in1_empty 	: STD_LOGIC;
-			in2_full	: STD_LOGIC;
+			in2_full		: STD_LOGIC;
 			in2_empty 	: STD_LOGIC;
 			out_full  	: STD_LOGIC;
 			out_empty 	: STD_LOGIC;
@@ -46,7 +46,7 @@ PACKAGE common IS
 	TYPE sorterIOVector_t IS RECORD
 		vld				: STD_LOGIC;						-- Validity assertion regISter bits
 		address			: STD_LOGIC_VECTOR(FU_ADDRESS_W  -1 DOWNTO 0);	-- FU address 
-		data			: STD_LOGIC_VECTOR(FU_DATA_W     -1 DOWNTO 0);	-- data to be routed
+		data				: STD_LOGIC_VECTOR(FU_DATA_W     -1 DOWNTO 0);	-- data to be routed
 		fifoIdx  		: STD_LOGIC;
 	END RECORD;
 	
@@ -68,8 +68,10 @@ PACKAGE common IS
 	
 	CONSTANT ADDRESS_FU_WIDTH: NATURAL := 5;
 	CONSTANT ADDRESS_BUFF_WIDTH: NATURAL := 1;
+	
 	SUBTYPE address_fu IS STD_LOGIC_VECTOR((ADDRESS_FU_WIDTH - 1) downto 0);
-	SUBTYPE buff_num IS STD_LOGIC_VECTOR((ADDRESS_BUFF_WIDTH - 1) downto 0);
+	SUBTYPE buff_num IS STD_LOGIC;
+	
 	TYPE address_fu_buff IS RECORD
 		fu: address_fu;
 		buff: buff_num;
