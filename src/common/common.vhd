@@ -17,6 +17,7 @@ PACKAGE common IS
 -- BASICS ----------------------------------------------------------------------
 	CONSTANT DATA_WIDTH: NATURAL := 32;
 	SUBTYPE data_word IS STD_LOGIC_VECTOR(DATA_WIDTH-1 downto 0);
+	TYPE data_word_array IS ARRAY(NATURAL RANGE <>) OF data_word;
 	
 	-- instruction memory (i.e. pc) address width
 	-- out of comission - pc is just another data word
@@ -55,6 +56,7 @@ PACKAGE common IS
 		dest: address_fu_buff;
 		data: data_word;
 	END RECORD;
+	TYPE data_message_array IS ARRAY(NATURAL RANGE <>) OF data_message;
 	
 	TYPE data_port_sending IS RECORD
 		message: data_message;
