@@ -24,7 +24,7 @@ end entity;
 architecture Behaviour of SwapAsc is
 begin
 	comb_main_proc : process ( inp_a, inp_b ) begin
-		if inp_a.address > inp_b.address then
+		if inp_a.tarAddr > inp_b.tarAddr then
 			out_a <= inp_b;
 			out_b <= inp_a;
 		else
