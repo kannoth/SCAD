@@ -53,6 +53,22 @@ use work.alu_components.ALL;
 			dtn_packet.valid	<= '0';
 			
 			end dtn_to_fu_write;
+			
+			procedure fu_mib_read (	constant idx : std_logic;
+											constant addr : in std_logic_vector(FU_ADDRESS_W-1 downto 0);
+											signal mib_out  		: out mib_ctrl_out
+			) is 
+			begin
+				wait for clk_period;
+				mib_out.valid <= '1';
+				mib_out.src.fu <= "00000"; --use only address 0 for now
+				mib_out.dest.fu <= addr;
+				mib_out.dest.buff <= idx;
+				mib_out.phase <= COMMIT;
+				mib_out.valid <= '1';
+				wait for clk_period;
+				mib_out.valid <= '0';
+			end fu_mib_read;
 												
 			
 
@@ -87,6 +103,8 @@ use work.alu_components.ALL;
 			fu_mib_write('1',"11110",mib_inp);
 			dtn_to_fu_write("11111",X"FFEEFFEE",dtn_data_in);
 			dtn_to_fu_write("11110",X"AABBAABB",dtn_data_in);
+			wait for 3*clk_period;
+			fu_mib_read('0',"00011",mib_inp);
 			
 
 			wait;

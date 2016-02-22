@@ -55,7 +55,6 @@ signal buf_outp_empty		: std_logic;
 signal outp_dout				: std_logic_vector(FU_DATA_W-1 downto 0);
 
 signal available				: std_logic;
-signal send_enable			: std_logic := '0';
 signal reg_dout				: data_port_sending;
 
 begin
@@ -133,7 +132,6 @@ begin
 			mib_valid := '0';
 			idx	:= '0';
 			phase	:= CHECK;
-			send_enable <= '0';
 		else
 			mib_valid := mib_inp.valid;
 			phase := mib_inp.phase;
@@ -147,11 +145,11 @@ begin
 						reg_dout.message.dest <= mib_inp.dest;
 						reg_dout.message.data <= outp_dout;
 						reg_dout.valid <= '1';
-						send_enable	<= '1';
 						mib_fu_to_buf1_en <= '0';
 						mib_fu_to_buf2_en <= '0';
+						buf_out_en <= '1';
+						buf_out_rw <= '0';
 					else
-						send_enable	<= '0';
 						reg_dout.valid <= '0';
 						if idx = '0' then
 							mib_fu_to_buf1_en <= '1';
@@ -170,7 +168,7 @@ begin
 			else
 				if available = '1' then
 					buf_out_en <= '1';
-					buf_out_rw <= not send_enable;
+					buf_out_rw <= '1';
 				else
 					buf_out_en <= '0';
 				end if;
