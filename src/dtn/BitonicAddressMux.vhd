@@ -12,6 +12,7 @@ use work.glbSharedTypes.all;
 
 entity BitonicAddressMux is
 	port(
+		vld_vector : in	 validVector_t;
 		inp_vector : in  bitonStageBus_t;
 		out_vector : out bitonStageBus_t
 	);
@@ -20,8 +21,8 @@ end entity;
 architecture Behaviour of BitonicAddressMux is	
 begin
 	gen_main:for i in 0 to FU_INPUT_W generate
-					out_vector(i).vld		<= inp_vector(i).vld;
-					out_vector(i).address<= InvAddr(i) when (inp_vector(i).vld = '0') else inp_vector(i).address ;
+					out_vector(i).tarAddr	<=  ( vld_vector(i) & InvAddr(i) ) when (vld_vector(i) = '0') else inp_vector(i).tarAddr ;
+					out_vector(i).srcAddr	<= inp_vector(i).srcAddr;
 					out_vector(i).data	<= inp_vector(i).data ;
 					out_vector(i).fifoIdx<= inp_vector(i).fifoIdx ;
 				end generate;
