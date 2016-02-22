@@ -101,9 +101,10 @@ use work.alu_components.ALL;
 			--Fill the input buffers 
 			fu_mib_write('0',"11111",mib_inp);
 			fu_mib_write('1',"11110",mib_inp);
+			fu_mib_write('1',"11111",mib_inp);
 			dtn_to_fu_write("11111",X"FFEEFFEE",dtn_data_in);
 			dtn_to_fu_write("11110",X"AABBAABB",dtn_data_in);
-			wait for 3*clk_period;
+			wait for 5*clk_period;
 			fu_mib_read('0',"00011",mib_inp);
 			
 

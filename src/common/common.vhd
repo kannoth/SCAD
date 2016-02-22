@@ -67,6 +67,8 @@ PACKAGE common IS
 	-- out of comission - pc IS just another data word
 	--CONSTANT PC_WIDTH := FU_DATA_W;
 	
+	TYPE fu_alu_type IS (ADD, SUBTRACT, MULT);
+	
 	CONSTANT ADDRESS_FU_WIDTH: NATURAL := FU_ADDRESS_W;
 	
 	SUBTYPE address_fu IS STD_LOGIC_VECTOR((ADDRESS_FU_WIDTH - 1) downto 0);

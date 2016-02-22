@@ -6,7 +6,8 @@ use work.buf_pkg.ALL;
 use work.alu_components.ALL;
 
 entity fu_adder is
-	 Generic ( 	fu_addr 		: address_fu := (others => '0') );
+	 Generic ( 	fu_addr 		: address_fu := (others => '0');
+					fu_type		: fu_alu_type := ADD );
 
     Port ( 		clk	 		: in std_logic;
 					rst			: in std_logic;
@@ -28,7 +29,6 @@ architecture Structural of fu_adder is
 
 signal inp_stall	: std_logic := '0';
 signal outp_stall	: std_logic := '0';
-signal outp_empty	: std_logic := '1';
 signal mib_fu_to_buf1_addr 	: std_logic_vector(FU_ADDRESS_W-1 downto 0);
 signal mib_fu_to_buf2_addr 	: std_logic_vector(FU_ADDRESS_W-1 downto 0);
 signal dtn_fu_to_buf1_addr 	: std_logic_vector(FU_ADDRESS_W-1 downto 0);
@@ -49,43 +49,45 @@ signal buf2_dout				: std_logic_vector(FU_DATA_W-1 downto 0);
 signal buf_out_rw				: std_logic := '0';
 signal buf_out_en				: std_logic := '0';
 
-signal outp_din				: signed(FU_DATA_W-1 downto 0);
+signal outp_din				: std_logic_vector(FU_DATA_W-1 downto 0);
 signal buf_outp_full			: std_logic;
 signal buf_outp_empty		: std_logic;
 signal outp_dout				: std_logic_vector(FU_DATA_W-1 downto 0);
 
 signal available				: std_logic;
+signal alu_enable				: std_logic := '0';
+signal alu_valid				: std_logic;
 signal reg_dout				: data_port_sending;
 
 begin
 inp_1 : fu_input_buffer 
 	port map (
-		clk 		=> clk,
-		rst 		=> rst,
-		mib_addr	=> mib_fu_to_buf1_addr,
-		mib_en	=> mib_fu_to_buf1_en,
-		dtn_data	=> dtn_data_in.message.data,
-		dtn_addr	=> dtn_fu_to_buf1_addr,
-		fu_read	=> fu_to_buf1_read,
+		clk 			=> clk,
+		rst 			=> rst,
+		mib_addr		=> mib_fu_to_buf1_addr,
+		mib_en		=> mib_fu_to_buf1_en,
+		dtn_data		=> dtn_data_in.message.data,
+		dtn_addr		=> dtn_fu_to_buf1_addr,
+		fu_read		=> fu_to_buf1_read,
 		available	=> buf1_available,
-		full		=> buf1_full,
-		empty		=> buf1_empty,
-		data_out	=> buf1_dout
+		full			=> buf1_full,
+		empty			=> buf1_empty,
+		data_out		=> buf1_dout
 );
 
 inp_2 : fu_input_buffer 
 	port map (
-		clk 		=> clk,
-		rst 		=> rst,
-		mib_addr	=> mib_fu_to_buf2_addr,
-		mib_en	=> mib_fu_to_buf2_en,
-		dtn_data	=> dtn_data_in.message.data,
-		dtn_addr	=> dtn_fu_to_buf2_addr,
-		fu_read	=> fu_to_buf2_read,
+		clk 			=> clk,
+		rst 			=> rst,
+		mib_addr		=> mib_fu_to_buf2_addr,
+		mib_en		=> mib_fu_to_buf2_en,
+		dtn_data		=> dtn_data_in.message.data,
+		dtn_addr		=> dtn_fu_to_buf2_addr,
+		fu_read		=> fu_to_buf2_read,
 		available	=> buf2_available,
-		full		=> buf2_full,
-		empty		=> buf2_empty,
-		data_out	=> buf2_dout
+		full			=> buf2_full,
+		empty			=> buf2_empty,
+		data_out		=> buf2_dout
 );
 		
 outp_1 : fifo_alu 
@@ -99,11 +101,27 @@ outp_1 : fifo_alu
 		empty 	=> buf_outp_empty,
 		data_out => outp_dout );
 
-alu_adder : adder
-	port map (
-		op1 		=> signed(buf1_dout),
-		op2 		=> signed(buf2_dout),
-		res 		=> outp_din );
+add_gen : if fu_type = ADD generate 
+alu : adder port map (
+		clk 		=> clk,
+		op1 		=> buf1_dout,
+		op2 		=> buf2_dout,
+		en			=> alu_enable,
+		valid		=> alu_valid,
+		res 		=> outp_din 
+);
+end generate;
+
+sub_gen : if fu_type = SUBTRACT generate 
+alu : subtractor port map (
+		clk 		=> clk,
+		op1 		=> buf1_dout,
+		op2 		=> buf2_dout,
+		en			=> alu_enable,
+		valid		=> alu_valid,
+		res 		=> outp_din 
+);
+end generate;
 		
 mib_fu_to_buf1_addr <= mib_inp.src.fu ;
 mib_fu_to_buf2_addr <= mib_inp.src.fu ;
@@ -166,11 +184,17 @@ begin
 					outp_stall 		<= buf_outp_full or buf_outp_empty;
 				end if;
 			else
-				if available = '1' then
+				if alu_valid = '1' then
 					buf_out_en <= '1';
 					buf_out_rw <= '1';
 				else
 					buf_out_en <= '0';
+				end if;
+				
+				if available = '1' then
+					alu_enable <= '1';
+				else
+					alu_enable <= '0';
 				end if;
 				
 				mib_fu_to_buf1_en <= '0';

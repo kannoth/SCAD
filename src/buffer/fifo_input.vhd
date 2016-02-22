@@ -60,7 +60,7 @@ begin
 				if rw = '0' then
 					if reg_empty = '0' then
 						num_elements <= num_elements - 1;
-						if num_elements /= 1 then
+						if num_elements /= 0 then
 							if head /= FIFO_BUF_SIZE -1 then
 								head <= head + 1 ;
 							else
