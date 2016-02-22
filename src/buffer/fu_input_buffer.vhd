@@ -2,7 +2,7 @@
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.NUMERIC_STD.ALL;
-use work.glbSharedTypes.ALL;
+use work.common.ALL;
 
 
 entity fu_input_buffer is

@@ -2,7 +2,7 @@ library IEEE;
 use IEEE.std_logic_1164.all;
 use IEEE.numeric_std.all;
 use IEEE.std_logic_unsigned.all;
-use work.glbSharedTypes.ALL;
+use work.common.ALL;
 
 package mem_components is 
 

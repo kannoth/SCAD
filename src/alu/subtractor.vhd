@@ -2,7 +2,7 @@
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.NUMERIC_STD.ALL;
-use work.glbSharedTypes.ALL;
+use work.common.ALL;
 
 
 
@@ -12,7 +12,7 @@ entity subtractor is
            res : out  signed (FU_DATA_W-1 downto 0));
 end subtractor;
 
-architecture RTL of adder is
+architecture RTL of subtractor is
 
 begin
 

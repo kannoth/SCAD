@@ -1,7 +1,7 @@
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.NUMERIC_STD.ALL;
-use work.glbSharedTypes.ALL;
+use work.common.ALL;
 
 --This module controls access to ram banks. It serializes the load/store accesses.
 --Writes have priority,in case of read/write request to same address in a cycle

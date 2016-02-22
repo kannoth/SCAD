@@ -14,7 +14,7 @@ PACKAGE common IS
 	CONSTANT   	FU_DATA_W       		: NATURAL   := 32;
 	CONSTANT   	FU_INPUT_W      		: NATURAL   := (2 ** FU_ADDRESS_W)-1;
 	
-	CONSTANT 	DATA_WIDTH				: NATURAL 	:= FU_ADDRESS_W;
+	CONSTANT 	DATA_WIDTH				: NATURAL 	:= FU_DATA_W;
 	
 	-- Memory element CONSTANTs. If there are multiple memory elements, first $MEM_SELECT_BITLENGTH bits
 	-- of $MEM_ADDR_LENGTH are used for memory unit selection.
@@ -27,6 +27,7 @@ PACKAGE common IS
 	CONSTANT   	MEM_SELECT_BITLENGTH 	: NATURAL 	:= NATURAL(log2(REAL(MEM_NR_ELEMENTS)));
 	
 	CONSTANT    BUF_SIZE			 	: NATURAL := 6;
+	CONSTANT    FIFO_BUF_SIZE		: NATURAL := 6;
 	
 	CONSTANT	MAX_FUS					: NATURAL := 32;
 	
@@ -44,29 +45,29 @@ PACKAGE common IS
 	END RECORD;
 	
 	TYPE sorterIOVector_t IS RECORD
-		vld				: STD_LOGIC;						-- Validity assertion regISter bits
+		vld				: STD_LOGIC;						-- Validity assertion register bits
 		address			: STD_LOGIC_VECTOR(FU_ADDRESS_W  -1 DOWNTO 0);	-- FU address 
 		data				: STD_LOGIC_VECTOR(FU_DATA_W     -1 DOWNTO 0);	-- data to be routed
 		fifoIdx  		: STD_LOGIC;
 	END RECORD;
 	
 	-- IO wires for the network
-	TYPE bitonStageBus_t is ARRAY (0 TO FU_INPUT_W) OF sorterIOVector_t;
-	-- Invalid address table
-	TYPE invAddArr_t IS ARRAY ( 0 TO FU_INPUT_W) OF std_logic_vector (FU_ADDRESS_W-1 DOWNTO 0);
-	
-	CONSTANT InvAddr : invAddArr_t := (	"100000","100001","100010","100011","100100","100101","100110","100111",
-													"101000","101001","101010","101011","101100","101101","101110","101111",
-													"110000","110001","110010","110011","110100","110101","110110","110111",
-													"111000","111001","111010","111011","111100","111101","111110","111111");
-	-- Reset values for pipeline stage registers												
-	CONSTANT pRegDefVal	: bitonStageBus_t := ( others => ( '0',"000000", "00000","0"));
+--	TYPE bitonStageBus_t is ARRAY (0 TO FU_INPUT_W) OF sorterIOVector_t;
+--	-- Invalid address table
+--	TYPE invAddArr_t IS ARRAY (0 TO FU_INPUT_W) OF std_logic_vector (FU_ADDRESS_W-1 DOWNTO 0);
+--	
+--	CONSTANT InvAddr : invAddArr_t := (	"100000","100001","100010","100011","100100","100101","100110","100111",
+--													"101000","101001","101010","101011","101100","101101","101110","101111",
+--													"110000","110001","110010","110011","110100","110101","110110","110111",
+--													"111000","111001","111010","111011","111100","111101","111110","111111");
+--	-- Reset values for pipeline stage registers												
+--	CONSTANT pRegDefVal	: bitonStageBus_t := ( others => ( '0',"000000", "00000","0"));
 	
 	-- instruction memory (i.e. pc) address width
-	-- out of comISsion - pc IS just another data word
+	-- out of comission - pc IS just another data word
 	--CONSTANT PC_WIDTH := FU_DATA_W;
 	
-	CONSTANT ADDRESS_FU_WIDTH: NATURAL := BUF_SIZE;
+	CONSTANT ADDRESS_FU_WIDTH: NATURAL := FU_ADDRESS_W;
 	
 	SUBTYPE address_fu IS STD_LOGIC_VECTOR((ADDRESS_FU_WIDTH - 1) downto 0);
 	SUBTYPE buff_num IS STD_LOGIC;

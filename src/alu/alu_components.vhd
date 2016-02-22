@@ -2,7 +2,7 @@ library IEEE;
 use IEEE.std_logic_1164.all;
 use IEEE.numeric_std.all;
 use IEEE.std_logic_unsigned.all;
-use work.glbSharedTypes.ALL;
+use work.common.ALL;
 
 package alu_components is 
 
@@ -25,18 +25,24 @@ component multiplier is
     p : out std_logic_vector(17 downto 0)
   );
 end component;
-  
+
+
 component fu_adder is
+	 Generic ( 	fu_addr 		: address_fu := (others => '0') );
+
     Port ( 		clk	 		: in std_logic;
-				rst				: in std_logic;
-				en 				: in std_logic;
-				valid_inst 		: in std_logic;
-				rw 				: in std_logic;
-				inp 				: in sorterIOVector_t;
-				outp				: out sorterIOVector_t;
-				state				: out aluFUState_t;
-				busy				: out std_logic
+					rst			: in std_logic;
+					-- signals from MIB
+					mib_inp 		: in mib_ctrl_out;
+					-- signals to MIB
+					status		: out mib_stalls;
+					--signals from DTN
+					ack			: in data_port_receiving;
+					dtn_data_in	: in data_port_sending;
+					--signals to DTN
+					dtn_data_out: out data_port_sending
          );
 end component;
+  
 
 end alu_components;
