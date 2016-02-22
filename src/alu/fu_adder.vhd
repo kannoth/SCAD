@@ -112,16 +112,15 @@ mib_fu_to_buf2_addr <= mib_inp.src.fu ;
 status.src_stalled  <= inp_stall;
 status.dest_stalled <= outp_stall;
 
-dtn_fu_to_buf1_addr <= dtn_data_in.message.src.fu when (dtn_data_in.message.src.buff = '0' and dtn_data_in.valid = '1') else (others => 'X');
-dtn_fu_to_buf2_addr <= dtn_data_in.message.src.fu when (dtn_data_in.message.src.buff = '1' and dtn_data_in.valid = '1') else (others => 'X');
+dtn_fu_to_buf1_addr <= dtn_data_in.message.src.fu when dtn_data_in.valid = '1' else (others => 'X');
+dtn_fu_to_buf2_addr <= dtn_data_in.message.src.fu when dtn_data_in.valid = '1' else (others => 'X');
 
 dtn_data_out			<= reg_dout;
 
 --TODO: Handle the case where HEAD of inputs get available when output buffer is full
+available <= buf1_available and buf2_available;
 fu_to_buf1_read <= available;
 fu_to_buf2_read <= available;
-buf_out_en <= '1' when (available = '1' or send_enable = '1') else '0';
-buf_out_rw <= '1' when available = '1' else '0';
 
 process(clk)
 variable mib_valid : std_logic;
@@ -139,7 +138,6 @@ begin
 			mib_valid := mib_inp.valid;
 			phase := mib_inp.phase;
 			idx	:= mib_inp.dest.buff;
-			available <= buf1_available and buf2_available;
 			if mib_valid = '1' then
 				if phase = COMMIT then
 					if fu_addr = mib_inp.src.fu then --we are source
@@ -170,13 +168,15 @@ begin
 					outp_stall 		<= buf_outp_full or buf_outp_empty;
 				end if;
 			else
+				if available = '1' then
+					buf_out_en <= '1';
+					buf_out_rw <= not send_enable;
+				else
+					buf_out_en <= '0';
+				end if;
+				
 				mib_fu_to_buf1_en <= '0';
-				mib_fu_to_buf2_en <= '0';
---				if available = '1' then
---					fu_to_buf1_read <= '1';
---					fu_to_buf2_read <= '1';
---				end if;
-					
+				mib_fu_to_buf2_en <= '0';					
 			end if;
 		end if;
 	end if;

@@ -39,7 +39,21 @@ use work.alu_components.ALL;
 			end fu_mib_write;
 			
 			
-			procedure 
+			procedure dtn_to_fu_write( constant addr  : in std_logic_vector(FU_ADDRESS_W-1 downto 0);
+												constant data	: in std_logic_vector(FU_DATA_W-1 downto 0);
+												signal dtn_packet : out data_port_sending
+			) is
+			begin
+			
+			wait for clk_period;
+			dtn_packet.message.src.fu	<= addr;
+			dtn_packet.message.data <= data;
+			dtn_packet.valid	<= '1';
+			wait for clk_period;
+			dtn_packet.valid	<= '0';
+			
+			end dtn_to_fu_write;
+												
 			
 
   BEGIN
@@ -71,6 +85,8 @@ use work.alu_components.ALL;
 			--Fill the input buffers 
 			fu_mib_write('0',"11111",mib_inp);
 			fu_mib_write('1',"11110",mib_inp);
+			dtn_to_fu_write("11111",X"FFEEFFEE",dtn_data_in);
+			dtn_to_fu_write("11110",X"AABBAABB",dtn_data_in);
 			
 
 			wait;

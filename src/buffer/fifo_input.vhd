@@ -55,10 +55,10 @@ begin
 			num_elements 	<= 0;
 			reg_dout			<= (others => 'X');
 		else
+			reg_dout <= fifo_buffer(head);
 			if en = '1' then	
 				if rw = '0' then
 					if reg_empty = '0' then
-						reg_dout <= fifo_buffer(head);
 						num_elements <= num_elements - 1;
 						if num_elements /= 1 then
 							if head /= FIFO_BUF_SIZE -1 then

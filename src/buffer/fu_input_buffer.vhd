@@ -133,6 +133,7 @@ begin
 					end if;
 					reg_full <= '0';
 				else	--Actual snooping
+					reg_dout <= reg_dout;
 					tmp_entry := lut(to_integer(unsigned(dtn_addr)));
 					index 	 := tmp_entry.idx;
 					if tmp_entry.found = '1' and buf(index).ready = '0'  then
