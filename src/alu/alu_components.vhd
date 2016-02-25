@@ -16,6 +16,7 @@ component adder is
 				op1 : in  std_logic_vector (FU_DATA_W-1 downto 0);
 				op2 : in  std_logic_vector (FU_DATA_W-1 downto 0);
 				en	: in 	std_logic;
+				busy: out 	std_logic;
 				res : out  std_logic_vector (FU_DATA_W-1 downto 0);
 				valid : out std_logic);
 end component;
@@ -25,6 +26,7 @@ component subtractor is
 				op1 : in  std_logic_vector (FU_DATA_W-1 downto 0);
 				op2 : in  std_logic_vector (FU_DATA_W-1 downto 0);
 				en		: in 	std_logic;
+				busy: out 	std_logic;
 				res : out  std_logic_vector (FU_DATA_W-1 downto 0);
 				valid : out std_logic);
 end component;

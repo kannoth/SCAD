@@ -58,6 +58,7 @@ signal available				: std_logic;
 signal alu_enable				: std_logic := '0';
 signal alu_valid				: std_logic;
 signal reg_dout				: data_port_sending;
+signal alu_busy				: std_logic;
 
 begin
 inp_1 : fu_input_buffer 
@@ -107,6 +108,7 @@ alu : adder port map (
 		op1 		=> buf1_dout,
 		op2 		=> buf2_dout,
 		en			=> alu_enable,
+		busy		=> alu_busy,
 		valid		=> alu_valid,
 		res 		=> outp_din 
 );
@@ -118,6 +120,7 @@ alu : subtractor port map (
 		op1 		=> buf1_dout,
 		op2 		=> buf2_dout,
 		en			=> alu_enable,
+		busy		=> alu_busy,
 		valid		=> alu_valid,
 		res 		=> outp_din 
 );
@@ -136,8 +139,8 @@ dtn_data_out			<= reg_dout;
 
 --TODO: Handle the case where HEAD of inputs get available when output buffer is full
 available <= buf1_available and buf2_available;
-fu_to_buf1_read <= available;
-fu_to_buf2_read <= available;
+fu_to_buf1_read <= available and not alu_busy;
+fu_to_buf2_read <= available and not alu_busy;
 
 process(clk)
 variable mib_valid : std_logic;
@@ -191,7 +194,7 @@ begin
 					buf_out_en <= '0';
 				end if;
 				
-				if available = '1' then
+				if available = '1' and alu_busy = '0' then
 					alu_enable <= '1';
 				else
 					alu_enable <= '0';
