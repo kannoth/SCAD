@@ -19,7 +19,7 @@ PACKAGE common IS
 	-- Memory element CONSTANTs. If there are multiple memory elements, first $MEM_SELECT_BITLENGTH bits
 	-- of $MEM_ADDR_LENGTH are used for memory unit selection.
 	-- Every unit has $BANK_SIZE long,word addressable flat address space.
-	-- At thIS stage, number of load and store units are the same.
+	-- At this stage, number of load and store units are the same.
 	CONSTANT   	MEM_WORD_LENGTH	   		: NATURAL   := 32;	--Number of bytes in each word
 	CONSTANT   	MEM_NR_ELEMENTS	   		: NATURAL   := 4;		--Number of load and store elements(for each)
 	CONSTANT   	MEM_BANK_SIZE	   		: NATURAL   := 64;	--Memory size in 4-byte words
@@ -27,13 +27,32 @@ PACKAGE common IS
 	CONSTANT   	MEM_SELECT_BITLENGTH 	: NATURAL 	:= NATURAL(log2(REAL(MEM_NR_ELEMENTS)));
 	
 	CONSTANT    BUF_SIZE			 	: NATURAL := 6;
-	CONSTANT    FIFO_BUF_SIZE		: NATURAL := 6;
+	CONSTANT    FIFO_BUF_SIZE			: NATURAL := 6;
 	
 	CONSTANT	MAX_FUS					: NATURAL := 32;
 	
-	TYPE ram_TYPE IS ARRAY (0 TO MEM_BANK_SIZE - 1) OF STD_LOGIC_VECTOR (MEM_WORD_LENGTH - 1 downto 0);
+	TYPE ram_type IS ARRAY (0 TO MEM_BANK_SIZE - 1) OF STD_LOGIC_VECTOR (MEM_WORD_LENGTH - 1 downto 0);
+	
+	TYPE mem_inp	IS RECORD 
+		re	: STD_LOGIC;
+		we	: STD_LOGIC;
+		r_addr	: STD_LOGIC_VECTOR (MEM_ADDR_LENGTH-MEM_SELECT_BITLENGTH-1 downto 0);
+		w_addr	: STD_LOGIC_VECTOR (MEM_ADDR_LENGTH-MEM_SELECT_BITLENGTH-1 downto 0);
+		data_in : STD_LOGIC_VECTOR (MEM_WORD_LENGTH-1 downto 0);
+	END RECORD;
+	
+	TYPE mem_out	IS RECORD
+		r_ack	: STD_LOGIC;
+		w_ack	: STD_LOGIC;
+		data_out :   STD_LOGIC_VECTOR (MEM_WORD_LENGTH-1 downto 0);
+	END RECORD;
+	
+	
+	TYPE mem_inp_port IS ARRAY (0 TO MEM_NR_ELEMENTS-1) OF mem_inp;
+	TYPE mem_out_port IS ARRAY (0 TO MEM_NR_ELEMENTS-1) OF mem_out;
 	
 	SUBTYPE data_word IS STD_LOGIC_VECTOR(DATA_WIDTH-1 DOWNTO 0);
+		
 	
 	TYPE aluFUState_t IS RECORD
 			in1_full  	: STD_LOGIC;
