@@ -9,8 +9,8 @@ entity ram is
 			rst	 : in std_logic;
 			re	 : in std_logic;
 			we	 : in std_logic;
-			r_addr : in  std_logic_vector (MEM_ADDR_LENGTH-MEM_SELECT_BITLENGTH-1 downto 0);
-			w_addr : in  std_logic_vector (MEM_ADDR_LENGTH-MEM_SELECT_BITLENGTH-1 downto 0);
+			r_addr : in  std_logic_vector (MEM_BANK_ADDR_LENGTH-1 downto 0);
+			w_addr : in  std_logic_vector (MEM_BANK_ADDR_LENGTH-1 downto 0);
 			data_in : in  std_logic_vector (MEM_WORD_LENGTH-1 downto 0);
 			r_ack  	: out std_logic;
 			w_ack  	: out std_logic;

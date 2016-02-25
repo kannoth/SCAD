@@ -10,7 +10,7 @@ component load is
     Port ( 	clk  		: in std_logic;
 			busy  		: in std_logic;		--busy signal from memory unit
 			valid  		: in std_logic;		--valid signal from FU structure or fifo_input
-			addr 		: in  std_logic_vector (MEM_ADDR_LENGTH-MEM_SELECT_BITLENGTH-1 downto 0);
+			addr 		: in  std_logic_vector (MEM_BANK_ADDR_LENGTH-1 downto 0);
 			data_in 	: in  std_logic_vector (MEM_WORD_LENGTH-1 downto 0);
 			data_out 	: out  std_logic_vector (MEM_WORD_LENGTH-1 downto 0));
 end component;
@@ -20,8 +20,8 @@ component bank_controller is
 			rst			: in std_logic;
 			re  		: in std_logic;		
 			we  		: in std_logic;		
-			r_addr 		: in  std_logic_vector (MEM_ADDR_LENGTH-MEM_SELECT_BITLENGTH-1 downto 0);
-			w_addr 		: in  std_logic_vector (MEM_ADDR_LENGTH-MEM_SELECT_BITLENGTH-1 downto 0);
+			r_addr 		: in  std_logic_vector (MEM_BANK_ADDR_LENGTH-1 downto 0);
+			w_addr 		: in  std_logic_vector (MEM_BANK_ADDR_LENGTH-1 downto 0);
 			re_out  	: out std_logic;		
 			we_out  	: out std_logic;
 			busy		: out std_logic );
@@ -32,8 +32,8 @@ component ram is
 			rst	 : in std_logic;
 			re	 : in std_logic;
 			we	 : in std_logic;
-			r_addr : in  std_logic_vector (MEM_ADDR_LENGTH-MEM_SELECT_BITLENGTH-1 downto 0);
-			w_addr : in  std_logic_vector (MEM_ADDR_LENGTH-MEM_SELECT_BITLENGTH-1 downto 0);
+			r_addr : in  std_logic_vector (MEM_BANK_ADDR_LENGTH-1 downto 0);
+			w_addr : in  std_logic_vector (MEM_BANK_ADDR_LENGTH-1 downto 0);
 			data_in : in  std_logic_vector (MEM_WORD_LENGTH-1 downto 0);
 			r_ack 	: out std_logic;
 			w_ack  	: out std_logic;
