@@ -9,8 +9,7 @@ use IEEE.std_logic_1164.all;
 use IEEE.numeric_std.all;
 use IEEE.std_logic_unsigned.all;
 
-library work;
-use work.glbSharedTypes.all;
+use work.common.all;
 
 entity SwapAsc is
 	port(	

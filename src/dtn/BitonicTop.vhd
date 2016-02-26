@@ -10,14 +10,14 @@ use IEEE.numeric_std.all;
 use IEEE.std_logic_unsigned.all;
 
 library work;
-use work.glbSharedTypes.all;
+use work.common.all;
 
 entity BitonicTop is 
   port (
-	 clk			: in std_logic;
-	 reset		: in std_logic;
-    inp_vector : in  bitonStageBus_t;
-    out_vector : out bitonStageBus_t
+	 clk	: in std_logic;
+	 reset	: in std_logic;
+    inp_vector	: in  bitonStageBus_t;
+    out_vector	: out bitonStageBus_t
   );
 end entity;
 
@@ -45,17 +45,17 @@ begin
 		
 			if rising_edge(clk) then
 				if reset = '1' then
-					reg_1	<=	pRegDefVal;
-					reg_2	<= pRegDefVal;	
-					reg_3	<=	pRegDefVal;
-					reg_4	<=	pRegDefVal;
-					reg_5	<=	pRegDefVal;
+
+					reg_2	<=pRegDefVal;	
+					reg_3	<=pRegDefVal;
+					reg_4	<=pRegDefVal;
+					reg_5	<=pRegDefVal;
 				else
-					reg_1	<= inp_vector;
-					reg_2	<= wire_out_1;
-					reg_3	<= wire_out_2;
-					reg_4	<= wire_out_3;
-					reg_5	<= wire_out_4;
+					reg_1	<=inp_vector;
+					reg_2	<=wire_out_1;
+					reg_3	<=wire_out_2;
+					reg_4	<=wire_out_3;
+					reg_5	<=wire_out_4;
 				end if;
 			end if;
 			

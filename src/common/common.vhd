@@ -13,7 +13,7 @@ PACKAGE common IS
 	CONSTANT   	FU_ADDRESS_W    		: NATURAL   := 5;
 	CONSTANT   	FU_DATA_W       		: NATURAL   := 32;
 	CONSTANT   	FU_INPUT_W      		: NATURAL   := (2 ** FU_ADDRESS_W)-1;
-	
+	CONSTANT    FU_FIFO_IDX_W   		: NATURAL   := 1; 
 	CONSTANT 	DATA_WIDTH				: NATURAL 	:= FU_DATA_W;
 	
 	-- Memory element CONSTANTs. If there are multiple memory elements, first $MEM_SELECT_BITLENGTH bits
@@ -44,22 +44,27 @@ PACKAGE common IS
 			out_empty 	: STD_LOGIC;
 	END RECORD;
 	
-	TYPE sorterIOVector_t IS RECORD
-		vld				: STD_LOGIC;						-- Validity assertion register bits
-		address			: STD_LOGIC_VECTOR(FU_ADDRESS_W  -1 DOWNTO 0);	-- FU address 
-		data				: STD_LOGIC_VECTOR(FU_DATA_W     -1 DOWNTO 0);	-- data to be routed
-		fifoIdx  		: STD_LOGIC;
-	END RECORD;
+	type sorterIOVector_t is record
+		vld			: std_logic;											-- Validity assertion register bits
+		tarAddr		: std_logic_vector(FU_ADDRESS_W   downto 0);	-- target FU address ( The validity of address is encapsulated in the msb of the tarAddr (Active Low) VALD=0, INVD=1 )
+		srcAddr		: std_logic_vector(FU_ADDRESS_W  -1 downto 0);	-- source FU address 
+		data			: std_logic_vector(FU_DATA_W-1  downto 0);	-- data to be routed
+		tarfifoIdx	: std_logic_vector(FU_FIFO_IDX_W-1  downto 0);	-- Input fifo index
+		srcfifoIdx	: std_logic_vector(FU_FIFO_IDX_W-1  downto 0);	-- Input fifo index
+	end record;
 	
 	-- IO wires for the network
---	TYPE bitonStageBus_t is ARRAY (0 TO FU_INPUT_W) OF sorterIOVector_t;
+	TYPE bitonStageBus_t is ARRAY (0 TO FU_INPUT_W) OF sorterIOVector_t;
+	type validVector_t is array ( 0 to FU_INPUT_W ) of std_logic;
+	type testVector_t is array ( 0 to FU_INPUT_W ) of integer range 0 to 31;
+	-- Reset values for pipeline stage registers												
+	constant pRegDefVal	: bitonStageBus_t := ( others => ('0',"000000","00000", "00000000000000000000000000000000","0","0"));
 --	-- Invalid address table
---	TYPE invAddArr_t IS ARRAY (0 TO FU_INPUT_W) OF std_logic_vector (FU_ADDRESS_W-1 DOWNTO 0);
---	
---	CONSTANT InvAddr : invAddArr_t := (	"100000","100001","100010","100011","100100","100101","100110","100111",
---													"101000","101001","101010","101011","101100","101101","101110","101111",
---													"110000","110001","110010","110011","110100","110101","110110","110111",
---													"111000","111001","111010","111011","111100","111101","111110","111111");
+	TYPE invAddArr_t IS ARRAY (0 TO FU_INPUT_W) OF std_logic_vector (FU_ADDRESS_W-1 DOWNTO 0);
+	constant InvAddr : invAddArr_t := (	"00000","00001","00010","00011","00100","00101","00110","00111",
+													"01000","01001","01010","01011","01100","01101","01110","01111",
+													"10000","10001","10010","10011","10100","10101","10110","10111",
+													"11000","11001","11010","11011","11100","11101","11110","11111");
 --	-- Reset values for pipeline stage registers												
 --	CONSTANT pRegDefVal	: bitonStageBus_t := ( others => ( '0',"000000", "00000","0"));
 	
@@ -112,6 +117,8 @@ PACKAGE common IS
 	TYPE data_port_receiving IS RECORD
 		is_read: STD_LOGIC;
 	END RECORD;
+	
+	TYPE data_packets_t is array (0 to FU_INPUT_W ) of  data_port_sending;
 	
 END common;
 
