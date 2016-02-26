@@ -3,7 +3,7 @@ use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.NUMERIC_STD.ALL;
 use work.common.ALL;
 use work.buf_pkg.ALL;
-use work.alu_components.ALL;
+use work.mem_components.ALL;
 
   ENTITY fu_alu_tb IS
   END fu_alu_tb;

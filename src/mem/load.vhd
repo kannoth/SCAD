@@ -16,7 +16,7 @@ entity load is
 			data		: in std_Logic_vector (MEM_WORD_LENGTH-1 downto 0);
 			ack			: in std_logic;
 			addr		: out std_Logic_vector (MEM_BANK_ADDR_LENGTH-1 downto 0);
-			we			: out std_logic
+			re			: out std_logic
 			);
 end load;
 
@@ -26,14 +26,14 @@ signal reg_busy		: std_logic := '0';
 signal reg_valid	: std_logic := '0';
 signal reg_dout		: std_logic_vector(data_out'range) := (others => 'X');
 signal reg_addr		: std_logic_vector(addr'range) := (others => 'X');
-signal reg_we		: std_logic;
+signal reg_re		: std_logic;
 
 begin
 
 data_out 	<= reg_dout;
 busy 		<= reg_busy;
 valid 		<= reg_valid;
-we			<= reg_we;
+re			<= reg_re;
 addr		<= reg_addr;
 
 process(clk)
@@ -43,15 +43,16 @@ begin
 			reg_dout 	<= data;
 			reg_valid 	<= '1';
 			reg_busy 	<= '0';
-			reg_we		<= '0';
+			reg_re		<= '0';
 		elsif en = '1' then
 			reg_addr 	<= operand;
 			reg_dout 	<= (others => 'X');
 			reg_busy 	<= '1';
 			reg_valid	<= '0';
-			reg_we		<= '1';
+			reg_re		<= '1';
 		else
-			reg_we		<= '0';
+			reg_valid 	<= '0';
+			reg_re		<= '0';
 		end if;
 	end if;
 end process;

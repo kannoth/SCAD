@@ -21,11 +21,11 @@ PACKAGE common IS
 	-- Every unit has $BANK_SIZE long,word addressable flat address space.
 	-- At this stage, number of load and store units are the same.
 	CONSTANT   	MEM_WORD_LENGTH	   		: NATURAL   := 32;	--Number of bytes in each word
-	CONSTANT   	MEM_NR_ELEMENTS	   		: NATURAL   := 4;		--Number of load and store elements(for each)
+	CONSTANT   	MEM_NR_ELEMENTS	   		: NATURAL   := 1;		--Number of load and store elements(for each)
 	CONSTANT   	MEM_BANK_SIZE	   		: NATURAL   := 64;	--Memory size in 4-byte words
 	CONSTANT   	MEM_ADDR_LENGTH   		: NATURAL   := NATURAL(log2(REAL(MEM_NR_ELEMENTS * MEM_BANK_SIZE)));
 	CONSTANT   	MEM_SELECT_BITLENGTH 	: NATURAL 	:= NATURAL(log2(REAL(MEM_NR_ELEMENTS)));
-	CONSTANT	MEM_BANK_ADDR_LENGTH	: NATURAL   := NATURAL(log2(REAL(MEM_BANK_SIZE)));
+	CONSTANT		MEM_BANK_ADDR_LENGTH	: NATURAL   := NATURAL(log2(REAL(MEM_BANK_SIZE)));
 	
 	CONSTANT    BUF_SIZE			 	: NATURAL := 6;
 	CONSTANT    FIFO_BUF_SIZE			: NATURAL := 6;

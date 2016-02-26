@@ -21,9 +21,9 @@ entity fu_load is
 					dtn_data_out: out data_port_sending;
 					--signals to/from memory unit
 					data		: in std_Logic_vector (MEM_WORD_LENGTH-1 downto 0);
-					ack			: in std_logic;
+					mem_ack	: in std_logic;
 					addr		: out std_Logic_vector (MEM_BANK_ADDR_LENGTH-1 downto 0);
-					we			: out std_logic
+					re			: out std_logic
          );
 end fu_load;
 
@@ -45,14 +45,12 @@ signal buf_dout					: std_logic_vector(FU_DATA_W-1 downto 0);
 signal buf_out_rw				: std_logic := '0';
 signal buf_out_en				: std_logic := '0';
 
-signal outp_din					: std_logic_vector(FU_DATA_W-1 downto 0);
 signal load_out					: std_logic_vector(MEM_WORD_LENGTH-1 downto 0);
 signal buf_outp_full			: std_logic;
 signal buf_outp_empty			: std_logic;
 signal outp_dout				: std_logic_vector(FU_DATA_W-1 downto 0);
 
-signal available				: std_logic;
-signal mem_enable				: std_logic := '0';
+signal mem_enable				: std_logic;
 signal mem_valid				: std_logic;
 signal reg_dout					: data_port_sending;
 signal mem_busy					: std_logic;
@@ -80,7 +78,7 @@ outp_1 : fifo_alu
 		rst 		=> rst,
 		rw  		=> buf_out_rw,
 		en  		=> buf_out_en,
-		data_in 	=> outp_din,
+		data_in 	=> load_out,
 		full 		=> buf_outp_full,
 		empty 		=> buf_outp_empty,
 		data_out 	=> outp_dout );
@@ -94,9 +92,9 @@ load_component : load
 		valid		=> mem_valid,
 		data_out	=> load_out,
 		data		=> data,
-		ack			=> ack,
+		ack			=> mem_ack,
 		addr		=> addr,
-		we			=> we
+		re			=> re
 	);
 		
 
@@ -107,7 +105,7 @@ mib_fu_to_buf_addr 	<= mib_inp.src.fu ;
 status.src_stalled  <= inp_stall;
 status.dest_stalled <= outp_stall;
 
-outp_din <= (outp_din'left downto load_out'left => '0', load_out'left-1 downto 0 => load_out );
+
 
 
 dtn_fu_to_buf_addr 	<= dtn_data_in.message.src.fu when dtn_data_in.valid = '1' else (others => 'X');
@@ -115,8 +113,7 @@ dtn_fu_to_buf_addr 	<= dtn_data_in.message.src.fu when dtn_data_in.valid = '1' e
 dtn_data_out		<= reg_dout;
 
 --TODO: Handle the case where HEAD of input get available when output buffer is full
-available 			<= buf_available ;
-fu_to_buf_read 		<= available and not mem_busy;
+fu_to_buf_read 		<= buf_available and not mem_busy;
 
 process(clk)
 variable mib_valid : std_logic;
@@ -129,6 +126,7 @@ begin
 			mib_valid := '0';
 			idx	:= '0';
 			phase	:= CHECK;
+			mem_enable <= '0';
 		else
 			mib_valid := mib_inp.valid;
 			phase := mib_inp.phase;
@@ -161,7 +159,7 @@ begin
 					buf_out_en <= '0';
 				end if;
 				
-				if available = '1' and mem_busy = '0' then
+				if buf_available = '1' and mem_busy = '0' then
 					mem_enable <= '1';
 				else
 					mem_enable <= '0';
