@@ -32,8 +32,6 @@ end fu_store;
 architecture Structural of fu_store is
 
 
-signal inp_stall	: std_logic := '0';
-signal outp_stall	: std_logic := '0';
 signal mib_fu_to_buf1_addr 	: std_logic_vector(FU_ADDRESS_W-1 downto 0);
 signal mib_fu_to_buf2_addr 	: std_logic_vector(FU_ADDRESS_W-1 downto 0);
 signal dtn_fu_to_buf1_addr 	: std_logic_vector(FU_ADDRESS_W-1 downto 0);
@@ -112,8 +110,8 @@ store_component : store
 mib_fu_to_buf1_addr <= mib_inp.src.fu ;
 mib_fu_to_buf2_addr <= mib_inp.src.fu ;
 
-status.src_stalled  <= inp_stall;
-status.dest_stalled <= outp_stall;
+status.src_stalled  <= buf1_full or buf2_full;
+status.dest_stalled <= mem_busy or available or mem_enable;
 
 dtn_fu_to_buf1_addr <= dtn_data_in.message.src.fu when dtn_data_in.valid = '1' else (others => 'X');
 dtn_fu_to_buf2_addr <= dtn_data_in.message.src.fu when dtn_data_in.valid = '1' else (others => 'X');
@@ -150,8 +148,6 @@ begin
 				else
 					mib_fu_to_buf1_en <= '0';
 					mib_fu_to_buf2_en <= '0';
-					inp_stall 		<= buf1_full or buf2_full;
-					outp_stall 		<= mem_busy;
 				end if;
 			else
 				if available = '1' and mem_busy = '0' then

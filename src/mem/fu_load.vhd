@@ -31,8 +31,6 @@ end fu_load;
 architecture Structural of fu_load is
 
 
-signal inp_stall	: std_logic := '0';
-signal outp_stall	: std_logic := '0';
 signal mib_fu_to_buf_addr 	: std_logic_vector(FU_ADDRESS_W-1 downto 0);
 signal dtn_fu_to_buf_addr 	: std_logic_vector(FU_ADDRESS_W-1 downto 0);
 signal mib_fu_to_buf_en	: std_logic := '0';
@@ -102,8 +100,8 @@ load_component : load
 		
 mib_fu_to_buf_addr 	<= mib_inp.src.fu ;
 
-status.src_stalled  <= inp_stall;
-status.dest_stalled <= outp_stall;
+status.src_stalled  <= buf_full;
+status.dest_stalled <= buf_outp_full or buf_outp_empty or mem_busy or buf_available or mem_enable ;
 
 
 
@@ -148,8 +146,6 @@ begin
 					end if;
 				else
 					mib_fu_to_buf_en <= '0';
-					inp_stall 		<= buf_full;
-					outp_stall 		<= buf_outp_full or buf_outp_empty;
 				end if;
 			else
 				if mem_valid = '1' then
