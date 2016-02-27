@@ -27,6 +27,7 @@ component fu_input_buffer is
 			mib_addr	: in STD_LOGIC_VECTOR(FU_ADDRESS_W-1 downto 0);
 			mib_en		: in STD_LOGIC;
 			--- Signals from DTN
+			dtn_valid: in std_logic;
 			dtn_data	: in STD_LOGIC_VECTOR(FU_DATA_W-1 downto 0);
 			dtn_addr	: in STD_LOGIC_VECTOR(FU_ADDRESS_W-1 downto 0);
 			--- Signals from FU 

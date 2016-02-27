@@ -33,6 +33,8 @@ signal mib_fu_to_buf1_addr 	: std_logic_vector(FU_ADDRESS_W-1 downto 0);
 signal mib_fu_to_buf2_addr 	: std_logic_vector(FU_ADDRESS_W-1 downto 0);
 signal dtn_fu_to_buf1_addr 	: std_logic_vector(FU_ADDRESS_W-1 downto 0);
 signal dtn_fu_to_buf2_addr 	: std_logic_vector(FU_ADDRESS_W-1 downto 0);
+signal dtn_fu_to_buf1_valid: std_logic := '0';
+signal dtn_fu_to_buf2_valid: std_logic := '0';
 signal mib_fu_to_buf1_en	: std_logic := '0';
 signal mib_fu_to_buf2_en	: std_logic := '0';
 signal fu_to_buf1_read		: std_logic := '0';
@@ -67,6 +69,7 @@ inp_1 : fu_input_buffer
 		rst 			=> rst,
 		mib_addr		=> mib_fu_to_buf1_addr,
 		mib_en		=> mib_fu_to_buf1_en,
+		dtn_valid	=> dtn_fu_to_buf1_valid,
 		dtn_data		=> dtn_data_in.message.data,
 		dtn_addr		=> dtn_fu_to_buf1_addr,
 		fu_read		=> fu_to_buf1_read,
@@ -82,6 +85,7 @@ inp_2 : fu_input_buffer
 		rst 			=> rst,
 		mib_addr		=> mib_fu_to_buf2_addr,
 		mib_en		=> mib_fu_to_buf2_en,
+		dtn_valid	=> dtn_fu_to_buf2_valid,
 		dtn_data		=> dtn_data_in.message.data,
 		dtn_addr		=> dtn_fu_to_buf2_addr,
 		fu_read		=> fu_to_buf2_read,
@@ -154,6 +158,8 @@ begin
 			idx	:= '0';
 			phase	:= CHECK;
 		else
+			dtn_fu_to_buf1_valid <= dtn_data_in.valid;
+			dtn_fu_to_buf2_valid <= dtn_data_in.valid;
 			mib_valid := mib_inp.valid;
 			phase := mib_inp.phase;
 			idx	:= mib_inp.dest.buff;

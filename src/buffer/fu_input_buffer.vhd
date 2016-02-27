@@ -13,6 +13,7 @@ entity fu_input_buffer is
 			mib_addr	: in STD_LOGIC_VECTOR(FU_ADDRESS_W-1 downto 0);
 			mib_en		: in STD_LOGIC;
 			--- Signals from DTN
+			dtn_valid: in std_logic;
 			dtn_data	: in STD_LOGIC_VECTOR(FU_DATA_W-1 downto 0);
 			dtn_addr	: in STD_LOGIC_VECTOR(FU_ADDRESS_W-1 downto 0);
 			--- Signals from FU 
@@ -70,6 +71,7 @@ process(clk)
 variable index : natural range 0 to BUF_SIZE - 1 := 0;
 variable data_addr : std_logic_vector(FU_ADDRESS_W-1 downto 0);
 variable tmp_entry : lut_entry;
+variable nxt		: natural range 0 to BUF_SIZE - 1 := 0;
 begin
 	if rising_edge(clk) then
 		if rst = '1' then
@@ -114,11 +116,14 @@ begin
 					reg_dout 		<= buf(head).data;
 					num_elements 	<= num_elements - 1;
 					lut(to_integer(unsigned(data_addr))).found 	<= '0';
+					buf(head).ready <= '0';
 					
 					if num_elements /= 0 then
 						if head /= BUF_SIZE -1 then
 							head <= head + 1 ;
+							nxt := head + 1;
 						else
+							nxt := 0;
 							head <= 0;
 						end if;
 						reg_empty <= '0';
@@ -126,7 +131,7 @@ begin
 						reg_empty <= '1';
 					end if;
 					
-					if buf(head + 1).ready = '1' then
+					if buf(nxt).ready = '1' then
 						reg_available <= '1';
 					else
 						reg_available <= '0';
@@ -136,14 +141,12 @@ begin
 					reg_dout <= reg_dout;
 					tmp_entry := lut(to_integer(unsigned(dtn_addr)));
 					index 	 := tmp_entry.idx;
-					if tmp_entry.found = '1' and buf(index).ready = '0'  then
+					if tmp_entry.found = '1' and buf(index).ready = '0' and dtn_valid = '1' then
 						buf(index).data	<= dtn_data;
 						buf(index).ready 	<= '1';
 						if index = head then
 							reg_available <= '1';
 						end if;
-					else
-						null;
 					end if;
 				end if;
 			end if;

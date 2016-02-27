@@ -5,6 +5,12 @@ use work.common.ALL;
 use work.buf_pkg.ALL;
 use work.mem_components.ALL;
 
+
+--Load functional unit. Component has connections to DTN, MIB and memory bank controller for memory accesses.
+--Unlike the rest, this FU has only one input buffer to store the address to be accessed. Whenever address(transferred via DTN) is available-
+--,load unit performs memory access,reads the value and copies it into the output buffer,which then can be transferred over DTN to any other FU.
+--During memory operation, output_stall of status signal is asserted to prevent memory access conflicts. Order of accesses depends on reservation order
+--on input buffer. 
 entity fu_load is
 	Generic ( 		fu_addr 		: address_fu 	:= (others => '0') );
 
@@ -33,6 +39,7 @@ architecture Structural of fu_load is
 
 signal mib_fu_to_buf_addr 	: std_logic_vector(FU_ADDRESS_W-1 downto 0);
 signal dtn_fu_to_buf_addr 	: std_logic_vector(FU_ADDRESS_W-1 downto 0);
+signal dtn_fu_to_buf_valid: std_logic := '0';
 signal mib_fu_to_buf_en	: std_logic := '0';
 signal fu_to_buf_read		: std_logic := '0';
 
@@ -60,6 +67,7 @@ inp : fu_input_buffer
 		rst 			=> rst,
 		mib_addr		=> mib_fu_to_buf_addr,
 		mib_en			=> mib_fu_to_buf_en,
+		dtn_valid	=> dtn_fu_to_buf_valid,
 		dtn_data		=> dtn_data_in.message.data,
 		dtn_addr		=> dtn_fu_to_buf_addr,
 		fu_read			=> fu_to_buf_read,
@@ -103,9 +111,6 @@ mib_fu_to_buf_addr 	<= mib_inp.src.fu ;
 status.src_stalled  <= buf_full;
 status.dest_stalled <= buf_outp_full or buf_outp_empty or mem_busy or buf_available or mem_enable ;
 
-
-
-
 dtn_fu_to_buf_addr 	<= dtn_data_in.message.src.fu when dtn_data_in.valid = '1' else (others => 'X');
 
 dtn_data_out		<= reg_dout;
@@ -126,6 +131,7 @@ begin
 			phase	:= CHECK;
 			mem_enable <= '0';
 		else
+			dtn_fu_to_buf_valid <= dtn_data_in.valid;
 			mib_valid := mib_inp.valid;
 			phase := mib_inp.phase;
 			idx	:= mib_inp.dest.buff;
