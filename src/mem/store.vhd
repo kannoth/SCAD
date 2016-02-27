@@ -18,9 +18,9 @@ entity store is
 			addr		: out std_Logic_vector (MEM_BANK_ADDR_LENGTH-1 downto 0);
 			we			: out std_logic
 			);
-end load;
+end store;
 
-architecture RTL of load is
+architecture RTL of store is
 
 signal reg_busy		: std_logic := '0';
 signal reg_valid	: std_logic := '0';

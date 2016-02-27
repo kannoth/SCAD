@@ -53,6 +53,7 @@ begin
 		else
 			reg_valid 	<= '0';
 			reg_re		<= '0';
+			reg_busy 	<= '0';
 		end if;
 	end if;
 end process;

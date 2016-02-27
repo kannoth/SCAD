@@ -6,9 +6,9 @@ use work.buf_pkg.ALL;
 use work.mem_components.ALL;
 
 entity fu_store is
-	Generic ( 		fu_addr 		: address_fu 	:= (others => '0') );
+		Generic ( 		fu_addr 		: address_fu 	:= (others => '0') );
 
-    Port ( 			clk	 		: in std_logic;
+		Port ( 			clk	 		: in std_logic;
 					rst			: in std_logic;
 					-- signals from MIB
 					mib_inp 	: in mib_ctrl_out;
@@ -24,7 +24,7 @@ entity fu_store is
 					mem_ack		: in std_logic;
 					data		: out std_Logic_vector (MEM_WORD_LENGTH-1 downto 0);
 					addr		: out std_Logic_vector (MEM_BANK_ADDR_LENGTH-1 downto 0);
-					re			: out std_logic
+					we			: out std_logic
          );
 end fu_store;
 
@@ -92,12 +92,12 @@ inp_2 : fu_input_buffer
 );
 
 		
-load_component : store
+store_component : store
 	port map (
 		clk 		=> clk,
 		en			=> mem_enable,
 		fu_data		=> buf1_dout,
-		fu_addr		=> buf2_dout,
+		fu_addr		=> buf2_dout(addr'range),
 		busy		=> mem_busy,
 		valid		=> mem_valid,
 		data		=> data,
@@ -119,8 +119,8 @@ dtn_fu_to_buf1_addr <= dtn_data_in.message.src.fu when dtn_data_in.valid = '1' e
 dtn_fu_to_buf2_addr <= dtn_data_in.message.src.fu when dtn_data_in.valid = '1' else (others => 'X');
 
 available 		<= buf1_available and buf2_available;
-fu_to_buf1_read <= available and not alu_busy;
-fu_to_buf2_read <= available and not alu_busy;
+fu_to_buf1_read <= available and not mem_busy;
+fu_to_buf2_read <= available and not mem_busy;
 
 process(clk)
 variable mib_valid : std_logic;
@@ -154,7 +154,7 @@ begin
 					outp_stall 		<= mem_busy;
 				end if;
 			else
-				if buf_available = '1' and mem_busy = '0' then
+				if available = '1' and mem_busy = '0' then
 					mem_enable <= '1';
 				else
 					mem_enable <= '0';

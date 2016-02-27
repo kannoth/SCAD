@@ -86,6 +86,28 @@ component fu_load is
          );
 end component;
 
+component fu_store is 
+
+		Generic ( 		fu_addr 		: address_fu 	:= (others => '0') );
+
+		Port ( 			clk	 		: in std_logic;
+					rst			: in std_logic;
+					-- signals from MIB
+					mib_inp 	: in mib_ctrl_out;
+					-- signals to MIB
+					status		: out mib_stalls;
+					--signals from DTN
+					ack			: in data_port_receiving;
+					dtn_data_in	: in data_port_sending;
+					--signals to/from memory unit
+					mem_ack		: in std_logic;
+					data		: out std_Logic_vector (MEM_WORD_LENGTH-1 downto 0);
+					addr		: out std_Logic_vector (MEM_BANK_ADDR_LENGTH-1 downto 0);
+					we			: out std_logic
+         );
+end component;
+
+
 component memory_top is
 
 Port (
