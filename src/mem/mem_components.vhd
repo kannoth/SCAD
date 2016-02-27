@@ -22,6 +22,22 @@ component load is
 			);
 end component;
 
+component store is
+	Port ( 	--signals to/from FU
+			clk  		: in std_logic;
+			en  		: in std_logic;	
+			fu_data		: in std_Logic_vector (MEM_WORD_LENGTH-1 downto 0);
+			fu_addr		: in std_Logic_vector (MEM_BANK_ADDR_LENGTH-1 downto 0);
+			busy		: out std_logic;
+			valid  		: out std_logic;		--valid signal from FU structure or fifo_input
+			--signals to/from memory unit
+			ack			: in std_logic;
+			data		: out std_Logic_vector (MEM_WORD_LENGTH-1 downto 0);
+			addr		: out std_Logic_vector (MEM_BANK_ADDR_LENGTH-1 downto 0);
+			we			: out std_logic
+			);
+end component;
+
 component bank_controller is
     Port ( 	clk  		: in std_logic;
 			rst			: in std_logic;

@@ -48,14 +48,9 @@ PACKAGE common IS
 		data_out :   STD_LOGIC_VECTOR (MEM_WORD_LENGTH-1 downto 0);
 	END RECORD;
 	
-	
 	TYPE mem_inp_port IS ARRAY (0 TO MEM_NR_ELEMENTS-1) OF mem_inp;
 	TYPE mem_out_port IS ARRAY (0 TO MEM_NR_ELEMENTS-1) OF mem_out;
 	
-	TYPE store_operand IS RECORD
-		addr	: STD_LOGIC_VECTOR (MEM_BANK_ADDR_LENGTH-1 downto 0);
-		data	: STD_LOGIC_VECTOR (MEM_WORD_LENGTH-1 downto 0);
-	END RECORD;
 	
 	SUBTYPE data_word IS STD_LOGIC_VECTOR(DATA_WIDTH-1 DOWNTO 0);
 		
@@ -72,7 +67,7 @@ PACKAGE common IS
 	TYPE sorterIOVector_t IS RECORD
 		vld				: STD_LOGIC;						-- Validity assertion register bits
 		address			: STD_LOGIC_VECTOR(FU_ADDRESS_W  -1 DOWNTO 0);	-- FU address 
-		data				: STD_LOGIC_VECTOR(FU_DATA_W     -1 DOWNTO 0);	-- data to be routed
+		data			: STD_LOGIC_VECTOR(FU_DATA_W     -1 DOWNTO 0);	-- data to be routed
 		fifoIdx  		: STD_LOGIC;
 	END RECORD;
 	
