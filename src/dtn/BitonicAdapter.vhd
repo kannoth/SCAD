@@ -17,7 +17,7 @@ entity BitonicAdapter is
 		clk 	: in std_logic;
 		reset	: in std_logic;
 		in_data_packets	: in data_packets_t;
-		out_data_packets: out data_packets_t
+		out_data_packets	: out data_packets_t
 	);
 end entity;
 
