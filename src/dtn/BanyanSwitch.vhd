@@ -18,6 +18,8 @@ end entity;
 architecture RTL of BanyanSwitch is
 begin
 	comb_main_proc : process ( inp_a, inp_b ) begin
+		out_a <= inp_a;
+		out_b <= inp_b;
 		if inp_a.valid = '0' then
 			if inp_b.message.dest.fu(idx) = '0' then
 				out_a <= inp_b;
