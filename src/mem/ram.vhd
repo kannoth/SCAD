@@ -6,7 +6,9 @@ use work.common.ALL;
 
 entity ram is
     Port ( 	clk  : in std_logic;
-			rst	 : in std_logic;
+			--Remember: only FFs have reset
+			--For synthesizer to infer RAM,remove rst signal!
+			--rst	 : in std_logic;
 			re	 : in std_logic;
 			we	 : in std_logic;
 			r_addr : in  std_logic_vector (MEM_BANK_ADDR_LENGTH-1 downto 0);
@@ -33,10 +35,7 @@ w_ack <= reg_w_ack;
 read_proc: process(clk)
 begin 
 	if rising_edge(clk) then
-		if rst = '1' then
-			reg_data_out <= (others => '0');
-			reg_r_ack <= '0';
-		elsif re = '1' then
+		if re = '1' then
 			reg_data_out <= sram(to_integer(unsigned(r_addr)));
 			reg_r_ack <= '1';
 		else
@@ -48,10 +47,7 @@ end process;
 write_proc: process(clk)
 begin 
 	if rising_edge(clk) then
-		if rst = '1' then
-			sram <= (others=> (others=>'0'));
-			reg_w_ack <= '0';
-		elsif we = '1' then
+		if we = '1' then
 			sram(to_integer(unsigned(w_addr))) <= data_in;
 			reg_w_ack <= '1';
 		else

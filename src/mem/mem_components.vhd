@@ -52,7 +52,6 @@ end component;
 
 component ram is
     Port ( 	clk  : in std_logic;
-			rst	 : in std_logic;
 			re	 : in std_logic;
 			we	 : in std_logic;
 			r_addr : in  std_logic_vector (MEM_BANK_ADDR_LENGTH-1 downto 0);
