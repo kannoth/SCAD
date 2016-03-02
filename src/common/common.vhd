@@ -111,11 +111,15 @@ PACKAGE common IS
 		dest: address_fu_buff;
 	END RECORD;
 	
+	
 	-- output of FU, input of CTRL
 	TYPE mib_stalls IS RECORD
 		src_stalled: STD_LOGIC;
 		dest_stalled: STD_LOGIC;
 	END RECORD;
+	
+	TYPE mib_ctrl_bus is array (0 to FU_INPUT_W ) of  mib_ctrl_out;
+	TYPE mib_status_bus is array (0 to FU_INPUT_W ) of  mib_stalls;
 	
 -- DATA NETWORK ----------------------------------------------------------------
 	TYPE data_message IS RECORD
@@ -132,6 +136,10 @@ PACKAGE common IS
 	TYPE data_port_receiving IS RECORD
 		is_read: STD_LOGIC;
 	END RECORD;
+	
+-- TYPE DEFAULTS ----------------------------------------------------------------
+	
+	constant mib_ctrl_default : mib_ctrl_out := (phase => CHECK, valid => '0', src => ( fu=> (others=>'0'), buff => '0'), dest => ( fu=> (others=>'0'), buff => '0'));
 	
 END common;
 
