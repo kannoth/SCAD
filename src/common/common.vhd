@@ -53,7 +53,7 @@ PACKAGE common IS
 	
 	
 	SUBTYPE data_word IS STD_LOGIC_VECTOR(DATA_WIDTH-1 DOWNTO 0);
-		
+	TYPE data_word_array IS ARRAY(NATURAL RANGE <>) OF data_word;
 	
 	TYPE aluFUState_t IS RECORD
 			in1_full  	: STD_LOGIC;
@@ -127,6 +127,7 @@ PACKAGE common IS
 		dest: address_fu_buff;
 		data: data_word;
 	END RECORD;
+	TYPE data_message_array IS ARRAY(NATURAL RANGE <>) OF data_message;
 	
 	TYPE data_port_sending IS RECORD
 		message: data_message;
