@@ -9,7 +9,8 @@ USE work.common.ALL;
 
 ENTITY benes_permutation IS
 	GENERIC (
-		log_size: INTEGER := 3 -- given as log2(number of elements)
+		log_size: INTEGER := 3; -- given as log2(number of elements)
+		inverse: STD_LOGIC := '0'
 	);
 	
 	PORT (
@@ -28,15 +29,20 @@ BEGIN
 			std_logic_vector(to_unsigned(index, log_size));
 		
 		-- inverse perfect shuffle permutation to get destination bits
+		-- (right-rolling the bits of our address range)
 		CONSTANT dest_bits: STD_LOGIC_VECTOR(log_size-1 DOWNTO 0) :=
-			--(log_size-1 => source_bits(0),
-			-- 0 TO log_size-2 => source_bits(1 TO log_size-1));
 			to_stdlogicvector(to_bitvector(source_bits) ror 1);
 			
 		CONSTANT dest_index: integer := to_integer(unsigned(dest_bits));
 	BEGIN
 		
-		output_messages(dest_index) <= input_messages(index);
+		regular_case: IF inverse = '0' GENERATE
+			output_messages(dest_index) <= input_messages(index);
+		END GENERATE regular_case;
+		
+		inverse_case: IF inverse = '1' GENERATE
+			output_messages(index) <= input_messages(dest_index);
+		END GENERATE inverse_case;
 		
 	END GENERATE gen_mapping;
 END benes_permutation;

@@ -34,25 +34,27 @@ ARCHITECTURE benes_permutation_tb OF benes_permutation_tb IS
 	
 	constant clk_period : time := 10 ns;
 BEGIN
-	uut: ENTITY work.benes_permutation GENERIC MAP(LOG_SIZE) PORT MAP(inputs, outputs);
+	uut: ENTITY work.benes_permutation GENERIC MAP(LOG_SIZE, '0') PORT MAP(inputs, outputs);
 	
 	test: PROCESS BEGIN
 		iterations: FOR iteration IN 0 TO SIZE-1 LOOP
-			-- check for baseline permutation output setting
+			-- pre-input sanity check
 			IF (iteration mod 2) = 0 THEN
-				assert outputs(iteration/2).data = ZERO report "mismatch!";
+				assert outputs(iteration/2).data = ZERO report "pre-input mismatch!";
 			ELSE
-				assert outputs((size/2) + (iteration/2)).data = ZERO report "mismatch!";
+				assert outputs((size/2) + (iteration/2)).data = ZERO report "pre-input mismatch!";
 			END IF;
 			
+			-- change one input
+			wait for clk_period;
 			inputs(iteration).data <= ONE;
 			wait for clk_period;
 			
-			-- check for inverse perfect shuffle permutation output setting
+			-- check inverse perfect shuffle permutation output
 			IF (iteration mod 2) = 0 THEN
-				assert outputs(iteration/2).data = ONE report "mismatch!";
+				assert outputs(iteration/2).data = ONE report "post-mismatch!";
 			ELSE
-				assert outputs((size/2) + (iteration/2)).data = ONE report "mismatch!";
+				assert outputs((size/2) + (iteration/2)).data = ONE report "postmismatch!";
 			END IF;
 			
 		END LOOP;
