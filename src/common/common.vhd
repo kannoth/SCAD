@@ -87,7 +87,7 @@ PACKAGE common IS
 	-- out of comission - pc IS just another data word
 	--CONSTANT PC_WIDTH := FU_DATA_W;
 	
-	TYPE fu_alu_type IS (ADD, SUBTRACT, MULT);
+	TYPE fu_alu_type IS (ADD, SUBTRACT, MULT, LT, GT, LTE, GTE, EQ, NEQ);
 	
 	CONSTANT ADDRESS_FU_WIDTH: NATURAL := FU_ADDRESS_W;
 	

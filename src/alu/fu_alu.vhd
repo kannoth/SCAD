@@ -5,7 +5,7 @@ use work.common.ALL;
 use work.buf_pkg.ALL;
 use work.alu_components.ALL;
 
-entity fu_adder is
+entity fu_alu is
 	 Generic ( 	fu_addr 		: address_fu := (others => '0');
 					fu_type		: fu_alu_type := ADD );
 
@@ -21,10 +21,10 @@ entity fu_adder is
 					--signals to DTN
 					dtn_data_out: out data_port_sending
          );
-end fu_adder;
+end fu_alu;
 
 
-architecture Structural of fu_adder is
+architecture Structural of fu_alu is
 
 
 signal inp_stall	: std_logic := '0';
@@ -106,8 +106,10 @@ outp_1 : fifo_alu
 		empty 	=> buf_outp_empty,
 		data_out => outp_dout );
 
-add_gen : if fu_type = ADD generate 
-alu : adder port map (
+ 
+alu_instance : alu
+		generic map ( op_type => fu_type)
+		port map (
 		clk 		=> clk,
 		op1 		=> buf1_dout,
 		op2 		=> buf2_dout,
@@ -116,19 +118,8 @@ alu : adder port map (
 		valid		=> alu_valid,
 		res 		=> outp_din 
 );
-end generate;
 
-sub_gen : if fu_type = SUBTRACT generate 
-alu : subtractor port map (
-		clk 		=> clk,
-		op1 		=> buf1_dout,
-		op2 		=> buf2_dout,
-		en			=> alu_enable,
-		busy		=> alu_busy,
-		valid		=> alu_valid,
-		res 		=> outp_din 
-);
-end generate;
+
 		
 mib_fu_to_buf1_addr <= mib_inp.src.fu ;
 mib_fu_to_buf2_addr <= mib_inp.src.fu ;

@@ -3,7 +3,7 @@ use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.NUMERIC_STD.ALL;
 use work.common.ALL;
 use work.buf_pkg.ALL;
-use work.mem_components.ALL;
+use work.alu_components.ALL;
 
   ENTITY fu_alu_tb IS
   END fu_alu_tb;
@@ -73,7 +73,7 @@ use work.mem_components.ALL;
 			
 
   BEGIN
-          uut: fu_adder PORT MAP(
+          uut: fu_alu PORT MAP(
                   clk 			=> clk,
 						rst 			=> rst,
 						mib_inp		=> mib_inp,
@@ -102,8 +102,8 @@ use work.mem_components.ALL;
 			fu_mib_write('0',"11111",mib_inp);
 			fu_mib_write('1',"11110",mib_inp);
 			fu_mib_write('1',"11111",mib_inp);
-			dtn_to_fu_write("11111",X"FFEEFFEE",dtn_data_in);
-			dtn_to_fu_write("11110",X"AABBAABB",dtn_data_in);
+			dtn_to_fu_write("11111",X"00000001",dtn_data_in);
+			dtn_to_fu_write("11110",X"00000009",dtn_data_in);
 			wait for 5*clk_period;
 			fu_mib_read('0',"00011",mib_inp);
 			
