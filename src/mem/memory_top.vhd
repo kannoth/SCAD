@@ -31,7 +31,7 @@ GEN: for i in 0 to MEM_NR_ELEMENTS-1 generate
 		r_addr => inp(i).r_addr, w_addr => inp(i).w_addr, re_out => bc_to_ram_sig_array(i).re_out,
 		we_out => bc_to_ram_sig_array(i).we_out, busy => bc_to_ram_sig_array(i).busy);
 		
-	ramX : ram port map ( clk => clk, rst => rst, re => bc_to_ram_sig_array(i).re_out,
+	ramX : ram port map ( clk => clk, re => bc_to_ram_sig_array(i).re_out,
 		we => bc_to_ram_sig_array(i).we_out, r_addr => inp(i).r_addr, w_addr => inp(i).w_addr,
 		data_in => inp(i).data_in, r_ack => outp(i).r_ack, w_ack => outp(i).w_ack,
 		data_out => outp(i).data_out);
