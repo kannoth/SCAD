@@ -5,10 +5,11 @@ use IEEE.std_logic_unsigned.all;
 use work.common.ALL;
 
 
---Component declaration for ALU elements with 2 operands and 1 result. Future or customized types declarations will be made on a seperate file!
---Interface consists of two inputs with length of FU_DATA_W, 1 output as the same length of the inputs,a valid signal(output) which must be asserted
---by the ALU component for one cycle duration to signal operation completion and enable signal(input) as strobe. Enable signal is asserted by the functional
---unit when both inputs of the ALU is in stable state. All components should be synchronized with FU clock.
+--Component declaration for ALU elements with 2 operands and 1 result. Future or customized types declarations will be made on a 
+--seperate file! Interface consists of two inputs with length of FU_DATA_W, 1 output as the same length of the inputs,
+--a valid signal(output) which must be asserted by the ALU component for one cycle duration to signal operation completion 
+--and enable signal(input) as strobe. Enable signal is asserted by the FU when both inputs of the ALU are in stable state. 
+--All components should be synchronized with FU clock.
 package alu_components is 
 
 component alu is

@@ -72,6 +72,7 @@ variable index : natural range 0 to BUF_SIZE - 1 := 0;
 variable data_addr : std_logic_vector(FU_ADDRESS_W-1 downto 0);
 variable tmp_entry : lut_entry;
 variable nxt		: natural range 0 to BUF_SIZE - 1 := 0;
+variable shared_address : std_logic := '0';
 begin
 	if rising_edge(clk) then
 		if rst = '1' then
@@ -81,6 +82,7 @@ begin
 			reg_empty 			<= '1';
 			num_elements 		<= 0;
 			reg_available		<= '0';
+			shared_address		:= '0';
 			reg_dout				<= (others => 'X');
 			index					:= 0;
 			data_addr			:= (others => 'X');
@@ -88,9 +90,37 @@ begin
 			lut					<= (others => (found => '0', idx => 0 ));
 		else
 			if mib_en = '1' then
+				if dtn_valid = '1' then
+						shared_address := '1';
+						tmp_entry := lut(to_integer(unsigned(dtn_addr)));
+						index 	 := tmp_entry.idx;
+						--Check if MIB and DTN addresses are equal
+						if mib_addr = dtn_addr then
+							buf(tail).data		<= dtn_data;
+							if tail = head then
+								reg_available <= '1';
+							end if;
+						--If not equal,modify corresponding buf and lut entries
+						else
+							if tmp_entry.found = '1' and buf(index).ready = '0' then
+								buf(index).data	<= dtn_data;
+								buf(index).ready 	<= '1';
+								if index = head then
+									reg_available <= '1';
+								end if;
+							end if;
+						end if;
+					else
+						shared_address := '0';
+					end if;
+					
 				if reg_full = '0' then 
 						buf(tail).addr 	<= mib_addr;
-						buf(tail).ready 	<= '0';
+						if shared_address = '1' then
+							buf(tail).ready 	<= '1';
+						else
+							buf(tail).ready 	<= '0';
+						end if;
 						lut(to_integer(unsigned(mib_addr))).found 	<= '1';
 						lut(to_integer(unsigned(mib_addr))).idx 		<= num_elements;
 						num_elements <= num_elements + 1;

@@ -171,7 +171,7 @@ process(clk)
 		end if;
 	end if;
 	end process;
-end generate EQ;
+end generate GEN_EQ;
 
 GEN_NEQ : if op_type = NEQ generate
 process(clk)
@@ -193,7 +193,7 @@ process(clk)
 		end if;
 	end if;
 	end process;
-end generate NEQ;
+end generate GEN_NEQ;
 
 
 

@@ -38,6 +38,29 @@ use work.alu_components.ALL;
 				
 			end fu_mib_write;
 			
+			procedure fu_mib_dtn_write( 	constant fifo_idx 	: in std_logic;
+													constant addr	  		: in std_logic_vector(FU_ADDRESS_W-1 downto 0);
+													constant data			: in std_logic_vector(FU_DATA_W-1 downto 0);
+													signal mib_out  		: out mib_ctrl_out;
+													signal dtn_packet 	: out data_port_sending
+			) is
+			begin
+			
+			wait for clk_period;
+			mib_out.valid <= '1';
+			mib_out.src.fu <= addr;
+			mib_out.dest.fu <= "00000";
+			mib_out.dest.buff <= fifo_idx;
+			mib_out.phase <= COMMIT;
+			mib_out.valid <= '1';
+			dtn_packet.message.src.fu	<= addr;
+			dtn_packet.message.data <= data;
+			dtn_packet.valid	<= '1';
+			wait for clk_period;
+			mib_out.valid <= '0';
+			dtn_packet.valid	<= '0';	
+			end fu_mib_dtn_write;
+			
 			
 			procedure dtn_to_fu_write( constant addr  : in std_logic_vector(FU_ADDRESS_W-1 downto 0);
 												constant data	: in std_logic_vector(FU_DATA_W-1 downto 0);
@@ -106,7 +129,10 @@ use work.alu_components.ALL;
 			dtn_to_fu_write("11110",X"00000009",dtn_data_in);
 			wait for 5*clk_period;
 			fu_mib_read('0',"00011",mib_inp);
-			
+			wait for 5*clk_period;
+			fu_mib_dtn_write('0',"11111",X"00000002",mib_inp,dtn_data_in);
+			fu_mib_dtn_write('1',"11110",X"00000005",mib_inp,dtn_data_in);
+			fu_mib_read('0',"00011",mib_inp);
 
 			wait;
 		END PROCESS tb;
