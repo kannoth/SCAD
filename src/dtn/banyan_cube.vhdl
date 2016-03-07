@@ -355,82 +355,82 @@ STAGE3_SWITCH15 : entity work.BanyanSwitch(RTL)
 	stage3_reg(29),stage3_reg(31),stage4_sig(29),stage4_sig(31));
 
 STAGE4_SWITCH0 : entity work.BanyanSwitch(RTL)
-	generic map(idx => 1)
+	generic map(idx => 0)
 	 port map(
 	stage4_reg(0),stage4_reg(1),out_data_packets(0),out_data_packets(1));
 
 STAGE4_SWITCH1 : entity work.BanyanSwitch(RTL)
-	generic map(idx => 1)
+	generic map(idx => 0)
 	 port map(
 	stage4_reg(2),stage4_reg(3),out_data_packets(2),out_data_packets(3));
 
 STAGE4_SWITCH2 : entity work.BanyanSwitch(RTL)
-	generic map(idx => 1)
+	generic map(idx => 0)
 	 port map(
 	stage4_reg(4),stage4_reg(5),out_data_packets(4),out_data_packets(5));
 
 STAGE4_SWITCH3 : entity work.BanyanSwitch(RTL)
-	generic map(idx => 1)
+	generic map(idx => 0)
 	 port map(
 	stage4_reg(6),stage4_reg(7),out_data_packets(6),out_data_packets(7));
 
 STAGE4_SWITCH4 : entity work.BanyanSwitch(RTL)
-	generic map(idx => 1)
+	generic map(idx => 0)
 	 port map(
 	stage4_reg(8),stage4_reg(9),out_data_packets(8),out_data_packets(9));
 
 STAGE4_SWITCH5 : entity work.BanyanSwitch(RTL)
-	generic map(idx => 1)
+	generic map(idx => 0)
 	 port map(
 	stage4_reg(10),stage4_reg(11),out_data_packets(10),out_data_packets(11));
 
 STAGE4_SWITCH6 : entity work.BanyanSwitch(RTL)
-	generic map(idx => 1)
+	generic map(idx => 0)
 	 port map(
 	stage4_reg(12),stage4_reg(13),out_data_packets(12),out_data_packets(13));
 
 STAGE4_SWITCH7 : entity work.BanyanSwitch(RTL)
-	generic map(idx => 1)
+	generic map(idx => 0)
 	 port map(
 	stage4_reg(14),stage4_reg(15),out_data_packets(14),out_data_packets(15));
 
 STAGE4_SWITCH8 : entity work.BanyanSwitch(RTL)
-	generic map(idx => 1)
+	generic map(idx => 0)
 	 port map(
 	stage4_reg(16),stage4_reg(17),out_data_packets(16),out_data_packets(17));
 
 STAGE4_SWITCH9 : entity work.BanyanSwitch(RTL)
-	generic map(idx => 1)
+	generic map(idx => 0)
 	 port map(
 	stage4_reg(18),stage4_reg(19),out_data_packets(18),out_data_packets(19));
 
 STAGE4_SWITCH10 : entity work.BanyanSwitch(RTL)
-	generic map(idx => 1)
+	generic map(idx => 0)
 	 port map(
 	stage4_reg(20),stage4_reg(21),out_data_packets(20),out_data_packets(21));
 
 STAGE4_SWITCH11 : entity work.BanyanSwitch(RTL)
-	generic map(idx => 1)
+	generic map(idx => 0)
 	 port map(
 	stage4_reg(22),stage4_reg(23),out_data_packets(22),out_data_packets(23));
 
 STAGE4_SWITCH12 : entity work.BanyanSwitch(RTL)
-	generic map(idx => 1)
+	generic map(idx => 0)
 	 port map(
 	stage4_reg(24),stage4_reg(25),out_data_packets(24),out_data_packets(25));
 
 STAGE4_SWITCH13 : entity work.BanyanSwitch(RTL)
-	generic map(idx => 1)
+	generic map(idx => 0)
 	 port map(
 	stage4_reg(26),stage4_reg(27),out_data_packets(26),out_data_packets(27));
 
 STAGE4_SWITCH14 : entity work.BanyanSwitch(RTL)
-	generic map(idx => 1)
+	generic map(idx => 0)
 	 port map(
 	stage4_reg(28),stage4_reg(29),out_data_packets(28),out_data_packets(29));
 
 STAGE4_SWITCH15 : entity work.BanyanSwitch(RTL)
-	generic map(idx => 1)
+	generic map(idx => 0)
 	 port map(
 	stage4_reg(30),stage4_reg(31),out_data_packets(30),out_data_packets(31));
 

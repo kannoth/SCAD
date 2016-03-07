@@ -58,7 +58,7 @@ def gen_vhdl(nr_of_stages,is_pipelined):
 	inp_base = "stage%s" % (nr_of_stages-1)
 	out_base = "out_data_packets";
 	for j in range(0, num_elements/2):
-			cmd_list.append("STAGE%s_SWITCH%s : entity work.BanyanSwitch(RTL)\n\tgeneric map(idx => %s)\n\t port map(" % (nr_of_stages-1,j,1))
+			cmd_list.append("STAGE%s_SWITCH%s : entity work.BanyanSwitch(RTL)\n\tgeneric map(idx => %s)\n\t port map(" % (nr_of_stages-1,j,0))
 			cmd_list.append("\t%s_%s(%s),%s_%s(%s)"			
 			",%s(%s),%s(%s));\n" % (inp_base,src,stages[nr_of_stages-1][j].inp_a,
 			inp_base,src,stages[nr_of_stages-1][j].inp_b,out_base,stages[nr_of_stages-1][j].out_a,out_base,
