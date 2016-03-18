@@ -4,7 +4,7 @@ use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.NUMERIC_STD.ALL;
 use work.common.ALL;
 
-
+-- Single channel, FIFO buffer design for FU output buffer
 entity fifo_alu is
 
     Port (	clk			: in STD_LOGIC;			

@@ -5,6 +5,16 @@ use work.common.ALL;
 use work.buf_pkg.ALL;
 use work.alu_components.ALL;
 
+
+-- Functional unit for ALU operations. This unit includes two input and one output buffers.
+-- Any ALU design that implements the interface *alu_components* package can be used.
+-- source address fields from both MIB and DTN are directly connected to the buffers
+-- Actual snooping logic is implemented in input buffer design.
+-- Whenever data is available from both buffers, FU performs read on both buffers, steers the value into inputs of ALU unit
+-- and waits for ALU unit to complete the operation. Once done, output of ALU is written to output buffer.
+
+-- When controller uses this FU as source, data at the output buffer is used for assembling a DTN package to destination address specified in incoming MIB packet.
+
 entity fu_alu is
 	 Generic ( 	fu_addr 		: address_fu := (others => '0');
 					fu_type		: fu_alu_type := ADD );
