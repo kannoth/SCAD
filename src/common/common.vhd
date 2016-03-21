@@ -110,7 +110,10 @@ PACKAGE common IS
 		src: address_fu_buff;
 		dest: address_fu_buff;
 	END RECORD;
-	
+	CONSTANT ctrl_mib_INIT:mib_ctrl_out := ( phase => CHECK,
+	                       valid => '0',
+	                       src =>(fu => (OTHERS =>'0'),buff=>'0'),
+	                       dest => (fu => (OTHERS =>'0'),buff=>'0'));
 	
 	-- output of FU, input of CTRL
 	TYPE mib_stalls IS RECORD

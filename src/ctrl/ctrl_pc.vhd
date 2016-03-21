@@ -12,15 +12,11 @@ USE work.instruction.ALL;
 ENTITY ctrl_pc IS
 	PORT(
 		clk: IN STD_LOGIC;
-		reset: IN STD_LOGIC;
-		
-		stall: IN STD_LOGIC;
-		
+		reset: IN STD_LOGIC;		
+		stall: IN STD_LOGIC;		
 		-- input that tells the pc whether a branch was taken.
-		taken: IN STD_LOGIC;
-		
-		branch_offset: IN data_word;
-		
+		taken: IN STD_LOGIC;		
+		branch_offset: IN data_word;		
 		pc: OUT data_word
 	);
 END ctrl_pc;
