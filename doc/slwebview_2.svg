@@ -1,0 +1,1487 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<?xml-stylesheet href='./slwebview.css' type='text/css' ?>
+<svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' onload='initialize(evt)' zoomAndPan='disable' id='canvas.CU_internal/CU' class='canvas' display='inline' x='0' y='0' height='95%' width='100%' preserveAspectRatio='xMinYMin meet' original_viewBox='35 40 1213 384' viewBox='35 40 1213 384'> 
+<script type='text/javascript' xlink:href='./slwebview.js' />
+<script type='text/javascript' xlink:href='./id_mapping.js' />
+  <title id='title.CU_internal/CU'>CU</title>
+<rect id='background.CU_internal/CU' x='-4056' y='-4051' width='9355' height='8521' pointer-events='none' fill='rgb(100%,100%,100%) ' />
+<g display='none' id='prop.CU_internal/CU/mib_out' class='proptable' pointer-events='none' extent_Height='164' extent_Width='146' preferred_X='1229.5' preferred_Y='168'>
+  <rect x='0' y='0' width='146' height='164' rx='5' ry='5' stroke='none' fill='rgb(100%,100%,100%)'  filter='url(#drop-shadow)' />
+  <text stroke='none' x='5' y='16' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Port</text>
+  <text stroke='none' x='90' y='16' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>3</text>
+  <rect x='0' y='19' width='146' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='27' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>IconDisplay</text>
+  <text stroke='none' x='90' y='27' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Port number</text>
+  <text stroke='none' x='5' y='38' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>UseBusObject</text>
+  <text stroke='none' x='90' y='38' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>off</text>
+  <rect x='0' y='41' width='146' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='49' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>BusObject</text>
+  <text stroke='none' x='90' y='49' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>BusObject</text>
+  <text stroke='none' x='5' y='60' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>BusOutputAsStruct</text>
+  <text stroke='none' x='90' y='60' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>off</text>
+  <rect x='0' y='63' width='146' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='71' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>PortDimensions</text>
+  <text stroke='none' x='90' y='71' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>-1</text>
+  <text stroke='none' x='5' y='82' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>VarSizeSig</text>
+  <text stroke='none' x='90' y='82' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Inherit</text>
+  <rect x='0' y='85' width='146' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='93' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>SampleTime</text>
+  <text stroke='none' x='90' y='93' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>-1</text>
+  <text stroke='none' x='5' y='104' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>OutMin</text>
+  <text stroke='none' x='90' y='104' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>[]</text>
+  <rect x='0' y='107' width='146' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='115' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>OutMax</text>
+  <text stroke='none' x='90' y='115' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>[]</text>
+  <text stroke='none' x='5' y='126' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>OutDataTypeStr</text>
+  <text stroke='none' x='90' y='126' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Inherit: auto</text>
+  <rect x='0' y='129' width='146' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='137' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>LockScale</text>
+  <text stroke='none' x='90' y='137' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>off</text>
+  <text stroke='none' x='5' y='148' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>SignalType</text>
+  <text stroke='none' x='90' y='148' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>auto</text>
+  <rect x='0' y='151' width='146' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='159' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>SamplingMode</text>
+  <text stroke='none' x='90' y='159' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>auto</text>
+  <rect x='0' y='0' width='146' height='164' rx='5' ry='5' stroke='rgb(0%,0%,0%)' stroke-width='1' fill='none' />
+</g>
+<g id='CU_internal/CU/mib_out' linkid='' onclick='changeSys(evt)' onmouseover='showPropAndHighlight(evt)' onmouseout='hidePropAndUnhighlight(evt)'>
+  <title id='title.CU_internal/CU/mib_out'>mib_out</title>
+<g><rect x='1190' y='163' width='30' height='14' rx='6.77419' ry='6.77419' stroke='none' fill='rgb(100%,100%,100%)' />
+<rect x='1190' y='163' width='30' height='14' rx='6.77419' ry='6.77419' stroke='rgb(0%,0%,0%)' stroke-width='1' fill='none' />
+<g><text stroke='none' x='1185.5' y='189' font-size='10' fill='rgb(0%,0%,0%)' font-family='Helvetica'>mib_out</text>
+</g>
+</g>
+<g><g><text stroke='none' x='1202' y='174.5' font-size='10' fill='rgb(0%,0%,0%)' clip-path='url(#clip_rect_2)' font-family='Helvetica'>3</text>
+</g>
+</g>
+<g></g>
+</g>
+<g display='none' id='prop.CU_internal/CU/mem_addr_wire' class='proptable' pointer-events='none' extent_Height='164' extent_Width='146' preferred_X='1248' preferred_Y='103'>
+  <rect x='0' y='0' width='146' height='164' rx='5' ry='5' stroke='none' fill='rgb(100%,100%,100%)'  filter='url(#drop-shadow)' />
+  <text stroke='none' x='5' y='16' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Port</text>
+  <text stroke='none' x='90' y='16' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>2</text>
+  <rect x='0' y='19' width='146' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='27' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>IconDisplay</text>
+  <text stroke='none' x='90' y='27' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Port number</text>
+  <text stroke='none' x='5' y='38' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>UseBusObject</text>
+  <text stroke='none' x='90' y='38' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>off</text>
+  <rect x='0' y='41' width='146' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='49' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>BusObject</text>
+  <text stroke='none' x='90' y='49' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>BusObject</text>
+  <text stroke='none' x='5' y='60' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>BusOutputAsStruct</text>
+  <text stroke='none' x='90' y='60' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>off</text>
+  <rect x='0' y='63' width='146' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='71' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>PortDimensions</text>
+  <text stroke='none' x='90' y='71' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>-1</text>
+  <text stroke='none' x='5' y='82' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>VarSizeSig</text>
+  <text stroke='none' x='90' y='82' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Inherit</text>
+  <rect x='0' y='85' width='146' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='93' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>SampleTime</text>
+  <text stroke='none' x='90' y='93' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>-1</text>
+  <text stroke='none' x='5' y='104' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>OutMin</text>
+  <text stroke='none' x='90' y='104' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>[]</text>
+  <rect x='0' y='107' width='146' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='115' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>OutMax</text>
+  <text stroke='none' x='90' y='115' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>[]</text>
+  <text stroke='none' x='5' y='126' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>OutDataTypeStr</text>
+  <text stroke='none' x='90' y='126' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Inherit: auto</text>
+  <rect x='0' y='129' width='146' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='137' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>LockScale</text>
+  <text stroke='none' x='90' y='137' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>off</text>
+  <text stroke='none' x='5' y='148' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>SignalType</text>
+  <text stroke='none' x='90' y='148' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>auto</text>
+  <rect x='0' y='151' width='146' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='159' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>SamplingMode</text>
+  <text stroke='none' x='90' y='159' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>auto</text>
+  <rect x='0' y='0' width='146' height='164' rx='5' ry='5' stroke='rgb(0%,0%,0%)' stroke-width='1' fill='none' />
+</g>
+<g id='CU_internal/CU/mem_addr_wire' linkid='' onclick='changeSys(evt)' onmouseover='showPropAndHighlight(evt)' onmouseout='hidePropAndUnhighlight(evt)'>
+  <title id='title.CU_internal/CU/mem_addr_wire'>mem_addr_wire</title>
+<g><rect x='1190' y='98' width='30' height='14' rx='6.77419' ry='6.77419' stroke='none' fill='rgb(100%,100%,100%)' />
+<rect x='1190' y='98' width='30' height='14' rx='6.77419' ry='6.77419' stroke='rgb(0%,0%,0%)' stroke-width='1' fill='none' />
+<g><text stroke='none' x='1167' y='124' font-size='10' fill='rgb(0%,0%,0%)' font-family='Helvetica'>mem_addr_wire</text>
+</g>
+</g>
+<g><g><text stroke='none' x='1202' y='109.5' font-size='10' fill='rgb(0%,0%,0%)' clip-path='url(#clip_rect_3)' font-family='Helvetica'>2</text>
+</g>
+</g>
+<g></g>
+</g>
+<g display='none' id='prop.CU_internal/CU/read_en_wire' class='proptable' pointer-events='none' extent_Height='164' extent_Width='146' preferred_X='1242' preferred_Y='53'>
+  <rect x='0' y='0' width='146' height='164' rx='5' ry='5' stroke='none' fill='rgb(100%,100%,100%)'  filter='url(#drop-shadow)' />
+  <text stroke='none' x='5' y='16' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Port</text>
+  <text stroke='none' x='90' y='16' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>1</text>
+  <rect x='0' y='19' width='146' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='27' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>IconDisplay</text>
+  <text stroke='none' x='90' y='27' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Port number</text>
+  <text stroke='none' x='5' y='38' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>UseBusObject</text>
+  <text stroke='none' x='90' y='38' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>off</text>
+  <rect x='0' y='41' width='146' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='49' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>BusObject</text>
+  <text stroke='none' x='90' y='49' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>BusObject</text>
+  <text stroke='none' x='5' y='60' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>BusOutputAsStruct</text>
+  <text stroke='none' x='90' y='60' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>off</text>
+  <rect x='0' y='63' width='146' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='71' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>PortDimensions</text>
+  <text stroke='none' x='90' y='71' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>-1</text>
+  <text stroke='none' x='5' y='82' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>VarSizeSig</text>
+  <text stroke='none' x='90' y='82' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Inherit</text>
+  <rect x='0' y='85' width='146' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='93' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>SampleTime</text>
+  <text stroke='none' x='90' y='93' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>-1</text>
+  <text stroke='none' x='5' y='104' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>OutMin</text>
+  <text stroke='none' x='90' y='104' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>[]</text>
+  <rect x='0' y='107' width='146' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='115' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>OutMax</text>
+  <text stroke='none' x='90' y='115' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>[]</text>
+  <text stroke='none' x='5' y='126' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>OutDataTypeStr</text>
+  <text stroke='none' x='90' y='126' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Inherit: auto</text>
+  <rect x='0' y='129' width='146' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='137' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>LockScale</text>
+  <text stroke='none' x='90' y='137' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>off</text>
+  <text stroke='none' x='5' y='148' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>SignalType</text>
+  <text stroke='none' x='90' y='148' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>auto</text>
+  <rect x='0' y='151' width='146' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='159' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>SamplingMode</text>
+  <text stroke='none' x='90' y='159' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>auto</text>
+  <rect x='0' y='0' width='146' height='164' rx='5' ry='5' stroke='rgb(0%,0%,0%)' stroke-width='1' fill='none' />
+</g>
+<g id='CU_internal/CU/read_en_wire' linkid='' onclick='changeSys(evt)' onmouseover='showPropAndHighlight(evt)' onmouseout='hidePropAndUnhighlight(evt)'>
+  <title id='title.CU_internal/CU/read_en_wire'>read_en_wire</title>
+<g><rect x='1190' y='48' width='30' height='14' rx='6.77419' ry='6.77419' stroke='none' fill='rgb(100%,100%,100%)' />
+<rect x='1190' y='48' width='30' height='14' rx='6.77419' ry='6.77419' stroke='rgb(0%,0%,0%)' stroke-width='1' fill='none' />
+<g><text stroke='none' x='1173' y='74' font-size='10' fill='rgb(0%,0%,0%)' font-family='Helvetica'>read_en_wire</text>
+</g>
+</g>
+<g><g><text stroke='none' x='1202' y='59.5' font-size='10' fill='rgb(0%,0%,0%)' clip-path='url(#clip_rect_4)' font-family='Helvetica'>1</text>
+</g>
+</g>
+<g></g>
+</g>
+<g display='none' id='prop.CU_internal/CU/PC' class='proptable' pointer-events='none' extent_Height='54' extent_Width='192' preferred_X='750' preferred_Y='153'>
+  <rect x='0' y='0' width='192' height='54' rx='5' ry='5' stroke='none' fill='rgb(100%,100%,100%)'  filter='url(#drop-shadow)' />
+  <text stroke='none' x='5' y='16' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>ShowPortLabels</text>
+  <text stroke='none' x='130' y='16' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>FromPortIcon</text>
+  <rect x='0' y='19' width='192' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='27' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Permissions</text>
+  <text stroke='none' x='130' y='27' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>ReadWrite</text>
+  <text stroke='none' x='5' y='38' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>PermitHierarchicalResolution</text>
+  <text stroke='none' x='130' y='38' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>All</text>
+  <rect x='0' y='41' width='192' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='49' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>TreatAsAtomicUnit</text>
+  <text stroke='none' x='130' y='49' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>off</text>
+  <rect x='0' y='0' width='192' height='54' rx='5' ry='5' stroke='rgb(0%,0%,0%)' stroke-width='1' fill='none' />
+</g>
+<g id='CU_internal/CU/PC' linkid='CU_internal/CU/PC' onclick='changeSys(evt)' onmouseover='showPropAndHighlight(evt)' onmouseout='hidePropAndUnhighlight(evt)'>
+  <title id='title.CU_internal/CU/PC'>PC</title>
+<g><rect x='620' y='148' width='125' height='114' stroke='none' fill='rgb(100%,100%,100%)' />
+<polyline points='616,162 619,165 616,168 ' stroke='rgb(0%,0%,0%)' stroke-width='1' fill = 'none'/>
+<g><text stroke='none' x='675' y='274' font-size='10' fill='rgb(0%,0%,0%)' font-family='Helvetica'>PC</text>
+</g>
+</g>
+<g><g><text stroke='none' x='623' y='169' font-size='9' fill='rgb(0%,0%,0%)' clip-path='url(#clip_rect_5)' font-family='Helvetica'>branch_offset</text>
+</g>
+<g><text stroke='none' x='623' y='189' font-size='9' fill='rgb(0%,0%,0%)' clip-path='url(#clip_rect_5)' font-family='Helvetica'>taken</text>
+</g>
+<g><text stroke='none' x='623' y='209' font-size='9' fill='rgb(0%,0%,0%)' clip-path='url(#clip_rect_5)' font-family='Helvetica'>clk</text>
+</g>
+<g><text stroke='none' x='623' y='229' font-size='9' fill='rgb(0%,0%,0%)' clip-path='url(#clip_rect_5)' font-family='Helvetica'>reset</text>
+</g>
+<g><text stroke='none' x='623' y='249' font-size='9' fill='rgb(0%,0%,0%)' clip-path='url(#clip_rect_5)' font-family='Helvetica'>stall</text>
+</g>
+<g><text stroke='none' x='732' y='209' font-size='9' fill='rgb(0%,0%,0%)' clip-path='url(#clip_rect_5)' font-family='Helvetica'>pc</text>
+</g>
+</g>
+<g><rect x='620' y='148' width='125' height='114' stroke='rgb(0%,0%,0%)' stroke-width='1' fill='none' />
+</g>
+</g>
+<g display='none' id='prop.CU_internal/CU/Logical Operator' class='proptable' pointer-events='none' extent_Height='76' extent_Width='129' preferred_X='365' preferred_Y='165'>
+  <rect x='0' y='0' width='129' height='76' rx='5' ry='5' stroke='none' fill='rgb(100%,100%,100%)'  filter='url(#drop-shadow)' />
+  <text stroke='none' x='5' y='16' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Operator</text>
+  <text stroke='none' x='78' y='16' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>OR</text>
+  <rect x='0' y='19' width='129' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='27' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Inputs</text>
+  <text stroke='none' x='78' y='27' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>4</text>
+  <text stroke='none' x='5' y='38' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>IconShape</text>
+  <text stroke='none' x='78' y='38' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>rectangular</text>
+  <rect x='0' y='41' width='129' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='49' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>AllPortsSameDT</text>
+  <text stroke='none' x='78' y='49' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>off</text>
+  <text stroke='none' x='5' y='60' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>OutDataTypeStr</text>
+  <text stroke='none' x='78' y='60' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>boolean</text>
+  <rect x='0' y='63' width='129' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='71' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>SampleTime</text>
+  <text stroke='none' x='78' y='71' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>-1</text>
+  <rect x='0' y='0' width='129' height='76' rx='5' ry='5' stroke='rgb(0%,0%,0%)' stroke-width='1' fill='none' />
+</g>
+<g id='CU_internal/CU/Logical Operator' linkid='' onclick='changeSys(evt)' onmouseover='showPropAndHighlight(evt)' onmouseout='hidePropAndUnhighlight(evt)'>
+  <title id='title.CU_internal/CU/Logical Operator'>Logical Operator</title>
+<g><rect x='285' y='160' width='75' height='55' stroke='none' fill='rgb(100%,100%,100%)' />
+<g><text stroke='none' x='304.5' y='227' font-size='10' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Logical</text>
+</g>
+<g><text stroke='none' x='301.5' y='240' font-size='10' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Operator</text>
+</g>
+</g>
+<g><g><text stroke='none' x='314.5' y='191.5' font-size='10' fill='rgb(0%,0%,0%)' clip-path='url(#clip_rect_6)' font-family='Helvetica'>OR</text>
+</g>
+</g>
+<g><rect x='285' y='160' width='75' height='55' stroke='rgb(0%,0%,0%)' stroke-width='1' fill='none' />
+</g>
+</g>
+<g display='none' id='prop.CU_internal/CU/Instruction Fetch' class='proptable' pointer-events='none' extent_Height='54' extent_Width='192' preferred_X='1025' preferred_Y='50'>
+  <rect x='0' y='0' width='192' height='54' rx='5' ry='5' stroke='none' fill='rgb(100%,100%,100%)'  filter='url(#drop-shadow)' />
+  <text stroke='none' x='5' y='16' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>ShowPortLabels</text>
+  <text stroke='none' x='130' y='16' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>FromPortIcon</text>
+  <rect x='0' y='19' width='192' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='27' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Permissions</text>
+  <text stroke='none' x='130' y='27' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>ReadWrite</text>
+  <text stroke='none' x='5' y='38' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>PermitHierarchicalResolution</text>
+  <text stroke='none' x='130' y='38' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>All</text>
+  <rect x='0' y='41' width='192' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='49' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>TreatAsAtomicUnit</text>
+  <text stroke='none' x='130' y='49' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>off</text>
+  <rect x='0' y='0' width='192' height='54' rx='5' ry='5' stroke='rgb(0%,0%,0%)' stroke-width='1' fill='none' />
+</g>
+<g id='CU_internal/CU/Instruction Fetch' linkid='CU_internal/CU/Instruction Fetch' onclick='changeSys(evt)' onmouseover='showPropAndHighlight(evt)' onmouseout='hidePropAndUnhighlight(evt)'>
+  <title id='title.CU_internal/CU/Instruction Fetch'>Instruction Fetch</title>
+<g><rect x='795' y='45' width='225' height='95' stroke='none' fill='rgb(100%,100%,100%)' />
+<g><text stroke='none' x='868.5' y='152' font-size='10' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Instruction Fetch</text>
+</g>
+</g>
+<g><g><text stroke='none' x='798' y='59' font-size='9' fill='rgb(0%,0%,0%)' clip-path='url(#clip_rect_7)' font-family='Helvetica'>instr_from_mem</text>
+</g>
+<g><text stroke='none' x='798' y='74' font-size='9' fill='rgb(0%,0%,0%)' clip-path='url(#clip_rect_7)' font-family='Helvetica'>mem_data_valid</text>
+</g>
+<g><text stroke='none' x='798' y='89' font-size='9' fill='rgb(0%,0%,0%)' clip-path='url(#clip_rect_7)' font-family='Helvetica'>pc_addr</text>
+</g>
+<g><text stroke='none' x='798' y='104' font-size='9' fill='rgb(0%,0%,0%)' clip-path='url(#clip_rect_7)' font-family='Helvetica'>stall</text>
+</g>
+<g><text stroke='none' x='798' y='119' font-size='9' fill='rgb(0%,0%,0%)' clip-path='url(#clip_rect_7)' font-family='Helvetica'>clk</text>
+</g>
+<g><text stroke='none' x='798' y='134' font-size='9' fill='rgb(0%,0%,0%)' clip-path='url(#clip_rect_7)' font-family='Helvetica'>reset</text>
+</g>
+<g><text stroke='none' x='938' y='59' font-size='9' fill='rgb(0%,0%,0%)' clip-path='url(#clip_rect_7)' font-family='Helvetica'>instr_to_sub_comp</text>
+</g>
+<g><text stroke='none' x='984' y='84' font-size='9' fill='rgb(0%,0%,0%)' clip-path='url(#clip_rect_7)' font-family='Helvetica'>read_en</text>
+</g>
+<g><text stroke='none' x='973' y='109' font-size='9' fill='rgb(0%,0%,0%)' clip-path='url(#clip_rect_7)' font-family='Helvetica'>mem_addr</text>
+</g>
+<g><text stroke='none' x='983' y='134' font-size='9' fill='rgb(0%,0%,0%)' clip-path='url(#clip_rect_7)' font-family='Helvetica'>valid_IF</text>
+</g>
+</g>
+<g><rect x='795' y='45' width='225' height='95' stroke='rgb(0%,0%,0%)' stroke-width='1' fill='none' />
+</g>
+</g>
+<g display='none' id='prop.CU_internal/CU/Immediate' class='proptable' pointer-events='none' extent_Height='54' extent_Width='192' preferred_X='509' preferred_Y='254'>
+  <rect x='0' y='0' width='192' height='54' rx='5' ry='5' stroke='none' fill='rgb(100%,100%,100%)'  filter='url(#drop-shadow)' />
+  <text stroke='none' x='5' y='16' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>ShowPortLabels</text>
+  <text stroke='none' x='130' y='16' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>FromPortIcon</text>
+  <rect x='0' y='19' width='192' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='27' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Permissions</text>
+  <text stroke='none' x='130' y='27' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>ReadWrite</text>
+  <text stroke='none' x='5' y='38' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>PermitHierarchicalResolution</text>
+  <text stroke='none' x='130' y='38' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>All</text>
+  <rect x='0' y='41' width='192' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='49' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>TreatAsAtomicUnit</text>
+  <text stroke='none' x='130' y='49' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>off</text>
+  <rect x='0' y='0' width='192' height='54' rx='5' ry='5' stroke='rgb(0%,0%,0%)' stroke-width='1' fill='none' />
+</g>
+<g id='CU_internal/CU/Immediate' linkid='CU_internal/CU/Immediate' onclick='changeSys(evt)' onmouseover='showPropAndHighlight(evt)' onmouseout='hidePropAndUnhighlight(evt)'>
+  <title id='title.CU_internal/CU/Immediate'>Immediate</title>
+<g><rect x='400' y='249' width='100' height='42' stroke='none' fill='rgb(100%,100%,100%)' />
+<polyline points='396,267 399,270 396,273 ' stroke='rgb(0%,0%,0%)' stroke-width='1' fill = 'none'/>
+<polyline points='500,267 504,270 500,273 ' stroke='rgb(0%,0%,0%)' stroke-width='1' fill = 'none'/>
+<g><text stroke='none' x='424.5' y='303' font-size='10' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Immediate</text>
+</g>
+</g>
+<g><g><text stroke='none' x='403' y='274' font-size='9' fill='rgb(0%,0%,0%)' clip-path='url(#clip_rect_8)' font-family='Helvetica'>In1</text>
+</g>
+<g><text stroke='none' x='477' y='274' font-size='9' fill='rgb(0%,0%,0%)' clip-path='url(#clip_rect_8)' font-family='Helvetica'>Out1</text>
+</g>
+</g>
+<g><rect x='400' y='249' width='100' height='42' stroke='rgb(0%,0%,0%)' stroke-width='1' fill='none' />
+</g>
+</g>
+<g display='none' id='prop.CU_internal/CU/CU TO MIB' class='proptable' pointer-events='none' extent_Height='54' extent_Width='192' preferred_X='1040' preferred_Y='239'>
+  <rect x='0' y='0' width='192' height='54' rx='5' ry='5' stroke='none' fill='rgb(100%,100%,100%)'  filter='url(#drop-shadow)' />
+  <text stroke='none' x='5' y='16' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>ShowPortLabels</text>
+  <text stroke='none' x='130' y='16' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>FromPortIcon</text>
+  <rect x='0' y='19' width='192' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='27' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Permissions</text>
+  <text stroke='none' x='130' y='27' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>ReadWrite</text>
+  <text stroke='none' x='5' y='38' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>PermitHierarchicalResolution</text>
+  <text stroke='none' x='130' y='38' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>All</text>
+  <rect x='0' y='41' width='192' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='49' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>TreatAsAtomicUnit</text>
+  <text stroke='none' x='130' y='49' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>off</text>
+  <rect x='0' y='0' width='192' height='54' rx='5' ry='5' stroke='rgb(0%,0%,0%)' stroke-width='1' fill='none' />
+</g>
+<g id='CU_internal/CU/CU TO MIB' linkid='CU_internal/CU/CU TO MIB' onclick='changeSys(evt)' onmouseover='showPropAndHighlight(evt)' onmouseout='hidePropAndUnhighlight(evt)'>
+  <title id='title.CU_internal/CU/CU TO MIB'>CU TO MIB</title>
+<g><rect x='825' y='234' width='210' height='122' stroke='none' fill='rgb(100%,100%,100%)' />
+<g><text stroke='none' x='903' y='368' font-size='10' fill='rgb(0%,0%,0%)' font-family='Helvetica'>CU TO MIB</text>
+</g>
+</g>
+<g><g><text stroke='none' x='828' y='249' font-size='9' fill='rgb(0%,0%,0%)' clip-path='url(#clip_rect_9)' font-family='Helvetica'>instruction_input</text>
+</g>
+<g><text stroke='none' x='828' y='274' font-size='9' fill='rgb(0%,0%,0%)' clip-path='url(#clip_rect_9)' font-family='Helvetica'>valid_IF</text>
+</g>
+<g><text stroke='none' x='828' y='299' font-size='9' fill='rgb(0%,0%,0%)' clip-path='url(#clip_rect_9)' font-family='Helvetica'>clk</text>
+</g>
+<g><text stroke='none' x='828' y='324' font-size='9' fill='rgb(0%,0%,0%)' clip-path='url(#clip_rect_9)' font-family='Helvetica'>reset</text>
+</g>
+<g><text stroke='none' x='828' y='349' font-size='9' fill='rgb(0%,0%,0%)' clip-path='url(#clip_rect_9)' font-family='Helvetica'>stall</text>
+</g>
+<g><text stroke='none' x='999' y='299' font-size='9' fill='rgb(0%,0%,0%)' clip-path='url(#clip_rect_9)' font-family='Helvetica'>ctrl_mib</text>
+</g>
+</g>
+<g><rect x='825' y='234' width='210' height='122' stroke='rgb(0%,0%,0%)' stroke-width='1' fill='none' />
+</g>
+</g>
+<g display='none' id='prop.CU_internal/CU/Bus Selector' class='proptable' pointer-events='none' extent_Height='43' extent_Width='198' preferred_X='220' preferred_Y='162'>
+  <rect x='0' y='0' width='198' height='43' rx='5' ry='5' stroke='none' fill='rgb(100%,100%,100%)'  filter='url(#drop-shadow)' />
+  <text stroke='none' x='5' y='16' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>OutputSignals</text>
+  <text stroke='none' x='68' y='16' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>signal1,signal2,signal3,signal4</text>
+  <rect x='0' y='19' width='198' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='27' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>OutputAsBus</text>
+  <text stroke='none' x='68' y='27' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>off</text>
+  <text stroke='none' x='5' y='38' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>InputSignals</text>
+  <text stroke='none' x='68' y='38' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>&lt;4x1 cell></text>
+  <rect x='0' y='0' width='198' height='43' rx='5' ry='5' stroke='rgb(0%,0%,0%)' stroke-width='1' fill='none' />
+</g>
+<g id='CU_internal/CU/Bus Selector' linkid='' onclick='changeSys(evt)' onmouseover='showPropAndHighlight(evt)' onmouseout='hidePropAndUnhighlight(evt)'>
+  <title id='title.CU_internal/CU/Bus Selector'>Bus Selector</title>
+<g><rect x='210' y='157' width='5' height='61' stroke='none' fill='rgb(100%,100%,100%)' />
+<line x1='210' y1='189' x2='215' y2='189' stroke='rgb(0%,0%,0%)' stroke-width='1' />
+<line x1='210' y1='191' x2='215' y2='191' stroke='rgb(0%,0%,0%)' stroke-width='1' />
+<rect x='210' y='157' width='5' height='29' stroke='none' fill='rgb(0%,0%,0%)' />
+<rect x='210' y='194' width='5' height='24' stroke='none' fill='rgb(0%,0%,0%)' />
+</g>
+<g></g>
+<g><rect x='210' y='157' width='5' height='61' stroke='rgb(0%,0%,0%)' stroke-width='1' fill='none' />
+</g>
+</g>
+<g display='none' id='prop.CU_internal/CU/Bus Creator' class='proptable' pointer-events='none' extent_Height='54' extent_Width='118' preferred_X='170' preferred_Y='176'>
+  <rect x='0' y='0' width='118' height='54' rx='5' ry='5' stroke='none' fill='rgb(100%,100%,100%)'  filter='url(#drop-shadow)' />
+  <text stroke='none' x='5' y='16' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DisplayOption</text>
+  <text stroke='none' x='70' y='16' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>bar</text>
+  <rect x='0' y='19' width='118' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='27' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>UseBusObject</text>
+  <text stroke='none' x='70' y='27' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>off</text>
+  <text stroke='none' x='5' y='38' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>BusObject</text>
+  <text stroke='none' x='70' y='38' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>BusObject</text>
+  <rect x='0' y='41' width='118' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='49' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>NonVirtualBus</text>
+  <text stroke='none' x='70' y='49' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>off</text>
+  <rect x='0' y='0' width='118' height='54' rx='5' ry='5' stroke='rgb(0%,0%,0%)' stroke-width='1' fill='none' />
+</g>
+<g id='CU_internal/CU/Bus Creator' linkid='' onclick='changeSys(evt)' onmouseover='showPropAndHighlight(evt)' onmouseout='hidePropAndUnhighlight(evt)'>
+  <title id='title.CU_internal/CU/Bus Creator'>Bus Creator</title>
+<g><rect x='160' y='171' width='5' height='38' stroke='none' fill='rgb(100%,100%,100%)' />
+<line x1='160' y1='189' x2='165' y2='189' stroke='rgb(0%,0%,0%)' stroke-width='1' />
+<line x1='160' y1='191' x2='165' y2='191' stroke='rgb(0%,0%,0%)' stroke-width='1' />
+<rect x='160' y='171' width='5' height='15' stroke='none' fill='rgb(0%,0%,0%)' />
+<rect x='160' y='194' width='5' height='15' stroke='none' fill='rgb(0%,0%,0%)' />
+</g>
+<g></g>
+<g><rect x='160' y='171' width='5' height='38' stroke='rgb(0%,0%,0%)' stroke-width='1' fill='none' />
+</g>
+</g>
+<g display='none' id='prop.CU_internal/CU/Branch' class='proptable' pointer-events='none' extent_Height='54' extent_Width='192' preferred_X='505' preferred_Y='114'>
+  <rect x='0' y='0' width='192' height='54' rx='5' ry='5' stroke='none' fill='rgb(100%,100%,100%)'  filter='url(#drop-shadow)' />
+  <text stroke='none' x='5' y='16' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>ShowPortLabels</text>
+  <text stroke='none' x='130' y='16' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>FromPortIcon</text>
+  <rect x='0' y='19' width='192' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='27' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Permissions</text>
+  <text stroke='none' x='130' y='27' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>ReadWrite</text>
+  <text stroke='none' x='5' y='38' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>PermitHierarchicalResolution</text>
+  <text stroke='none' x='130' y='38' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>All</text>
+  <rect x='0' y='41' width='192' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='49' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>TreatAsAtomicUnit</text>
+  <text stroke='none' x='130' y='49' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>off</text>
+  <rect x='0' y='0' width='192' height='54' rx='5' ry='5' stroke='rgb(0%,0%,0%)' stroke-width='1' fill='none' />
+</g>
+<g id='CU_internal/CU/Branch' linkid='CU_internal/CU/Branch' onclick='changeSys(evt)' onmouseover='showPropAndHighlight(evt)' onmouseout='hidePropAndUnhighlight(evt)'>
+  <title id='title.CU_internal/CU/Branch'>Branch</title>
+<g><rect x='400' y='109' width='100' height='42' stroke='none' fill='rgb(100%,100%,100%)' />
+<polyline points='396,112 399,115 396,118 ' stroke='rgb(0%,0%,0%)' stroke-width='1' fill = 'none'/>
+<polyline points='396,127 399,130 396,133 ' stroke='rgb(0%,0%,0%)' stroke-width='1' fill = 'none'/>
+<polyline points='396,142 399,145 396,148 ' stroke='rgb(0%,0%,0%)' stroke-width='1' fill = 'none'/>
+<g><text stroke='none' x='433.5' y='163' font-size='10' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Branch</text>
+</g>
+</g>
+<g><g><text stroke='none' x='403' y='119' font-size='9' fill='rgb(0%,0%,0%)' clip-path='url(#clip_rect_10)' font-family='Helvetica'>In1</text>
+</g>
+<g><text stroke='none' x='403' y='134' font-size='9' fill='rgb(0%,0%,0%)' clip-path='url(#clip_rect_10)' font-family='Helvetica'>In2</text>
+</g>
+<g><text stroke='none' x='403' y='149' font-size='9' fill='rgb(0%,0%,0%)' clip-path='url(#clip_rect_10)' font-family='Helvetica'>In3</text>
+</g>
+<g><text stroke='none' x='477' y='134' font-size='9' fill='rgb(0%,0%,0%)' clip-path='url(#clip_rect_10)' font-family='Helvetica'>Out1</text>
+</g>
+</g>
+<g><rect x='400' y='109' width='100' height='42' stroke='rgb(0%,0%,0%)' stroke-width='1' fill='none' />
+</g>
+</g>
+<g display='none' id='prop.CU_internal/CU/reset' class='proptable' pointer-events='none' extent_Height='186' extent_Width='195' preferred_X='80' preferred_Y='343'>
+  <rect x='0' y='0' width='195' height='186' rx='5' ry='5' stroke='none' fill='rgb(100%,100%,100%)'  filter='url(#drop-shadow)' />
+  <text stroke='none' x='5' y='16' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Port</text>
+  <text stroke='none' x='139' y='16' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>5</text>
+  <rect x='0' y='19' width='195' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='27' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>IconDisplay</text>
+  <text stroke='none' x='139' y='27' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Port number</text>
+  <text stroke='none' x='5' y='38' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>UseBusObject</text>
+  <text stroke='none' x='139' y='38' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>off</text>
+  <rect x='0' y='41' width='195' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='49' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>BusObject</text>
+  <text stroke='none' x='139' y='49' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>BusObject</text>
+  <text stroke='none' x='5' y='60' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>BusOutputAsStruct</text>
+  <text stroke='none' x='139' y='60' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>off</text>
+  <rect x='0' y='63' width='195' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='71' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>PortDimensions</text>
+  <text stroke='none' x='139' y='71' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>-1</text>
+  <text stroke='none' x='5' y='82' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>VarSizeSig</text>
+  <text stroke='none' x='139' y='82' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Inherit</text>
+  <rect x='0' y='85' width='195' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='93' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>SampleTime</text>
+  <text stroke='none' x='139' y='93' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>-1</text>
+  <text stroke='none' x='5' y='104' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>OutMin</text>
+  <text stroke='none' x='139' y='104' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>[]</text>
+  <rect x='0' y='107' width='195' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='115' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>OutMax</text>
+  <text stroke='none' x='139' y='115' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>[]</text>
+  <text stroke='none' x='5' y='126' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>OutDataTypeStr</text>
+  <text stroke='none' x='139' y='126' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Inherit: auto</text>
+  <rect x='0' y='129' width='195' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='137' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>LockScale</text>
+  <text stroke='none' x='139' y='137' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>off</text>
+  <text stroke='none' x='5' y='148' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>SignalType</text>
+  <text stroke='none' x='139' y='148' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>auto</text>
+  <rect x='0' y='151' width='195' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='159' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>SamplingMode</text>
+  <text stroke='none' x='139' y='159' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>auto</text>
+  <text stroke='none' x='5' y='170' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>LatchByDelayingOutsideSignal</text>
+  <text stroke='none' x='139' y='170' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>off</text>
+  <rect x='0' y='173' width='195' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='181' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>LatchInputForFeedbackSignals</text>
+  <text stroke='none' x='139' y='181' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>off</text>
+  <rect x='0' y='0' width='195' height='186' rx='5' ry='5' stroke='rgb(0%,0%,0%)' stroke-width='1' fill='none' />
+</g>
+<g id='CU_internal/CU/reset' linkid='' onclick='changeSys(evt)' onmouseover='showPropAndHighlight(evt)' onmouseout='hidePropAndUnhighlight(evt)'>
+  <title id='title.CU_internal/CU/reset'>reset</title>
+<g><rect x='45' y='338' width='30' height='14' rx='6.77419' ry='6.77419' stroke='none' fill='rgb(100%,100%,100%)' />
+<rect x='45' y='338' width='30' height='14' rx='6.77419' ry='6.77419' stroke='rgb(0%,0%,0%)' stroke-width='1' fill='none' />
+<g><text stroke='none' x='49' y='364' font-size='10' fill='rgb(0%,0%,0%)' font-family='Helvetica'>reset</text>
+</g>
+</g>
+<g><g><text stroke='none' x='57' y='349.5' font-size='10' fill='rgb(0%,0%,0%)' clip-path='url(#clip_rect_11)' font-family='Helvetica'>5</text>
+</g>
+</g>
+<g></g>
+</g>
+<g display='none' id='prop.CU_internal/CU/clk' class='proptable' pointer-events='none' extent_Height='186' extent_Width='195' preferred_X='80' preferred_Y='398'>
+  <rect x='0' y='0' width='195' height='186' rx='5' ry='5' stroke='none' fill='rgb(100%,100%,100%)'  filter='url(#drop-shadow)' />
+  <text stroke='none' x='5' y='16' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Port</text>
+  <text stroke='none' x='139' y='16' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>4</text>
+  <rect x='0' y='19' width='195' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='27' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>IconDisplay</text>
+  <text stroke='none' x='139' y='27' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Port number</text>
+  <text stroke='none' x='5' y='38' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>UseBusObject</text>
+  <text stroke='none' x='139' y='38' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>off</text>
+  <rect x='0' y='41' width='195' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='49' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>BusObject</text>
+  <text stroke='none' x='139' y='49' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>BusObject</text>
+  <text stroke='none' x='5' y='60' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>BusOutputAsStruct</text>
+  <text stroke='none' x='139' y='60' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>off</text>
+  <rect x='0' y='63' width='195' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='71' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>PortDimensions</text>
+  <text stroke='none' x='139' y='71' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>-1</text>
+  <text stroke='none' x='5' y='82' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>VarSizeSig</text>
+  <text stroke='none' x='139' y='82' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Inherit</text>
+  <rect x='0' y='85' width='195' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='93' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>SampleTime</text>
+  <text stroke='none' x='139' y='93' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>-1</text>
+  <text stroke='none' x='5' y='104' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>OutMin</text>
+  <text stroke='none' x='139' y='104' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>[]</text>
+  <rect x='0' y='107' width='195' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='115' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>OutMax</text>
+  <text stroke='none' x='139' y='115' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>[]</text>
+  <text stroke='none' x='5' y='126' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>OutDataTypeStr</text>
+  <text stroke='none' x='139' y='126' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Inherit: auto</text>
+  <rect x='0' y='129' width='195' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='137' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>LockScale</text>
+  <text stroke='none' x='139' y='137' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>off</text>
+  <text stroke='none' x='5' y='148' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>SignalType</text>
+  <text stroke='none' x='139' y='148' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>auto</text>
+  <rect x='0' y='151' width='195' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='159' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>SamplingMode</text>
+  <text stroke='none' x='139' y='159' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>auto</text>
+  <text stroke='none' x='5' y='170' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>LatchByDelayingOutsideSignal</text>
+  <text stroke='none' x='139' y='170' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>off</text>
+  <rect x='0' y='173' width='195' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='181' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>LatchInputForFeedbackSignals</text>
+  <text stroke='none' x='139' y='181' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>off</text>
+  <rect x='0' y='0' width='195' height='186' rx='5' ry='5' stroke='rgb(0%,0%,0%)' stroke-width='1' fill='none' />
+</g>
+<g id='CU_internal/CU/clk' linkid='' onclick='changeSys(evt)' onmouseover='showPropAndHighlight(evt)' onmouseout='hidePropAndUnhighlight(evt)'>
+  <title id='title.CU_internal/CU/clk'>clk</title>
+<g><rect x='45' y='393' width='30' height='14' rx='6.77419' ry='6.77419' stroke='none' fill='rgb(100%,100%,100%)' />
+<rect x='45' y='393' width='30' height='14' rx='6.77419' ry='6.77419' stroke='rgb(0%,0%,0%)' stroke-width='1' fill='none' />
+<g><text stroke='none' x='54' y='419' font-size='10' fill='rgb(0%,0%,0%)' font-family='Helvetica'>clk</text>
+</g>
+</g>
+<g><g><text stroke='none' x='57' y='404.5' font-size='10' fill='rgb(0%,0%,0%)' clip-path='url(#clip_rect_12)' font-family='Helvetica'>4</text>
+</g>
+</g>
+<g></g>
+</g>
+<g display='none' id='prop.CU_internal/CU/fu_stalls' class='proptable' pointer-events='none' extent_Height='186' extent_Width='195' preferred_X='104' preferred_Y='183'>
+  <rect x='0' y='0' width='195' height='186' rx='5' ry='5' stroke='none' fill='rgb(100%,100%,100%)'  filter='url(#drop-shadow)' />
+  <text stroke='none' x='5' y='16' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Port</text>
+  <text stroke='none' x='139' y='16' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>3</text>
+  <rect x='0' y='19' width='195' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='27' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>IconDisplay</text>
+  <text stroke='none' x='139' y='27' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Port number</text>
+  <text stroke='none' x='5' y='38' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>UseBusObject</text>
+  <text stroke='none' x='139' y='38' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>off</text>
+  <rect x='0' y='41' width='195' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='49' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>BusObject</text>
+  <text stroke='none' x='139' y='49' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>BusObject</text>
+  <text stroke='none' x='5' y='60' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>BusOutputAsStruct</text>
+  <text stroke='none' x='139' y='60' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>off</text>
+  <rect x='0' y='63' width='195' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='71' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>PortDimensions</text>
+  <text stroke='none' x='139' y='71' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>-1</text>
+  <text stroke='none' x='5' y='82' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>VarSizeSig</text>
+  <text stroke='none' x='139' y='82' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Inherit</text>
+  <rect x='0' y='85' width='195' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='93' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>SampleTime</text>
+  <text stroke='none' x='139' y='93' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>-1</text>
+  <text stroke='none' x='5' y='104' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>OutMin</text>
+  <text stroke='none' x='139' y='104' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>[]</text>
+  <rect x='0' y='107' width='195' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='115' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>OutMax</text>
+  <text stroke='none' x='139' y='115' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>[]</text>
+  <text stroke='none' x='5' y='126' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>OutDataTypeStr</text>
+  <text stroke='none' x='139' y='126' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Inherit: auto</text>
+  <rect x='0' y='129' width='195' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='137' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>LockScale</text>
+  <text stroke='none' x='139' y='137' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>off</text>
+  <text stroke='none' x='5' y='148' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>SignalType</text>
+  <text stroke='none' x='139' y='148' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>auto</text>
+  <rect x='0' y='151' width='195' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='159' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>SamplingMode</text>
+  <text stroke='none' x='139' y='159' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>auto</text>
+  <text stroke='none' x='5' y='170' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>LatchByDelayingOutsideSignal</text>
+  <text stroke='none' x='139' y='170' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>off</text>
+  <rect x='0' y='173' width='195' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='181' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>LatchInputForFeedbackSignals</text>
+  <text stroke='none' x='139' y='181' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>off</text>
+  <rect x='0' y='0' width='195' height='186' rx='5' ry='5' stroke='rgb(0%,0%,0%)' stroke-width='1' fill='none' />
+</g>
+<g id='CU_internal/CU/fu_stalls' linkid='' onclick='changeSys(evt)' onmouseover='showPropAndHighlight(evt)' onmouseout='hidePropAndUnhighlight(evt)'>
+  <title id='title.CU_internal/CU/fu_stalls'>fu_stalls</title>
+<g><rect x='65' y='178' width='30' height='14' rx='6.77419' ry='6.77419' stroke='none' fill='rgb(100%,100%,100%)' />
+<rect x='65' y='178' width='30' height='14' rx='6.77419' ry='6.77419' stroke='rgb(0%,0%,0%)' stroke-width='1' fill='none' />
+<g><text stroke='none' x='61' y='204' font-size='10' fill='rgb(0%,0%,0%)' font-family='Helvetica'>fu_stalls</text>
+</g>
+</g>
+<g><g><text stroke='none' x='77' y='189.5' font-size='10' fill='rgb(0%,0%,0%)' clip-path='url(#clip_rect_13)' font-family='Helvetica'>3</text>
+</g>
+</g>
+<g></g>
+</g>
+<g display='none' id='prop.CU_internal/CU/mem_data_valid' class='proptable' pointer-events='none' extent_Height='186' extent_Width='195' preferred_X='125' preferred_Y='93'>
+  <rect x='0' y='0' width='195' height='186' rx='5' ry='5' stroke='none' fill='rgb(100%,100%,100%)'  filter='url(#drop-shadow)' />
+  <text stroke='none' x='5' y='16' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Port</text>
+  <text stroke='none' x='139' y='16' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>2</text>
+  <rect x='0' y='19' width='195' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='27' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>IconDisplay</text>
+  <text stroke='none' x='139' y='27' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Port number</text>
+  <text stroke='none' x='5' y='38' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>UseBusObject</text>
+  <text stroke='none' x='139' y='38' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>off</text>
+  <rect x='0' y='41' width='195' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='49' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>BusObject</text>
+  <text stroke='none' x='139' y='49' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>BusObject</text>
+  <text stroke='none' x='5' y='60' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>BusOutputAsStruct</text>
+  <text stroke='none' x='139' y='60' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>off</text>
+  <rect x='0' y='63' width='195' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='71' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>PortDimensions</text>
+  <text stroke='none' x='139' y='71' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>-1</text>
+  <text stroke='none' x='5' y='82' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>VarSizeSig</text>
+  <text stroke='none' x='139' y='82' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Inherit</text>
+  <rect x='0' y='85' width='195' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='93' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>SampleTime</text>
+  <text stroke='none' x='139' y='93' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>-1</text>
+  <text stroke='none' x='5' y='104' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>OutMin</text>
+  <text stroke='none' x='139' y='104' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>[]</text>
+  <rect x='0' y='107' width='195' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='115' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>OutMax</text>
+  <text stroke='none' x='139' y='115' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>[]</text>
+  <text stroke='none' x='5' y='126' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>OutDataTypeStr</text>
+  <text stroke='none' x='139' y='126' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Inherit: auto</text>
+  <rect x='0' y='129' width='195' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='137' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>LockScale</text>
+  <text stroke='none' x='139' y='137' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>off</text>
+  <text stroke='none' x='5' y='148' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>SignalType</text>
+  <text stroke='none' x='139' y='148' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>auto</text>
+  <rect x='0' y='151' width='195' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='159' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>SamplingMode</text>
+  <text stroke='none' x='139' y='159' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>auto</text>
+  <text stroke='none' x='5' y='170' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>LatchByDelayingOutsideSignal</text>
+  <text stroke='none' x='139' y='170' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>off</text>
+  <rect x='0' y='173' width='195' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='181' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>LatchInputForFeedbackSignals</text>
+  <text stroke='none' x='139' y='181' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>off</text>
+  <rect x='0' y='0' width='195' height='186' rx='5' ry='5' stroke='rgb(0%,0%,0%)' stroke-width='1' fill='none' />
+</g>
+<g id='CU_internal/CU/mem_data_valid' linkid='' onclick='changeSys(evt)' onmouseover='showPropAndHighlight(evt)' onmouseout='hidePropAndUnhighlight(evt)'>
+  <title id='title.CU_internal/CU/mem_data_valid'>mem_data_valid</title>
+<g><rect x='65' y='88' width='30' height='14' rx='6.77419' ry='6.77419' stroke='none' fill='rgb(100%,100%,100%)' />
+<rect x='65' y='88' width='30' height='14' rx='6.77419' ry='6.77419' stroke='rgb(0%,0%,0%)' stroke-width='1' fill='none' />
+<g><text stroke='none' x='40' y='114' font-size='10' fill='rgb(0%,0%,0%)' font-family='Helvetica'>mem_data_valid</text>
+</g>
+</g>
+<g><g><text stroke='none' x='77' y='99.5' font-size='10' fill='rgb(0%,0%,0%)' clip-path='url(#clip_rect_14)' font-family='Helvetica'>2</text>
+</g>
+</g>
+<g></g>
+</g>
+<g display='none' id='prop.CU_internal/CU/mem_instr' class='proptable' pointer-events='none' extent_Height='186' extent_Width='195' preferred_X='109.5' preferred_Y='53'>
+  <rect x='0' y='0' width='195' height='186' rx='5' ry='5' stroke='none' fill='rgb(100%,100%,100%)'  filter='url(#drop-shadow)' />
+  <text stroke='none' x='5' y='16' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Port</text>
+  <text stroke='none' x='139' y='16' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>1</text>
+  <rect x='0' y='19' width='195' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='27' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>IconDisplay</text>
+  <text stroke='none' x='139' y='27' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Port number</text>
+  <text stroke='none' x='5' y='38' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>UseBusObject</text>
+  <text stroke='none' x='139' y='38' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>off</text>
+  <rect x='0' y='41' width='195' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='49' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>BusObject</text>
+  <text stroke='none' x='139' y='49' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>BusObject</text>
+  <text stroke='none' x='5' y='60' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>BusOutputAsStruct</text>
+  <text stroke='none' x='139' y='60' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>off</text>
+  <rect x='0' y='63' width='195' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='71' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>PortDimensions</text>
+  <text stroke='none' x='139' y='71' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>-1</text>
+  <text stroke='none' x='5' y='82' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>VarSizeSig</text>
+  <text stroke='none' x='139' y='82' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Inherit</text>
+  <rect x='0' y='85' width='195' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='93' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>SampleTime</text>
+  <text stroke='none' x='139' y='93' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>-1</text>
+  <text stroke='none' x='5' y='104' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>OutMin</text>
+  <text stroke='none' x='139' y='104' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>[]</text>
+  <rect x='0' y='107' width='195' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='115' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>OutMax</text>
+  <text stroke='none' x='139' y='115' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>[]</text>
+  <text stroke='none' x='5' y='126' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>OutDataTypeStr</text>
+  <text stroke='none' x='139' y='126' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Inherit: auto</text>
+  <rect x='0' y='129' width='195' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='137' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>LockScale</text>
+  <text stroke='none' x='139' y='137' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>off</text>
+  <text stroke='none' x='5' y='148' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>SignalType</text>
+  <text stroke='none' x='139' y='148' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>auto</text>
+  <rect x='0' y='151' width='195' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='159' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>SamplingMode</text>
+  <text stroke='none' x='139' y='159' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>auto</text>
+  <text stroke='none' x='5' y='170' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>LatchByDelayingOutsideSignal</text>
+  <text stroke='none' x='139' y='170' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>off</text>
+  <rect x='0' y='173' width='195' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='181' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>LatchInputForFeedbackSignals</text>
+  <text stroke='none' x='139' y='181' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>off</text>
+  <rect x='0' y='0' width='195' height='186' rx='5' ry='5' stroke='rgb(0%,0%,0%)' stroke-width='1' fill='none' />
+</g>
+<g id='CU_internal/CU/mem_instr' linkid='' onclick='changeSys(evt)' onmouseover='showPropAndHighlight(evt)' onmouseout='hidePropAndUnhighlight(evt)'>
+  <title id='title.CU_internal/CU/mem_instr'>mem_instr</title>
+<g><rect x='65' y='48' width='30' height='14' rx='6.77419' ry='6.77419' stroke='none' fill='rgb(100%,100%,100%)' />
+<rect x='65' y='48' width='30' height='14' rx='6.77419' ry='6.77419' stroke='rgb(0%,0%,0%)' stroke-width='1' fill='none' />
+<g><text stroke='none' x='55.5' y='74' font-size='10' fill='rgb(0%,0%,0%)' font-family='Helvetica'>mem_instr</text>
+</g>
+</g>
+<g><g><text stroke='none' x='77' y='59.5' font-size='10' fill='rgb(0%,0%,0%)' clip-path='url(#clip_rect_15)' font-family='Helvetica'>1</text>
+</g>
+</g>
+<g></g>
+</g>
+<g display='none' id='prop.CU_internal/CU/_uniq_id_4' class='proptable' pointer-events='none' extent_Height='120' extent_Width='203' preferred_X='830' preferred_Y='115'>
+  <rect x='0' y='0' width='203' height='120' rx='5' ry='5' stroke='none' fill='rgb(100%,100%,100%)'  filter='url(#drop-shadow)' />
+  <text stroke='none' x='5' y='16' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLogging</text>
+  <text stroke='none' x='128' y='16' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>0</text>
+  <rect x='0' y='19' width='203' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='27' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLoggingNameMode</text>
+  <text stroke='none' x='128' y='27' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Use signal name</text>
+  <text stroke='none' x='5' y='38' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLoggingDecimateData</text>
+  <text stroke='none' x='128' y='38' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>0</text>
+  <rect x='0' y='41' width='203' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='49' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLoggingDecimation</text>
+  <text stroke='none' x='128' y='49' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>2</text>
+  <text stroke='none' x='5' y='60' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLoggingLimitDataPoints</text>
+  <text stroke='none' x='128' y='60' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>0</text>
+  <rect x='0' y='63' width='203' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='71' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLoggingMaxPoints</text>
+  <text stroke='none' x='128' y='71' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>5000</text>
+  <text stroke='none' x='5' y='82' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>TestPoint</text>
+  <text stroke='none' x='128' y='82' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>0</text>
+  <rect x='0' y='85' width='203' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='93' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>SignalPropagation</text>
+  <text stroke='none' x='128' y='93' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>off</text>
+  <text stroke='none' x='5' y='104' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>MustResolveToSignalObject</text>
+  <text stroke='none' x='128' y='104' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>0</text>
+  <rect x='0' y='107' width='203' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='115' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>StorageClass</text>
+  <text stroke='none' x='128' y='115' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Auto</text>
+  <rect x='0' y='0' width='203' height='120' rx='5' ry='5' stroke='rgb(0%,0%,0%)' stroke-width='1' fill='none' />
+</g>
+<g id='CU_internal/CU/_uniq_id_4' linkid='' onclick='changeSys(evt)' onmouseover='showPropAndHighlight(evt)' onmouseout='hidePropAndUnhighlight(evt)'>
+  <title id='title.CU_internal/CU/_uniq_id_4'>line</title>
+<line x1='820' y1='295' x2='810' y2='295' stroke='rgb(0%,0%,0%)' stroke-width='1' />
+<polygon points='815,290 815,300 825,295 815,290 ' stroke='none' fill='rgb(0%,0%,0%)' />
+<g></g>
+<polyline points='765,275 765,285 810,285 810,295 812,295 ' stroke='rgb(0%,0%,0%)' stroke-width='1' fill = 'none'/>
+<line x1='790' y1='115' x2='780' y2='115' stroke='rgb(0%,0%,0%)' stroke-width='1' />
+<polygon points='785,110 785,120 795,115 785,110 ' stroke='none' fill='rgb(0%,0%,0%)' />
+<g></g>
+<polyline points='765,275 765,115 780,115 782,115 ' stroke='rgb(0%,0%,0%)' stroke-width='1' fill = 'none'/>
+<polyline points='560,400 765,400 765,275 ' stroke='rgb(0%,0%,0%)' stroke-width='1' fill = 'none'/>
+<rect x='764' y='274' width='2' height='2' stroke='none' fill='rgb(0%,0%,0%)' />
+<rect x='764' y='274' width='2' height='2' stroke='rgb(0%,0%,0%)' stroke-width='1' fill='none' />
+<line x1='615' y1='205' x2='605' y2='205' stroke='rgb(0%,0%,0%)' stroke-width='1' />
+<polygon points='610,200 610,210 620,205 610,200 ' stroke='none' fill='rgb(0%,0%,0%)' />
+<g></g>
+<polyline points='560,400 560,205 605,205 607,205 ' stroke='rgb(0%,0%,0%)' stroke-width='1' fill = 'none'/>
+<line x1='75' y1='400' x2='80' y2='400' stroke='rgb(0%,0%,0%)' stroke-width='1' />
+<g></g>
+<polyline points='78,400 80,400 560,400 ' stroke='rgb(0%,0%,0%)' stroke-width='1' fill = 'none'/>
+<rect x='559' y='399' width='2' height='2' stroke='none' fill='rgb(0%,0%,0%)' />
+<rect x='559' y='399' width='2' height='2' stroke='rgb(0%,0%,0%)' stroke-width='1' fill='none' />
+</g>
+<g display='none' id='prop.CU_internal/CU/_uniq_id_5' class='proptable' pointer-events='none' extent_Height='120' extent_Width='203' preferred_X='830' preferred_Y='130'>
+  <rect x='0' y='0' width='203' height='120' rx='5' ry='5' stroke='none' fill='rgb(100%,100%,100%)'  filter='url(#drop-shadow)' />
+  <text stroke='none' x='5' y='16' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLogging</text>
+  <text stroke='none' x='128' y='16' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>0</text>
+  <rect x='0' y='19' width='203' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='27' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLoggingNameMode</text>
+  <text stroke='none' x='128' y='27' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Use signal name</text>
+  <text stroke='none' x='5' y='38' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLoggingDecimateData</text>
+  <text stroke='none' x='128' y='38' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>0</text>
+  <rect x='0' y='41' width='203' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='49' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLoggingDecimation</text>
+  <text stroke='none' x='128' y='49' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>2</text>
+  <text stroke='none' x='5' y='60' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLoggingLimitDataPoints</text>
+  <text stroke='none' x='128' y='60' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>0</text>
+  <rect x='0' y='63' width='203' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='71' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLoggingMaxPoints</text>
+  <text stroke='none' x='128' y='71' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>5000</text>
+  <text stroke='none' x='5' y='82' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>TestPoint</text>
+  <text stroke='none' x='128' y='82' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>0</text>
+  <rect x='0' y='85' width='203' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='93' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>SignalPropagation</text>
+  <text stroke='none' x='128' y='93' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>off</text>
+  <text stroke='none' x='5' y='104' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>MustResolveToSignalObject</text>
+  <text stroke='none' x='128' y='104' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>0</text>
+  <rect x='0' y='107' width='203' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='115' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>StorageClass</text>
+  <text stroke='none' x='128' y='115' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Auto</text>
+  <rect x='0' y='0' width='203' height='120' rx='5' ry='5' stroke='rgb(0%,0%,0%)' stroke-width='1' fill='none' />
+</g>
+<g id='CU_internal/CU/_uniq_id_5' linkid='' onclick='changeSys(evt)' onmouseover='showPropAndHighlight(evt)' onmouseout='hidePropAndUnhighlight(evt)'>
+  <title id='title.CU_internal/CU/_uniq_id_5'>line</title>
+<line x1='790' y1='130' x2='780' y2='130' stroke='rgb(0%,0%,0%)' stroke-width='1' />
+<polygon points='785,125 785,135 795,130 785,125 ' stroke='none' fill='rgb(0%,0%,0%)' />
+<g></g>
+<polyline points='775,320 775,130 780,130 782,130 ' stroke='rgb(0%,0%,0%)' stroke-width='1' fill = 'none'/>
+<line x1='820' y1='320' x2='810' y2='320' stroke='rgb(0%,0%,0%)' stroke-width='1' />
+<polygon points='815,315 815,325 825,320 815,315 ' stroke='none' fill='rgb(0%,0%,0%)' />
+<g></g>
+<polyline points='775,320 810,320 812,320 ' stroke='rgb(0%,0%,0%)' stroke-width='1' fill = 'none'/>
+<line x1='615' y1='225' x2='605' y2='225' stroke='rgb(0%,0%,0%)' stroke-width='1' />
+<polygon points='610,220 610,230 620,225 610,220 ' stroke='none' fill='rgb(0%,0%,0%)' />
+<g></g>
+<polyline points='580,345 580,225 605,225 607,225 ' stroke='rgb(0%,0%,0%)' stroke-width='1' fill = 'none'/>
+<polyline points='580,345 775,345 775,320 ' stroke='rgb(0%,0%,0%)' stroke-width='1' fill = 'none'/>
+<rect x='774' y='319' width='2' height='2' stroke='none' fill='rgb(0%,0%,0%)' />
+<rect x='774' y='319' width='2' height='2' stroke='rgb(0%,0%,0%)' stroke-width='1' fill='none' />
+<line x1='75' y1='345' x2='80' y2='345' stroke='rgb(0%,0%,0%)' stroke-width='1' />
+<g></g>
+<polyline points='78,345 80,345 580,345 ' stroke='rgb(0%,0%,0%)' stroke-width='1' fill = 'none'/>
+<rect x='579' y='344' width='2' height='2' stroke='none' fill='rgb(0%,0%,0%)' />
+<rect x='579' y='344' width='2' height='2' stroke='rgb(0%,0%,0%)' stroke-width='1' fill='none' />
+</g>
+<g display='none' id='prop.CU_internal/CU/_uniq_id_6' class='proptable' pointer-events='none' extent_Height='120' extent_Width='203' preferred_X='1045' preferred_Y='60'>
+  <rect x='0' y='0' width='203' height='120' rx='5' ry='5' stroke='none' fill='rgb(100%,100%,100%)'  filter='url(#drop-shadow)' />
+  <text stroke='none' x='5' y='16' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLogging</text>
+  <text stroke='none' x='128' y='16' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>0</text>
+  <rect x='0' y='19' width='203' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='27' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLoggingNameMode</text>
+  <text stroke='none' x='128' y='27' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Use signal name</text>
+  <text stroke='none' x='5' y='38' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLoggingDecimateData</text>
+  <text stroke='none' x='128' y='38' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>0</text>
+  <rect x='0' y='41' width='203' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='49' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLoggingDecimation</text>
+  <text stroke='none' x='128' y='49' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>2</text>
+  <text stroke='none' x='5' y='60' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLoggingLimitDataPoints</text>
+  <text stroke='none' x='128' y='60' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>0</text>
+  <rect x='0' y='63' width='203' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='71' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLoggingMaxPoints</text>
+  <text stroke='none' x='128' y='71' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>5000</text>
+  <text stroke='none' x='5' y='82' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>TestPoint</text>
+  <text stroke='none' x='128' y='82' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>0</text>
+  <rect x='0' y='85' width='203' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='93' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>SignalPropagation</text>
+  <text stroke='none' x='128' y='93' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>off</text>
+  <text stroke='none' x='5' y='104' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>MustResolveToSignalObject</text>
+  <text stroke='none' x='128' y='104' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>0</text>
+  <rect x='0' y='107' width='203' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='115' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>StorageClass</text>
+  <text stroke='none' x='128' y='115' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Auto</text>
+  <rect x='0' y='0' width='203' height='120' rx='5' ry='5' stroke='rgb(0%,0%,0%)' stroke-width='1' fill='none' />
+</g>
+<g id='CU_internal/CU/_uniq_id_6' linkid='' onclick='changeSys(evt)' onmouseover='showPropAndHighlight(evt)' onmouseout='hidePropAndUnhighlight(evt)'>
+  <title id='title.CU_internal/CU/_uniq_id_6'>line</title>
+<line x1='1020' y1='55' x2='1025' y2='55' stroke='rgb(0%,0%,0%)' stroke-width='1' />
+<g></g>
+<line x1='820' y1='245' x2='810' y2='245' stroke='rgb(0%,0%,0%)' stroke-width='1' />
+<polygon points='815,240 815,250 825,245 815,240 ' stroke='none' fill='rgb(0%,0%,0%)' />
+<g></g>
+<polyline points='1023,55 1025,55 1040,55 1040,225 810,225 810,245 812,245 ' stroke='rgb(0%,0%,0%)' stroke-width='1' fill = 'none'/>
+</g>
+<g display='none' id='prop.CU_internal/CU/_uniq_id_7' class='proptable' pointer-events='none' extent_Height='120' extent_Width='203' preferred_X='1195' preferred_Y='55'>
+  <rect x='0' y='0' width='203' height='120' rx='5' ry='5' stroke='none' fill='rgb(100%,100%,100%)'  filter='url(#drop-shadow)' />
+  <text stroke='none' x='5' y='16' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLogging</text>
+  <text stroke='none' x='128' y='16' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>0</text>
+  <rect x='0' y='19' width='203' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='27' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLoggingNameMode</text>
+  <text stroke='none' x='128' y='27' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Use signal name</text>
+  <text stroke='none' x='5' y='38' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLoggingDecimateData</text>
+  <text stroke='none' x='128' y='38' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>0</text>
+  <rect x='0' y='41' width='203' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='49' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLoggingDecimation</text>
+  <text stroke='none' x='128' y='49' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>2</text>
+  <text stroke='none' x='5' y='60' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLoggingLimitDataPoints</text>
+  <text stroke='none' x='128' y='60' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>0</text>
+  <rect x='0' y='63' width='203' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='71' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLoggingMaxPoints</text>
+  <text stroke='none' x='128' y='71' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>5000</text>
+  <text stroke='none' x='5' y='82' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>TestPoint</text>
+  <text stroke='none' x='128' y='82' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>0</text>
+  <rect x='0' y='85' width='203' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='93' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>SignalPropagation</text>
+  <text stroke='none' x='128' y='93' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>off</text>
+  <text stroke='none' x='5' y='104' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>MustResolveToSignalObject</text>
+  <text stroke='none' x='128' y='104' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>0</text>
+  <rect x='0' y='107' width='203' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='115' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>StorageClass</text>
+  <text stroke='none' x='128' y='115' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Auto</text>
+  <rect x='0' y='0' width='203' height='120' rx='5' ry='5' stroke='rgb(0%,0%,0%)' stroke-width='1' fill='none' />
+</g>
+<g id='CU_internal/CU/_uniq_id_7' linkid='' onclick='changeSys(evt)' onmouseover='showPropAndHighlight(evt)' onmouseout='hidePropAndUnhighlight(evt)'>
+  <title id='title.CU_internal/CU/_uniq_id_7'>line</title>
+<line x1='1020' y1='80' x2='1025' y2='80' stroke='rgb(0%,0%,0%)' stroke-width='1' />
+<g></g>
+<line x1='1185' y1='55' x2='1175' y2='55' stroke='rgb(0%,0%,0%)' stroke-width='1' />
+<polygon points='1180,50 1180,60 1190,55 1180,50 ' stroke='none' fill='rgb(0%,0%,0%)' />
+<g></g>
+<polyline points='1023,80 1025,80 1170,80 1170,55 1175,55 1177,55 ' stroke='rgb(0%,0%,0%)' stroke-width='1' fill = 'none'/>
+</g>
+<g display='none' id='prop.CU_internal/CU/_uniq_id_8' class='proptable' pointer-events='none' extent_Height='120' extent_Width='203' preferred_X='1195' preferred_Y='105'>
+  <rect x='0' y='0' width='203' height='120' rx='5' ry='5' stroke='none' fill='rgb(100%,100%,100%)'  filter='url(#drop-shadow)' />
+  <text stroke='none' x='5' y='16' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLogging</text>
+  <text stroke='none' x='128' y='16' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>0</text>
+  <rect x='0' y='19' width='203' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='27' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLoggingNameMode</text>
+  <text stroke='none' x='128' y='27' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Use signal name</text>
+  <text stroke='none' x='5' y='38' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLoggingDecimateData</text>
+  <text stroke='none' x='128' y='38' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>0</text>
+  <rect x='0' y='41' width='203' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='49' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLoggingDecimation</text>
+  <text stroke='none' x='128' y='49' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>2</text>
+  <text stroke='none' x='5' y='60' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLoggingLimitDataPoints</text>
+  <text stroke='none' x='128' y='60' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>0</text>
+  <rect x='0' y='63' width='203' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='71' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLoggingMaxPoints</text>
+  <text stroke='none' x='128' y='71' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>5000</text>
+  <text stroke='none' x='5' y='82' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>TestPoint</text>
+  <text stroke='none' x='128' y='82' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>0</text>
+  <rect x='0' y='85' width='203' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='93' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>SignalPropagation</text>
+  <text stroke='none' x='128' y='93' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>off</text>
+  <text stroke='none' x='5' y='104' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>MustResolveToSignalObject</text>
+  <text stroke='none' x='128' y='104' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>0</text>
+  <rect x='0' y='107' width='203' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='115' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>StorageClass</text>
+  <text stroke='none' x='128' y='115' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Auto</text>
+  <rect x='0' y='0' width='203' height='120' rx='5' ry='5' stroke='rgb(0%,0%,0%)' stroke-width='1' fill='none' />
+</g>
+<g id='CU_internal/CU/_uniq_id_8' linkid='' onclick='changeSys(evt)' onmouseover='showPropAndHighlight(evt)' onmouseout='hidePropAndUnhighlight(evt)'>
+  <title id='title.CU_internal/CU/_uniq_id_8'>line</title>
+<line x1='1020' y1='105' x2='1025' y2='105' stroke='rgb(0%,0%,0%)' stroke-width='1' />
+<g></g>
+<line x1='1185' y1='105' x2='1175' y2='105' stroke='rgb(0%,0%,0%)' stroke-width='1' />
+<polygon points='1180,100 1180,110 1190,105 1180,100 ' stroke='none' fill='rgb(0%,0%,0%)' />
+<g></g>
+<polyline points='1023,105 1025,105 1175,105 1177,105 ' stroke='rgb(0%,0%,0%)' stroke-width='1' fill = 'none'/>
+</g>
+<g display='none' id='prop.CU_internal/CU/_uniq_id_9' class='proptable' pointer-events='none' extent_Height='120' extent_Width='203' preferred_X='1030' preferred_Y='135'>
+  <rect x='0' y='0' width='203' height='120' rx='5' ry='5' stroke='none' fill='rgb(100%,100%,100%)'  filter='url(#drop-shadow)' />
+  <text stroke='none' x='5' y='16' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLogging</text>
+  <text stroke='none' x='128' y='16' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>0</text>
+  <rect x='0' y='19' width='203' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='27' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLoggingNameMode</text>
+  <text stroke='none' x='128' y='27' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Use signal name</text>
+  <text stroke='none' x='5' y='38' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLoggingDecimateData</text>
+  <text stroke='none' x='128' y='38' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>0</text>
+  <rect x='0' y='41' width='203' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='49' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLoggingDecimation</text>
+  <text stroke='none' x='128' y='49' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>2</text>
+  <text stroke='none' x='5' y='60' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLoggingLimitDataPoints</text>
+  <text stroke='none' x='128' y='60' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>0</text>
+  <rect x='0' y='63' width='203' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='71' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLoggingMaxPoints</text>
+  <text stroke='none' x='128' y='71' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>5000</text>
+  <text stroke='none' x='5' y='82' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>TestPoint</text>
+  <text stroke='none' x='128' y='82' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>0</text>
+  <rect x='0' y='85' width='203' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='93' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>SignalPropagation</text>
+  <text stroke='none' x='128' y='93' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>off</text>
+  <text stroke='none' x='5' y='104' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>MustResolveToSignalObject</text>
+  <text stroke='none' x='128' y='104' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>0</text>
+  <rect x='0' y='107' width='203' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='115' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>StorageClass</text>
+  <text stroke='none' x='128' y='115' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Auto</text>
+  <rect x='0' y='0' width='203' height='120' rx='5' ry='5' stroke='rgb(0%,0%,0%)' stroke-width='1' fill='none' />
+</g>
+<g id='CU_internal/CU/_uniq_id_9' linkid='' onclick='changeSys(evt)' onmouseover='showPropAndHighlight(evt)' onmouseout='hidePropAndUnhighlight(evt)'>
+  <title id='title.CU_internal/CU/_uniq_id_9'>line</title>
+<line x1='1020' y1='130' x2='1025' y2='130' stroke='rgb(0%,0%,0%)' stroke-width='1' />
+<g></g>
+<line x1='820' y1='270' x2='810' y2='270' stroke='rgb(0%,0%,0%)' stroke-width='1' />
+<polygon points='815,265 815,275 825,270 815,265 ' stroke='none' fill='rgb(0%,0%,0%)' />
+<g></g>
+<polyline points='1023,130 1025,130 1025,215 785,215 785,270 810,270 812,270 ' stroke='rgb(0%,0%,0%)' stroke-width='1' fill = 'none'/>
+</g>
+<g display='none' id='prop.CU_internal/CU/_uniq_id_10' class='proptable' pointer-events='none' extent_Height='120' extent_Width='203' preferred_X='1195' preferred_Y='170'>
+  <rect x='0' y='0' width='203' height='120' rx='5' ry='5' stroke='none' fill='rgb(100%,100%,100%)'  filter='url(#drop-shadow)' />
+  <text stroke='none' x='5' y='16' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLogging</text>
+  <text stroke='none' x='128' y='16' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>0</text>
+  <rect x='0' y='19' width='203' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='27' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLoggingNameMode</text>
+  <text stroke='none' x='128' y='27' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Use signal name</text>
+  <text stroke='none' x='5' y='38' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLoggingDecimateData</text>
+  <text stroke='none' x='128' y='38' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>0</text>
+  <rect x='0' y='41' width='203' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='49' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLoggingDecimation</text>
+  <text stroke='none' x='128' y='49' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>2</text>
+  <text stroke='none' x='5' y='60' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLoggingLimitDataPoints</text>
+  <text stroke='none' x='128' y='60' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>0</text>
+  <rect x='0' y='63' width='203' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='71' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLoggingMaxPoints</text>
+  <text stroke='none' x='128' y='71' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>5000</text>
+  <text stroke='none' x='5' y='82' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>TestPoint</text>
+  <text stroke='none' x='128' y='82' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>0</text>
+  <rect x='0' y='85' width='203' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='93' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>SignalPropagation</text>
+  <text stroke='none' x='128' y='93' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>off</text>
+  <text stroke='none' x='5' y='104' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>MustResolveToSignalObject</text>
+  <text stroke='none' x='128' y='104' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>0</text>
+  <rect x='0' y='107' width='203' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='115' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>StorageClass</text>
+  <text stroke='none' x='128' y='115' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Auto</text>
+  <rect x='0' y='0' width='203' height='120' rx='5' ry='5' stroke='rgb(0%,0%,0%)' stroke-width='1' fill='none' />
+</g>
+<g id='CU_internal/CU/_uniq_id_10' linkid='' onclick='changeSys(evt)' onmouseover='showPropAndHighlight(evt)' onmouseout='hidePropAndUnhighlight(evt)'>
+  <title id='title.CU_internal/CU/_uniq_id_10'>line</title>
+<line x1='1035' y1='295' x2='1040' y2='295' stroke='rgb(0%,0%,0%)' stroke-width='1' />
+<g></g>
+<line x1='1185' y1='170' x2='1175' y2='170' stroke='rgb(0%,0%,0%)' stroke-width='1' />
+<polygon points='1180,165 1180,175 1190,170 1180,165 ' stroke='none' fill='rgb(0%,0%,0%)' />
+<g></g>
+<polyline points='1038,295 1040,295 1100,295 1100,170 1175,170 1177,170 ' stroke='rgb(0%,0%,0%)' stroke-width='1' fill = 'none'/>
+</g>
+<g display='none' id='prop.CU_internal/CU/_uniq_id_11' class='proptable' pointer-events='none' extent_Height='120' extent_Width='203' preferred_X='625' preferred_Y='135'>
+  <rect x='0' y='0' width='203' height='120' rx='5' ry='5' stroke='none' fill='rgb(100%,100%,100%)'  filter='url(#drop-shadow)' />
+  <text stroke='none' x='5' y='16' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLogging</text>
+  <text stroke='none' x='128' y='16' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>0</text>
+  <rect x='0' y='19' width='203' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='27' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLoggingNameMode</text>
+  <text stroke='none' x='128' y='27' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Use signal name</text>
+  <text stroke='none' x='5' y='38' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLoggingDecimateData</text>
+  <text stroke='none' x='128' y='38' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>0</text>
+  <rect x='0' y='41' width='203' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='49' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLoggingDecimation</text>
+  <text stroke='none' x='128' y='49' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>2</text>
+  <text stroke='none' x='5' y='60' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLoggingLimitDataPoints</text>
+  <text stroke='none' x='128' y='60' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>0</text>
+  <rect x='0' y='63' width='203' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='71' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLoggingMaxPoints</text>
+  <text stroke='none' x='128' y='71' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>5000</text>
+  <text stroke='none' x='5' y='82' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>TestPoint</text>
+  <text stroke='none' x='128' y='82' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>0</text>
+  <rect x='0' y='85' width='203' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='93' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>SignalPropagation</text>
+  <text stroke='none' x='128' y='93' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>off</text>
+  <text stroke='none' x='5' y='104' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>MustResolveToSignalObject</text>
+  <text stroke='none' x='128' y='104' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>0</text>
+  <rect x='0' y='107' width='203' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='115' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>StorageClass</text>
+  <text stroke='none' x='128' y='115' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Auto</text>
+  <rect x='0' y='0' width='203' height='120' rx='5' ry='5' stroke='rgb(0%,0%,0%)' stroke-width='1' fill='none' />
+</g>
+<g id='CU_internal/CU/_uniq_id_11' linkid='' onclick='changeSys(evt)' onmouseover='showPropAndHighlight(evt)' onmouseout='hidePropAndUnhighlight(evt)'>
+  <title id='title.CU_internal/CU/_uniq_id_11'>line</title>
+<line x1='500' y1='130' x2='505' y2='130' stroke='rgb(0%,0%,0%)' stroke-width='1' />
+<g></g>
+<line x1='615' y1='185' x2='605' y2='185' stroke='rgb(0%,0%,0%)' stroke-width='1' />
+<polygon points='610,180 610,190 620,185 610,180 ' stroke='none' fill='rgb(0%,0%,0%)' />
+<g></g>
+<polyline points='503,130 505,130 605,130 605,185 607,185 ' stroke='rgb(0%,0%,0%)' stroke-width='1' fill = 'none'/>
+</g>
+<g display='none' id='prop.CU_internal/CU/_uniq_id_12' class='proptable' pointer-events='none' extent_Height='120' extent_Width='203' preferred_X='217' preferred_Y='188'>
+  <rect x='0' y='0' width='203' height='120' rx='5' ry='5' stroke='none' fill='rgb(100%,100%,100%)'  filter='url(#drop-shadow)' />
+  <text stroke='none' x='5' y='16' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLogging</text>
+  <text stroke='none' x='128' y='16' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>0</text>
+  <rect x='0' y='19' width='203' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='27' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLoggingNameMode</text>
+  <text stroke='none' x='128' y='27' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Use signal name</text>
+  <text stroke='none' x='5' y='38' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLoggingDecimateData</text>
+  <text stroke='none' x='128' y='38' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>0</text>
+  <rect x='0' y='41' width='203' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='49' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLoggingDecimation</text>
+  <text stroke='none' x='128' y='49' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>2</text>
+  <text stroke='none' x='5' y='60' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLoggingLimitDataPoints</text>
+  <text stroke='none' x='128' y='60' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>0</text>
+  <rect x='0' y='63' width='203' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='71' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLoggingMaxPoints</text>
+  <text stroke='none' x='128' y='71' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>5000</text>
+  <text stroke='none' x='5' y='82' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>TestPoint</text>
+  <text stroke='none' x='128' y='82' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>0</text>
+  <rect x='0' y='85' width='203' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='93' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>SignalPropagation</text>
+  <text stroke='none' x='128' y='93' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>off</text>
+  <text stroke='none' x='5' y='104' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>MustResolveToSignalObject</text>
+  <text stroke='none' x='128' y='104' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>0</text>
+  <rect x='0' y='107' width='203' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='115' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>StorageClass</text>
+  <text stroke='none' x='128' y='115' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Auto</text>
+  <rect x='0' y='0' width='203' height='120' rx='5' ry='5' stroke='rgb(0%,0%,0%)' stroke-width='1' fill='none' />
+</g>
+<g id='CU_internal/CU/_uniq_id_12' linkid='' onclick='changeSys(evt)' onmouseover='showPropAndHighlight(evt)' onmouseout='hidePropAndUnhighlight(evt)'>
+  <title id='title.CU_internal/CU/_uniq_id_12'>line</title>
+<line x1='166' y1='190' x2='170' y2='190' stroke='rgb(0%,0%,0%)' stroke-width='5' />
+<line x1='166' y1='190' x2='170' y2='190' stroke='rgb(100%,100%,100%)' stroke-width='3' />
+<line x1='166' y1='190' x2='170' y2='190' stroke='rgb(0%,0%,0%)' stroke-width='1' />
+<g></g>
+<line x1='205' y1='190' x2='195' y2='190' stroke='rgb(0%,0%,0%)' stroke-width='5' />
+<line x1='205' y1='190' x2='195' y2='190' stroke='rgb(100%,100%,100%)' stroke-width='3' />
+<line x1='205' y1='190' x2='195' y2='190' stroke='rgb(0%,0%,0%)' stroke-width='1' />
+<polygon points='198,183 198,197 212,190 198,183 ' stroke='none' fill='rgb(0%,0%,0%)' />
+<g></g>
+<polyline points='168,190 170,190 195,190 197,190 ' stroke='rgb(0%,0%,0%)' stroke-width='5' fill = 'none'/>
+<polyline points='168,190 170,190 195,190 197,190 ' stroke='rgb(100%,100%,100%)' stroke-width='3' fill = 'none'/>
+<polyline points='168,190 170,190 195,190 197,190 ' stroke='rgb(0%,0%,0%)' stroke-width='1' fill = 'none'/>
+</g>
+<g display='none' id='prop.CU_internal/CU/&lt;signal1>_uniq_id_13' class='proptable' pointer-events='none' extent_Height='131' extent_Width='203' preferred_X='290' preferred_Y='165'>
+  <rect x='0' y='0' width='203' height='131' rx='5' ry='5' stroke='none' fill='rgb(100%,100%,100%)'  filter='url(#drop-shadow)' />
+  <text stroke='none' x='5' y='16' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLogging</text>
+  <text stroke='none' x='128' y='16' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>0</text>
+  <rect x='0' y='19' width='203' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='27' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLoggingNameMode</text>
+  <text stroke='none' x='128' y='27' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Use signal name</text>
+  <text stroke='none' x='5' y='38' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>UserSpecifiedLogName</text>
+  <text stroke='none' x='128' y='38' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>&lt;signal1></text>
+  <rect x='0' y='41' width='203' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='49' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLoggingDecimateData</text>
+  <text stroke='none' x='128' y='49' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>0</text>
+  <text stroke='none' x='5' y='60' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLoggingDecimation</text>
+  <text stroke='none' x='128' y='60' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>2</text>
+  <rect x='0' y='63' width='203' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='71' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLoggingLimitDataPoints</text>
+  <text stroke='none' x='128' y='71' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>0</text>
+  <text stroke='none' x='5' y='82' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLoggingMaxPoints</text>
+  <text stroke='none' x='128' y='82' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>5000</text>
+  <rect x='0' y='85' width='203' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='93' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>TestPoint</text>
+  <text stroke='none' x='128' y='93' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>0</text>
+  <text stroke='none' x='5' y='104' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>SignalPropagation</text>
+  <text stroke='none' x='128' y='104' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>off</text>
+  <rect x='0' y='107' width='203' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='115' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>MustResolveToSignalObject</text>
+  <text stroke='none' x='128' y='115' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>0</text>
+  <text stroke='none' x='5' y='126' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>StorageClass</text>
+  <text stroke='none' x='128' y='126' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Auto</text>
+  <rect x='0' y='0' width='203' height='131' rx='5' ry='5' stroke='rgb(0%,0%,0%)' stroke-width='1' fill='none' />
+</g>
+<g id='CU_internal/CU/&lt;signal1>_uniq_id_13' linkid='' onclick='changeSys(evt)' onmouseover='showPropAndHighlight(evt)' onmouseout='hidePropAndUnhighlight(evt)'>
+  <title id='title.CU_internal/CU/&lt;signal1>_uniq_id_13'>&lt;signal1></title>
+<line x1='215' y1='165' x2='220' y2='165' stroke='rgb(0%,0%,0%)' stroke-width='1' />
+<g></g>
+<line x1='280' y1='165' x2='270' y2='165' stroke='rgb(0%,0%,0%)' stroke-width='1' />
+<polygon points='275,160 275,170 285,165 275,160 ' stroke='none' fill='rgb(0%,0%,0%)' />
+<g></g>
+<polyline points='218,165 220,165 270,165 272,165 ' stroke='rgb(0%,0%,0%)' stroke-width='1' fill = 'none'/>
+<g><text stroke='none' x='223' y='175' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>&lt;signal1></text>
+</g>
+</g>
+<g display='none' id='prop.CU_internal/CU/&lt;signal2>_uniq_id_14' class='proptable' pointer-events='none' extent_Height='131' extent_Width='203' preferred_X='290' preferred_Y='180'>
+  <rect x='0' y='0' width='203' height='131' rx='5' ry='5' stroke='none' fill='rgb(100%,100%,100%)'  filter='url(#drop-shadow)' />
+  <text stroke='none' x='5' y='16' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLogging</text>
+  <text stroke='none' x='128' y='16' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>0</text>
+  <rect x='0' y='19' width='203' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='27' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLoggingNameMode</text>
+  <text stroke='none' x='128' y='27' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Use signal name</text>
+  <text stroke='none' x='5' y='38' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>UserSpecifiedLogName</text>
+  <text stroke='none' x='128' y='38' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>&lt;signal2></text>
+  <rect x='0' y='41' width='203' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='49' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLoggingDecimateData</text>
+  <text stroke='none' x='128' y='49' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>0</text>
+  <text stroke='none' x='5' y='60' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLoggingDecimation</text>
+  <text stroke='none' x='128' y='60' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>2</text>
+  <rect x='0' y='63' width='203' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='71' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLoggingLimitDataPoints</text>
+  <text stroke='none' x='128' y='71' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>0</text>
+  <text stroke='none' x='5' y='82' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLoggingMaxPoints</text>
+  <text stroke='none' x='128' y='82' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>5000</text>
+  <rect x='0' y='85' width='203' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='93' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>TestPoint</text>
+  <text stroke='none' x='128' y='93' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>0</text>
+  <text stroke='none' x='5' y='104' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>SignalPropagation</text>
+  <text stroke='none' x='128' y='104' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>off</text>
+  <rect x='0' y='107' width='203' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='115' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>MustResolveToSignalObject</text>
+  <text stroke='none' x='128' y='115' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>0</text>
+  <text stroke='none' x='5' y='126' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>StorageClass</text>
+  <text stroke='none' x='128' y='126' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Auto</text>
+  <rect x='0' y='0' width='203' height='131' rx='5' ry='5' stroke='rgb(0%,0%,0%)' stroke-width='1' fill='none' />
+</g>
+<g id='CU_internal/CU/&lt;signal2>_uniq_id_14' linkid='' onclick='changeSys(evt)' onmouseover='showPropAndHighlight(evt)' onmouseout='hidePropAndUnhighlight(evt)'>
+  <title id='title.CU_internal/CU/&lt;signal2>_uniq_id_14'>&lt;signal2></title>
+<line x1='215' y1='180' x2='220' y2='180' stroke='rgb(0%,0%,0%)' stroke-width='1' />
+<g></g>
+<line x1='280' y1='180' x2='270' y2='180' stroke='rgb(0%,0%,0%)' stroke-width='1' />
+<polygon points='275,175 275,185 285,180 275,175 ' stroke='none' fill='rgb(0%,0%,0%)' />
+<g></g>
+<polyline points='218,180 220,180 270,180 272,180 ' stroke='rgb(0%,0%,0%)' stroke-width='1' fill = 'none'/>
+<g><text stroke='none' x='223' y='190' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>&lt;signal2></text>
+</g>
+</g>
+<g display='none' id='prop.CU_internal/CU/&lt;signal3>_uniq_id_15' class='proptable' pointer-events='none' extent_Height='131' extent_Width='203' preferred_X='290' preferred_Y='195'>
+  <rect x='0' y='0' width='203' height='131' rx='5' ry='5' stroke='none' fill='rgb(100%,100%,100%)'  filter='url(#drop-shadow)' />
+  <text stroke='none' x='5' y='16' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLogging</text>
+  <text stroke='none' x='128' y='16' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>0</text>
+  <rect x='0' y='19' width='203' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='27' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLoggingNameMode</text>
+  <text stroke='none' x='128' y='27' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Use signal name</text>
+  <text stroke='none' x='5' y='38' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>UserSpecifiedLogName</text>
+  <text stroke='none' x='128' y='38' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>&lt;signal3></text>
+  <rect x='0' y='41' width='203' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='49' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLoggingDecimateData</text>
+  <text stroke='none' x='128' y='49' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>0</text>
+  <text stroke='none' x='5' y='60' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLoggingDecimation</text>
+  <text stroke='none' x='128' y='60' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>2</text>
+  <rect x='0' y='63' width='203' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='71' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLoggingLimitDataPoints</text>
+  <text stroke='none' x='128' y='71' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>0</text>
+  <text stroke='none' x='5' y='82' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLoggingMaxPoints</text>
+  <text stroke='none' x='128' y='82' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>5000</text>
+  <rect x='0' y='85' width='203' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='93' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>TestPoint</text>
+  <text stroke='none' x='128' y='93' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>0</text>
+  <text stroke='none' x='5' y='104' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>SignalPropagation</text>
+  <text stroke='none' x='128' y='104' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>off</text>
+  <rect x='0' y='107' width='203' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='115' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>MustResolveToSignalObject</text>
+  <text stroke='none' x='128' y='115' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>0</text>
+  <text stroke='none' x='5' y='126' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>StorageClass</text>
+  <text stroke='none' x='128' y='126' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Auto</text>
+  <rect x='0' y='0' width='203' height='131' rx='5' ry='5' stroke='rgb(0%,0%,0%)' stroke-width='1' fill='none' />
+</g>
+<g id='CU_internal/CU/&lt;signal3>_uniq_id_15' linkid='' onclick='changeSys(evt)' onmouseover='showPropAndHighlight(evt)' onmouseout='hidePropAndUnhighlight(evt)'>
+  <title id='title.CU_internal/CU/&lt;signal3>_uniq_id_15'>&lt;signal3></title>
+<line x1='215' y1='195' x2='220' y2='195' stroke='rgb(0%,0%,0%)' stroke-width='1' />
+<g></g>
+<line x1='280' y1='195' x2='270' y2='195' stroke='rgb(0%,0%,0%)' stroke-width='1' />
+<polygon points='275,190 275,200 285,195 275,190 ' stroke='none' fill='rgb(0%,0%,0%)' />
+<g></g>
+<polyline points='218,195 220,195 270,195 272,195 ' stroke='rgb(0%,0%,0%)' stroke-width='1' fill = 'none'/>
+<g><text stroke='none' x='223' y='205' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>&lt;signal3></text>
+</g>
+</g>
+<g display='none' id='prop.CU_internal/CU/&lt;signal4>_uniq_id_16' class='proptable' pointer-events='none' extent_Height='131' extent_Width='203' preferred_X='290' preferred_Y='210'>
+  <rect x='0' y='0' width='203' height='131' rx='5' ry='5' stroke='none' fill='rgb(100%,100%,100%)'  filter='url(#drop-shadow)' />
+  <text stroke='none' x='5' y='16' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLogging</text>
+  <text stroke='none' x='128' y='16' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>0</text>
+  <rect x='0' y='19' width='203' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='27' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLoggingNameMode</text>
+  <text stroke='none' x='128' y='27' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Use signal name</text>
+  <text stroke='none' x='5' y='38' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>UserSpecifiedLogName</text>
+  <text stroke='none' x='128' y='38' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>&lt;signal4></text>
+  <rect x='0' y='41' width='203' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='49' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLoggingDecimateData</text>
+  <text stroke='none' x='128' y='49' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>0</text>
+  <text stroke='none' x='5' y='60' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLoggingDecimation</text>
+  <text stroke='none' x='128' y='60' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>2</text>
+  <rect x='0' y='63' width='203' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='71' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLoggingLimitDataPoints</text>
+  <text stroke='none' x='128' y='71' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>0</text>
+  <text stroke='none' x='5' y='82' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLoggingMaxPoints</text>
+  <text stroke='none' x='128' y='82' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>5000</text>
+  <rect x='0' y='85' width='203' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='93' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>TestPoint</text>
+  <text stroke='none' x='128' y='93' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>0</text>
+  <text stroke='none' x='5' y='104' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>SignalPropagation</text>
+  <text stroke='none' x='128' y='104' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>off</text>
+  <rect x='0' y='107' width='203' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='115' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>MustResolveToSignalObject</text>
+  <text stroke='none' x='128' y='115' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>0</text>
+  <text stroke='none' x='5' y='126' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>StorageClass</text>
+  <text stroke='none' x='128' y='126' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Auto</text>
+  <rect x='0' y='0' width='203' height='131' rx='5' ry='5' stroke='rgb(0%,0%,0%)' stroke-width='1' fill='none' />
+</g>
+<g id='CU_internal/CU/&lt;signal4>_uniq_id_16' linkid='' onclick='changeSys(evt)' onmouseover='showPropAndHighlight(evt)' onmouseout='hidePropAndUnhighlight(evt)'>
+  <title id='title.CU_internal/CU/&lt;signal4>_uniq_id_16'>&lt;signal4></title>
+<line x1='215' y1='210' x2='220' y2='210' stroke='rgb(0%,0%,0%)' stroke-width='1' />
+<g></g>
+<line x1='280' y1='210' x2='270' y2='210' stroke='rgb(0%,0%,0%)' stroke-width='1' />
+<polygon points='275,205 275,215 285,210 275,205 ' stroke='none' fill='rgb(0%,0%,0%)' />
+<g></g>
+<polyline points='218,210 220,210 270,210 272,210 ' stroke='rgb(0%,0%,0%)' stroke-width='1' fill = 'none'/>
+<g><text stroke='none' x='223' y='220' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>&lt;signal4></text>
+</g>
+</g>
+<g display='none' id='prop.CU_internal/CU/_uniq_id_17' class='proptable' pointer-events='none' extent_Height='120' extent_Width='203' preferred_X='165' preferred_Y='175'>
+  <rect x='0' y='0' width='203' height='120' rx='5' ry='5' stroke='none' fill='rgb(100%,100%,100%)'  filter='url(#drop-shadow)' />
+  <text stroke='none' x='5' y='16' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLogging</text>
+  <text stroke='none' x='128' y='16' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>0</text>
+  <rect x='0' y='19' width='203' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='27' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLoggingNameMode</text>
+  <text stroke='none' x='128' y='27' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Use signal name</text>
+  <text stroke='none' x='5' y='38' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLoggingDecimateData</text>
+  <text stroke='none' x='128' y='38' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>0</text>
+  <rect x='0' y='41' width='203' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='49' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLoggingDecimation</text>
+  <text stroke='none' x='128' y='49' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>2</text>
+  <text stroke='none' x='5' y='60' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLoggingLimitDataPoints</text>
+  <text stroke='none' x='128' y='60' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>0</text>
+  <rect x='0' y='63' width='203' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='71' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLoggingMaxPoints</text>
+  <text stroke='none' x='128' y='71' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>5000</text>
+  <text stroke='none' x='5' y='82' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>TestPoint</text>
+  <text stroke='none' x='128' y='82' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>0</text>
+  <rect x='0' y='85' width='203' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='93' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>SignalPropagation</text>
+  <text stroke='none' x='128' y='93' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>off</text>
+  <text stroke='none' x='5' y='104' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>MustResolveToSignalObject</text>
+  <text stroke='none' x='128' y='104' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>0</text>
+  <rect x='0' y='107' width='203' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='115' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>StorageClass</text>
+  <text stroke='none' x='128' y='115' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Auto</text>
+  <rect x='0' y='0' width='203' height='120' rx='5' ry='5' stroke='rgb(0%,0%,0%)' stroke-width='1' fill='none' />
+</g>
+<g id='CU_internal/CU/_uniq_id_17' linkid='' onclick='changeSys(evt)' onmouseover='showPropAndHighlight(evt)' onmouseout='hidePropAndUnhighlight(evt)'>
+  <title id='title.CU_internal/CU/_uniq_id_17'>line</title>
+<line x1='155' y1='205' x2='145' y2='205' stroke='rgb(0%,0%,0%)' stroke-width='1' />
+<polygon points='150,200 150,210 160,205 150,200 ' stroke='none' fill='rgb(0%,0%,0%)' />
+<g></g>
+<polyline points='120,195 120,205 145,205 147,205 ' stroke='rgb(0%,0%,0%)' stroke-width='1' fill = 'none'/>
+<line x1='155' y1='195' x2='145' y2='195' stroke='rgb(0%,0%,0%)' stroke-width='1' />
+<polygon points='150,190 150,200 160,195 150,190 ' stroke='none' fill='rgb(0%,0%,0%)' />
+<g></g>
+<polyline points='120,195 145,195 147,195 ' stroke='rgb(0%,0%,0%)' stroke-width='1' fill = 'none'/>
+<polyline points='120,185 120,195 ' stroke='rgb(0%,0%,0%)' stroke-width='1' fill = 'none'/>
+<rect x='119' y='194' width='2' height='2' stroke='none' fill='rgb(0%,0%,0%)' />
+<rect x='119' y='194' width='2' height='2' stroke='rgb(0%,0%,0%)' stroke-width='1' fill='none' />
+<line x1='155' y1='185' x2='145' y2='185' stroke='rgb(0%,0%,0%)' stroke-width='1' />
+<polygon points='150,180 150,190 160,185 150,180 ' stroke='none' fill='rgb(0%,0%,0%)' />
+<g></g>
+<polyline points='120,185 145,185 147,185 ' stroke='rgb(0%,0%,0%)' stroke-width='1' fill = 'none'/>
+<line x1='155' y1='175' x2='145' y2='175' stroke='rgb(0%,0%,0%)' stroke-width='1' />
+<polygon points='150,170 150,180 160,175 150,170 ' stroke='none' fill='rgb(0%,0%,0%)' />
+<g></g>
+<polyline points='120,185 120,175 145,175 147,175 ' stroke='rgb(0%,0%,0%)' stroke-width='1' fill = 'none'/>
+<line x1='95' y1='185' x2='100' y2='185' stroke='rgb(0%,0%,0%)' stroke-width='1' />
+<g></g>
+<polyline points='98,185 100,185 120,185 ' stroke='rgb(0%,0%,0%)' stroke-width='1' fill = 'none'/>
+<rect x='119' y='184' width='2' height='2' stroke='none' fill='rgb(0%,0%,0%)' />
+<rect x='119' y='184' width='2' height='2' stroke='rgb(0%,0%,0%)' stroke-width='1' fill='none' />
+</g>
+<g display='none' id='prop.CU_internal/CU/_uniq_id_18' class='proptable' pointer-events='none' extent_Height='120' extent_Width='203' preferred_X='830' preferred_Y='100'>
+  <rect x='0' y='0' width='203' height='120' rx='5' ry='5' stroke='none' fill='rgb(100%,100%,100%)'  filter='url(#drop-shadow)' />
+  <text stroke='none' x='5' y='16' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLogging</text>
+  <text stroke='none' x='128' y='16' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>0</text>
+  <rect x='0' y='19' width='203' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='27' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLoggingNameMode</text>
+  <text stroke='none' x='128' y='27' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Use signal name</text>
+  <text stroke='none' x='5' y='38' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLoggingDecimateData</text>
+  <text stroke='none' x='128' y='38' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>0</text>
+  <rect x='0' y='41' width='203' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='49' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLoggingDecimation</text>
+  <text stroke='none' x='128' y='49' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>2</text>
+  <text stroke='none' x='5' y='60' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLoggingLimitDataPoints</text>
+  <text stroke='none' x='128' y='60' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>0</text>
+  <rect x='0' y='63' width='203' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='71' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLoggingMaxPoints</text>
+  <text stroke='none' x='128' y='71' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>5000</text>
+  <text stroke='none' x='5' y='82' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>TestPoint</text>
+  <text stroke='none' x='128' y='82' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>0</text>
+  <rect x='0' y='85' width='203' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='93' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>SignalPropagation</text>
+  <text stroke='none' x='128' y='93' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>off</text>
+  <text stroke='none' x='5' y='104' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>MustResolveToSignalObject</text>
+  <text stroke='none' x='128' y='104' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>0</text>
+  <rect x='0' y='107' width='203' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='115' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>StorageClass</text>
+  <text stroke='none' x='128' y='115' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Auto</text>
+  <rect x='0' y='0' width='203' height='120' rx='5' ry='5' stroke='rgb(0%,0%,0%)' stroke-width='1' fill='none' />
+</g>
+<g id='CU_internal/CU/_uniq_id_18' linkid='' onclick='changeSys(evt)' onmouseover='showPropAndHighlight(evt)' onmouseout='hidePropAndUnhighlight(evt)'>
+  <title id='title.CU_internal/CU/_uniq_id_18'>line</title>
+<line x1='820' y1='345' x2='810' y2='345' stroke='rgb(0%,0%,0%)' stroke-width='1' />
+<polygon points='815,340 815,350 825,345 815,340 ' stroke='none' fill='rgb(0%,0%,0%)' />
+<g></g>
+<polyline points='540,190 530,190 530,310 810,310 810,345 812,345 ' stroke='rgb(0%,0%,0%)' stroke-width='1' fill = 'none'/>
+<line x1='615' y1='245' x2='605' y2='245' stroke='rgb(0%,0%,0%)' stroke-width='1' />
+<polygon points='610,240 610,250 620,245 610,240 ' stroke='none' fill='rgb(0%,0%,0%)' />
+<g></g>
+<polyline points='600,190 600,245 605,245 607,245 ' stroke='rgb(0%,0%,0%)' stroke-width='1' fill = 'none'/>
+<line x1='790' y1='100' x2='780' y2='100' stroke='rgb(0%,0%,0%)' stroke-width='1' />
+<polygon points='785,95 785,105 795,100 785,95 ' stroke='none' fill='rgb(0%,0%,0%)' />
+<g></g>
+<polyline points='600,190 600,100 780,100 782,100 ' stroke='rgb(0%,0%,0%)' stroke-width='1' fill = 'none'/>
+<polyline points='540,190 600,190 ' stroke='rgb(0%,0%,0%)' stroke-width='1' fill = 'none'/>
+<rect x='599' y='189' width='2' height='2' stroke='none' fill='rgb(0%,0%,0%)' />
+<rect x='599' y='189' width='2' height='2' stroke='rgb(0%,0%,0%)' stroke-width='1' fill='none' />
+<line x1='360' y1='190' x2='365' y2='190' stroke='rgb(0%,0%,0%)' stroke-width='1' />
+<g></g>
+<polyline points='363,190 365,190 540,190 ' stroke='rgb(0%,0%,0%)' stroke-width='1' fill = 'none'/>
+<rect x='539' y='189' width='2' height='2' stroke='none' fill='rgb(0%,0%,0%)' />
+<rect x='539' y='189' width='2' height='2' stroke='rgb(0%,0%,0%)' stroke-width='1' fill='none' />
+</g>
+<g display='none' id='prop.CU_internal/CU/_uniq_id_19' class='proptable' pointer-events='none' extent_Height='120' extent_Width='203' preferred_X='800' preferred_Y='85'>
+  <rect x='0' y='0' width='203' height='120' rx='5' ry='5' stroke='none' fill='rgb(100%,100%,100%)'  filter='url(#drop-shadow)' />
+  <text stroke='none' x='5' y='16' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLogging</text>
+  <text stroke='none' x='128' y='16' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>0</text>
+  <rect x='0' y='19' width='203' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='27' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLoggingNameMode</text>
+  <text stroke='none' x='128' y='27' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Use signal name</text>
+  <text stroke='none' x='5' y='38' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLoggingDecimateData</text>
+  <text stroke='none' x='128' y='38' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>0</text>
+  <rect x='0' y='41' width='203' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='49' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLoggingDecimation</text>
+  <text stroke='none' x='128' y='49' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>2</text>
+  <text stroke='none' x='5' y='60' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLoggingLimitDataPoints</text>
+  <text stroke='none' x='128' y='60' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>0</text>
+  <rect x='0' y='63' width='203' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='71' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLoggingMaxPoints</text>
+  <text stroke='none' x='128' y='71' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>5000</text>
+  <text stroke='none' x='5' y='82' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>TestPoint</text>
+  <text stroke='none' x='128' y='82' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>0</text>
+  <rect x='0' y='85' width='203' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='93' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>SignalPropagation</text>
+  <text stroke='none' x='128' y='93' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>off</text>
+  <text stroke='none' x='5' y='104' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>MustResolveToSignalObject</text>
+  <text stroke='none' x='128' y='104' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>0</text>
+  <rect x='0' y='107' width='203' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='115' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>StorageClass</text>
+  <text stroke='none' x='128' y='115' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Auto</text>
+  <rect x='0' y='0' width='203' height='120' rx='5' ry='5' stroke='rgb(0%,0%,0%)' stroke-width='1' fill='none' />
+</g>
+<g id='CU_internal/CU/_uniq_id_19' linkid='' onclick='changeSys(evt)' onmouseover='showPropAndHighlight(evt)' onmouseout='hidePropAndUnhighlight(evt)'>
+  <title id='title.CU_internal/CU/_uniq_id_19'>line</title>
+<line x1='745' y1='205' x2='750' y2='205' stroke='rgb(0%,0%,0%)' stroke-width='1' />
+<g></g>
+<line x1='790' y1='85' x2='780' y2='85' stroke='rgb(0%,0%,0%)' stroke-width='1' />
+<polygon points='785,80 785,90 795,85 785,80 ' stroke='none' fill='rgb(0%,0%,0%)' />
+<g></g>
+<polyline points='748,205 750,205 755,205 755,85 780,85 782,85 ' stroke='rgb(0%,0%,0%)' stroke-width='1' fill = 'none'/>
+</g>
+<g display='none' id='prop.CU_internal/CU/_uniq_id_20' class='proptable' pointer-events='none' extent_Height='120' extent_Width='203' preferred_X='800' preferred_Y='70'>
+  <rect x='0' y='0' width='203' height='120' rx='5' ry='5' stroke='none' fill='rgb(100%,100%,100%)'  filter='url(#drop-shadow)' />
+  <text stroke='none' x='5' y='16' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLogging</text>
+  <text stroke='none' x='128' y='16' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>0</text>
+  <rect x='0' y='19' width='203' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='27' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLoggingNameMode</text>
+  <text stroke='none' x='128' y='27' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Use signal name</text>
+  <text stroke='none' x='5' y='38' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLoggingDecimateData</text>
+  <text stroke='none' x='128' y='38' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>0</text>
+  <rect x='0' y='41' width='203' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='49' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLoggingDecimation</text>
+  <text stroke='none' x='128' y='49' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>2</text>
+  <text stroke='none' x='5' y='60' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLoggingLimitDataPoints</text>
+  <text stroke='none' x='128' y='60' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>0</text>
+  <rect x='0' y='63' width='203' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='71' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLoggingMaxPoints</text>
+  <text stroke='none' x='128' y='71' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>5000</text>
+  <text stroke='none' x='5' y='82' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>TestPoint</text>
+  <text stroke='none' x='128' y='82' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>0</text>
+  <rect x='0' y='85' width='203' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='93' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>SignalPropagation</text>
+  <text stroke='none' x='128' y='93' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>off</text>
+  <text stroke='none' x='5' y='104' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>MustResolveToSignalObject</text>
+  <text stroke='none' x='128' y='104' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>0</text>
+  <rect x='0' y='107' width='203' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='115' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>StorageClass</text>
+  <text stroke='none' x='128' y='115' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Auto</text>
+  <rect x='0' y='0' width='203' height='120' rx='5' ry='5' stroke='rgb(0%,0%,0%)' stroke-width='1' fill='none' />
+</g>
+<g id='CU_internal/CU/_uniq_id_20' linkid='' onclick='changeSys(evt)' onmouseover='showPropAndHighlight(evt)' onmouseout='hidePropAndUnhighlight(evt)'>
+  <title id='title.CU_internal/CU/_uniq_id_20'>line</title>
+<line x1='95' y1='95' x2='100' y2='95' stroke='rgb(0%,0%,0%)' stroke-width='1' />
+<g></g>
+<line x1='790' y1='70' x2='780' y2='70' stroke='rgb(0%,0%,0%)' stroke-width='1' />
+<polygon points='785,65 785,75 795,70 785,65 ' stroke='none' fill='rgb(0%,0%,0%)' />
+<g></g>
+<polyline points='98,95 100,95 390,95 390,70 780,70 782,70 ' stroke='rgb(0%,0%,0%)' stroke-width='1' fill = 'none'/>
+</g>
+<g display='none' id='prop.CU_internal/CU/_uniq_id_21' class='proptable' pointer-events='none' extent_Height='120' extent_Width='203' preferred_X='800' preferred_Y='55'>
+  <rect x='0' y='0' width='203' height='120' rx='5' ry='5' stroke='none' fill='rgb(100%,100%,100%)'  filter='url(#drop-shadow)' />
+  <text stroke='none' x='5' y='16' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLogging</text>
+  <text stroke='none' x='128' y='16' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>0</text>
+  <rect x='0' y='19' width='203' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='27' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLoggingNameMode</text>
+  <text stroke='none' x='128' y='27' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Use signal name</text>
+  <text stroke='none' x='5' y='38' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLoggingDecimateData</text>
+  <text stroke='none' x='128' y='38' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>0</text>
+  <rect x='0' y='41' width='203' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='49' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLoggingDecimation</text>
+  <text stroke='none' x='128' y='49' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>2</text>
+  <text stroke='none' x='5' y='60' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLoggingLimitDataPoints</text>
+  <text stroke='none' x='128' y='60' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>0</text>
+  <rect x='0' y='63' width='203' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='71' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLoggingMaxPoints</text>
+  <text stroke='none' x='128' y='71' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>5000</text>
+  <text stroke='none' x='5' y='82' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>TestPoint</text>
+  <text stroke='none' x='128' y='82' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>0</text>
+  <rect x='0' y='85' width='203' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='93' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>SignalPropagation</text>
+  <text stroke='none' x='128' y='93' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>off</text>
+  <text stroke='none' x='5' y='104' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>MustResolveToSignalObject</text>
+  <text stroke='none' x='128' y='104' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>0</text>
+  <rect x='0' y='107' width='203' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='115' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>StorageClass</text>
+  <text stroke='none' x='128' y='115' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Auto</text>
+  <rect x='0' y='0' width='203' height='120' rx='5' ry='5' stroke='rgb(0%,0%,0%)' stroke-width='1' fill='none' />
+</g>
+<g id='CU_internal/CU/_uniq_id_21' linkid='' onclick='changeSys(evt)' onmouseover='showPropAndHighlight(evt)' onmouseout='hidePropAndUnhighlight(evt)'>
+  <title id='title.CU_internal/CU/_uniq_id_21'>line</title>
+<line x1='95' y1='55' x2='100' y2='55' stroke='rgb(0%,0%,0%)' stroke-width='1' />
+<g></g>
+<line x1='790' y1='55' x2='780' y2='55' stroke='rgb(0%,0%,0%)' stroke-width='1' />
+<polygon points='785,50 785,60 795,55 785,50 ' stroke='none' fill='rgb(0%,0%,0%)' />
+<g></g>
+<polyline points='98,55 100,55 780,55 782,55 ' stroke='rgb(0%,0%,0%)' stroke-width='1' fill = 'none'/>
+</g>
+<defs>
+  <clipPath id='clip_rect_2'><rect x='1190' y='163' width='30' height='14' /></clipPath>
+  <clipPath id='clip_rect_3'><rect x='1190' y='98' width='30' height='14' /></clipPath>
+  <clipPath id='clip_rect_4'><rect x='1190' y='48' width='30' height='14' /></clipPath>
+  <clipPath id='clip_rect_5'><rect x='620' y='148' width='125' height='114' /></clipPath>
+  <clipPath id='clip_rect_6'><rect x='285' y='160' width='75' height='55' /></clipPath>
+  <clipPath id='clip_rect_7'><rect x='795' y='45' width='225' height='95' /></clipPath>
+  <clipPath id='clip_rect_8'><rect x='400' y='249' width='100' height='42' /></clipPath>
+  <clipPath id='clip_rect_9'><rect x='825' y='234' width='210' height='122' /></clipPath>
+  <clipPath id='clip_rect_10'><rect x='400' y='109' width='100' height='42' /></clipPath>
+  <clipPath id='clip_rect_11'><rect x='45' y='338' width='30' height='14' /></clipPath>
+  <clipPath id='clip_rect_12'><rect x='45' y='393' width='30' height='14' /></clipPath>
+  <clipPath id='clip_rect_13'><rect x='65' y='178' width='30' height='14' /></clipPath>
+  <clipPath id='clip_rect_14'><rect x='65' y='88' width='30' height='14' /></clipPath>
+  <clipPath id='clip_rect_15'><rect x='65' y='48' width='30' height='14' /></clipPath>
+</defs>
+</svg>
