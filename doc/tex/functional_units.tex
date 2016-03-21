@@ -1,0 +1,190 @@
+\section{Functional Units(FU)}
+	FUs are fundamental processing elements in this architecture. Connected to controller and rest of the units via MIB and DTN, each FU has the capability of storing operands/results and performing single operation. FUs are classified into \textit{Arithmetic-logic unit (ALU)} and \textit{memory} depending on the type of processing performed. Next, design for both subsystems is explained.
+	
+	\begin{table}
+		\begin{tabular}{| l| l | l | p{8cm} |}
+			\hline
+			\textbf{name} & \textbf{direction} & \textbf{type} &  \textbf{description}\\ \hline
+			mib\_inp & input & mib\_ctrl\_out & control signal, including address to be reserved and target buffer index \\ \hline
+			status & output & mib\_stalls & specifies whether input/output buffers are available for reservation. \\ \hline
+			ack & input & logic & acknowledgment from interconnection network to indicate safe removal of current output entry from buffer \\ \hline
+			dtn\_data\_in & input & data\_port\_sending & input from DTN \\ \hline
+			dtn\_data\_out & output & data\_port\_sending & output to DTN \\ \hline
+		\end{tabular}
+		
+		\caption{Input buffer ports \label{table:fu_alu_description}}
+		\centering
+	\end{table}
+	\subsection{Arithmetical operations}
+	Arithmetical operations take two operands and produce a single result. For that purpose, it consist of two input and one output buffers. As described in Table \ref{table:fu_alu_description}, \textit{index} field of \textit{mib\_inp} selects the input buffer to perform reservation. DTN input is directly connected to input buffers, since snooping capability is implemented within them.
+	
+	One of the features of SCAD architecture is the ease of plugging-in new operators without rigorous attempts for data-path modification. Hence, operation classes encapsulate the operators by using a well-defined interface. Either single-cycle, multi-cycle or pipelined, components implementing the interface can easily be hooked inside a FU, by only designing operator without making any effort on bus connections or buffer modification. Thus, we represent design of arithmetical functional units in two parts by first explaining generic interface and then top-level functional unit design.
+	\begin{table}
+		\begin{tabular}{| l| l | l | p{8cm} |}
+			\hline
+			\textbf{name} & \textbf{direction} & \textbf{type} &  \textbf{description}\\ \hline
+			op1 & input & logic\_vector(\dataW) & operand from first buffer \\ \hline
+			op2 & input & logic\_vector(\dataW) & operand from second buffer \\ \hline
+			en & input & logic & when set, operation \textit{op} is performed using operands \\ \hline
+			busy & output & logic & functional unit does not send new operands when unit is busy. Is useful only when operation to be performed requires stalling. Pipelined designs can be implemented by keeping it low   \\ \hline
+			valid & output & logic & signals stable output value   \\ \hline
+			res & output & logic\_vector(\dataW) & result of operation   \\ \hline
+		\end{tabular}
+		
+		\caption{Input buffer ports \label{table:alu_description}}
+		\centering
+	\end{table}
+	\subsubsection{Generic operation} \label{generic}
+	
+	Operator component of arithmetic FU uses ports defined in \ref{table:alu_description}. Control logic from FU sets \textit{en} signal when both buffers have their data available. When \textit{valid} is asserted, result of operation is written to \textit{res} for FU to read into its output buffer. Pipelined or multi-cycle designs can be realized by keeping \textit{en} and \textit{valid} signals high by changing operands in every cycle. FU considers stalls on both input and output buffers when driving \textit{en} signal. Anyways, only restriction is to prevent having \textit{valid} signal asserted when \textit{en} is low to avoid overflowing output buffer with stale results. Figure \ref{fig:alu} illustrated operator structure.
+	
+	Regardless of operation type (addition, multiplication, string comparison!), components adhering to the interface can simply be attached to the interconnection network. Abstracting functionality from architectural details results in easy additions to high-level instruction set. 
+	
+	\begin{figure}[htbp]
+		\centering
+		\def\svgscale{0.5}
+		\input{figures/alu.pdf_tex}
+		\caption{Arithmetic operator structure}
+		\label{fig:alu} 
+	\end{figure}
+	
+	\subsubsection{FU design}
+	
+	Although off-loading snooping logic to input buffers reduces complexity of FU, task of managing read/write signals amongst buffers causes non-negligible area cost in design. Main task performed by FU is to route the available operands from input buffers into operator and then write the result to output buffer.
+	
+	FU also checks incoming MIB packets' source address to decide if it should supply operands to the target FU. Assuming address $N$ for a FU, arrival of a MIB packet with $mib\_inp.src = N$ triggers an assemble phase where data at $head$ of output buffer $out\_buf$ is used for assembling a new DTN packet $d_j = (valid=1, src=N, dest=mib\_inp.dest, data=out\_buf[head])$ to be sent to destination via interconnection network. Even though it is not implemented in this version, FU should also check \textit{ack} signal coming from input of interconnection network and keep its output stable until it is asserted. Reason for such mechanism is the presence of DTN packets destined for same output, which are solved by adding FIFO buffers to the input of interconnection network for arbitrating access to same destination. In case when network buffer where FU is sending data through gets full, output should be held stable by FU until buffer has an empty space (until \textit{ack} is high), in which it is hard to derive an upper bound on number of cycles until arrival of acknowledgment. Due to the initial state of design and low probability of such event occurring, we simply discarded usage of \textit{ack} signal. Figure \ref{fig:fu_alu} shows top-level arithmetic FU.
+	
+	In the figure, red lines  belong to MIB, blue lines ones to DTN and yellow lines to internal data connections.
+	As mentioned in \ref{generic}, FU waits for availability of data from both buffers. When available, a read is performed on both buffers. Then FU routes the operands to operator and waits for completion. Once done, result is written into output buffer.
+	
+	\begin{figure}[htbp]
+		\centering
+		\def\svgwidth{\columnwidth}
+		\input{figures/fu_alu.pdf_tex}
+		\caption{Arithmetic operator structure}
+		\label{fig:fu_alu} 
+	\end{figure}
+	\subsection{Memory operations}
+	Memory access is done via load/store functional units. For initial version, RAM is implemented using on-chip BRAM units, as an array of logic vectors, though it is not far from real design since caches should be introduced in some point anyways. Memory is divided into banks where each bank is shared by a pair of load/store units. This way, memory is simply segmented into regions and compiler/linker is responsible for translation from a flat address space to segmented addresses, since load/store units can access only to local RAM and bank. Figure \ref{fig:mem_top} shows an overview of subsystem.
+	
+	\begin{figure}[htbp]
+		\centering
+		\def\svgscale{0.5}
+		\input{figures/memory_top.pdf_tex}
+		\caption{Arithmetic operator structure}
+		\label{fig:mem_top} 
+	\end{figure}
+	
+	Parameters defined in glossary section \ref{glossary_mem} represents size, word-length and number of banks for memory system. Next, design of load and store FUs are explained. Figures of MIB and DTN signals are omitted since they are identical to those used in arithmetic FUs.
+	\subsubsection{RAM}
+	Main memory blocks are designed to infer synchronous read/write, dual-port, word-addressed RAM using BRAM blocks on fabric. With usage of acknowledgment signals for request, it resembles a synchronous master/slave bus protocol. Enable strobes for read/write are not driven directly by functional units, but via \textit{bank controller}, so RAM block does not check for conflicting read/write addresses. 
+	
+	Every access takes single cycle. Following read/write, respective acknowledgment signal is set to notify the functional unit. Table \ref{table:ram_description} includes detailed port definitions.
+	 
+	
+	\begin{table}[htbp]
+		\begin{tabular}{| l| l | l | p{7cm} |}
+			\hline
+			\textbf{name} & \textbf{direction} & \textbf{type} &  \textbf{description}\\ \hline
+			re & input & logic & read enable strobe \\ \hline
+			we & input & logic & write enable strobe \\ \hline
+			r\_addr & input & logic\_vector(\bankAddrL) & address to read \\ \hline
+			w\_addr & input & logic\_vector(\bankAddrL) & address to write \\ \hline
+			data\_in & input & logic\_vector(\memWordL) & data to write \\ \hline
+			r\_ack & output & logic & read acknowledgment signal. It is set when \textit{data\_out} is stable \\ \hline
+			w\_ack & output & logic & write acknowledgment signal. Used for indicating write completion \\ \hline
+			data\_out & output & logic\_vector(\memWordL) & data read from address \textit{r\_addr} \\ \hline
+			
+		\end{tabular}
+		\caption{Input buffer ports \label{table:ram_description}}
+		\centering
+		\end{table}
+	
+	\subsubsection{Memory bank}
+	A memory bank consists of a bank controller and a RAM unit. Load and store units cannot send commands to RAM module, but they request access from bank controller. This way, conflicts on read/write to same memory location at same cycle can be controlled. This module does not enforce any memory consistency model; only precaution is when a same address is to be accessed by multiple unit, store is given preference and load is stalled for one cycle. Otherwise, since memory is dual-channel reads/writes can be issued in same cycle.
+	
+	Even in presence of memory barrier instructions in high-level language, forcing a weak consistency model in rather \textit{chaotic} movement of data is a challenging task since order of memory accesses is not preserved despite having ordered reservations on FUs. 
+	
+	Data lines are not routed through bank but connected directly to RAM. Since there is no asynchronous read on memory, this does not cause any side-effects. Acknowledgment signals are directly connected to FUs as well. Port description can be found in Table \ref{table:bc_description}.
+	
+	\begin{table}[htbp]
+		\begin{tabular}{| l| l | l | p{7cm} |}
+			\hline
+			\textbf{name} & \textbf{direction} & \textbf{type} &  \textbf{description}\\ \hline
+			\multicolumn{4}{|c|}{\textit{FU Signals}} \\ \hline
+			re & input & logic & read enable strobe from load FU \\ \hline
+			we & input & logic & write enable strobe from store FU \\ \hline
+			r\_addr & input & logic\_vector(\bankAddrL) & read address from load FU. Used for storing in register in case of conflicts  \\ \hline
+			w\_addr & input & logic\_vector(\bankAddrL) & write address from store FU. Used for comparing with load address to check conflict  \\ \hline
+			busy & output & logic & FUs do not send further requests when this signal is set \\ \hline
+			\multicolumn{4}{|c|}{\textit{Memory signals}} \\ \hline
+			re\_out & output & logic & read enable strobe to RAM \\ \hline
+			we\_out & output & logic & write enable strobe to RAM \\ \hline
+		\end{tabular}
+		
+		\caption{Input buffer ports \label{table:bc_description}}
+		\centering
+	\end{table}
+	
+	\FloatBarrier
+	\subsubsection{Load/store unit}
+	
+	\paragraph{Load}
+	Load unit has single input and single output buffer where input is used for storing memory address to be loaded and output is used for holding read data coming from memory. Table \ref{table:load_description} describes the input/output ports. Load unit has connections to both FU and bank controller where FU provides address to be read and load unit manages memory access transaction by setting commands to bank controller and checking acknowledgment from memory.
+	\begin{table}[htbp]
+		\begin{tabular}{| l| l | l | p{6cm} |}
+			\hline
+			\textbf{name} & \textbf{direction} & \textbf{type} &  \textbf{description}\\ \hline
+			\multicolumn{4}{|c|}{\textit{FU Signals}} \\ \hline
+			operand & input & logic\_vector(\bankAddrL) & operand from FU. Used as address on memory access \\ \hline
+			busy & output & logic & indicates a memory transaction is on progress \\ \hline
+			valid & output & logic & asserted when data loaded from memory is stable   \\ \hline
+			res & output & logic\_vector(\memWordL) & output of memory access. Used by FU  \\ \hline
+			\multicolumn{4}{|c|}{\textit{Memory signals}} \\ \hline
+			res & input & logic\_vector(\memWordL) & output of memory access \\ \hline
+			ack & input & logic & acknowledgement from memory. When set, \textit{res} is stable and can be read into internal register \\ \hline
+			addr & output & logic\_vector(\bankAddrL) & address to load \\ \hline
+			re & output & logic & read enable strobe to memory bank controller \\ \hline
+		\end{tabular}
+		
+		\caption{Load unit ports \label{table:load_description}}
+		\centering
+	\end{table}
+	
+	
+	\paragraph{Store}
+	Store unit consists of two input buffers. Unlike other types of units, it does not have an output buffer, since store operation does not have output. Two inputs buffers are used for storing address/data pairs provided by DTN. Depending on the addressing modes, it is likely that address might be result of a computation, as well as an immediate from controller. Immediate operands are converted into DTN packets by control unit, so snooping DTN for write address works in both addressing modes.
+	\begin{table}[htbp]
+		\begin{tabular}{| l| l | l | p{6cm} |}
+			\hline
+			\textbf{name} & \textbf{direction} & \textbf{type} &  \textbf{description}\\ \hline
+			\multicolumn{4}{|c|}{\textit{FU Signals}} \\ \hline
+			fu\_address & input & logic\_vector(\bankAddrL) & address to write \\ \hline
+			fu\_data & input & logic\_vector(\memWordL) & data to write \\ \hline
+			busy & output & logic & indicates a memory transaction is on progress \\ \hline
+			valid & output & logic & asserted when data loaded from memory is stable   \\ \hline
+			\multicolumn{4}{|c|}{\textit{Memory signals}} \\ \hline
+			ack & input & logic & acknowledgement from memory. Used for indicating write completion \\ \hline
+			addr & output & logic\_vector(\bankAddrL) & address to load \\ \hline
+			data & output & logic\_vector(\memWordL) & data to load \\ \hline
+			we & output & logic & write enable strobe to memory bank controller \\ \hline
+		\end{tabular}
+		
+		\caption{Store unit ports \label{table:store_description}}
+		\centering
+	\end{table}
+	
+	
+	\subsubsection{FU design}
+	Functional units encapsulating load and store components are similar to arithmetic FUs. Only difference is the number of input/output buffers and existence of connection between internal load/store units and RAM/bank controller components. Without MIB and DTN signals, load/store FUs are illustrated in Figure \ref{fig:load_fu} and Figure \ref{fig:store_fu}, respectively.
+		\begin{figure}[htbp]
+			\centering
+			\def\svgscale{0.5}
+			\input{figures/load_fu.pdf_tex}
+			\def\svgscale{0.5}
+			\caption{Load FU}
+			\label{fig:load_fu} 
+			\input{figures/store_fu.pdf_tex}
+			\caption{Store FU}
+			\label{fig:store_fu} 
+		\end{figure}

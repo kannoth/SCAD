@@ -1,0 +1,78 @@
+\section{Buffers}
+	Temporary data storage within functional units is implemented with buffers. Design of input and output buffers are un-identical; \textit{data packets} from DTN and \textit{reservations} from MIB, together forming an operand, has to be handled in input buffer whereas output buffer simply stores the results. 
+	
+	
+	A reservation $r_i$ is represented by source field address of an MIB packet. Once an address is reserved, buffer snoops DTN for valid data packages $d_j$ and notifies operand availability if and only if $r_i = d_j.src$, \ie \hspace{1pt} source field of incoming data matches with reservation. Subscript for packets represent cycle of arrival.
+	
+	Reservations on input are performed with FIFO ordering for retaining actual sequence of operations; reservation $r_i$ is executed before $r_{i+1}$ where $i$ denotes arrival time, given that data is ready for the preceding reservation. Whenever data is available for a reservation, \textit{available} signal is asserted for FU to read the data from head of buffer.  
+	 Next two sections explain input and output buffers in detail.
+	
+	\subsection{Input buffer}
+	Input buffer forms an operand when DTN has valid data and its source address (routed from FU) matches with any of the reserved addresses inside buffer. Clearly, in every cycle a search needs to be performed amongst reserved addresses for $d_j$. For that purpose, two structures are used namely \textit{look-up-table (lut)} for searching and \textit{buffer (buf)} for operand storage. Figure \ref{fig:input_buffer} shows these components.
+	
+	\begin{figure}[htbp]
+		\centering
+		\def\svgwidth{\columnwidth}
+		\input{figures/input_buffer.pdf_tex}
+		\caption{Input buffer structure}
+		\label{fig:input_buffer} 
+	\end{figure}
+	
+	For managing the buffer, variables $head$, $tail$, and $num\_elements$ are used. $head$ points to first element of the buffer and is incremented when a read is performed. $tail$ points to last element and is incremented on every write. $num\_elements$ keeps track of number of elements in the buffer and is incremented or decremented in case of write and read respectively. Since buffer is single channel, these signals are not subject to concurrent updates. Input/output ports are described in \ref{table:in_buffer_description}.
+	
+	lut is an array of 2-tuple $(found, index)$ with size \nrFUS, where found is a 1-bit signal and index is a logic vector of size $log_2\bufSize$. For index $i$, \textit{found} states where address $i$ is reserved in  buffer. Source address of the MIB control packet is used as index to table for marking the corresponding entry in case of a reservation $r_i$ by marking lut[$r_i$] $(found=1,index=tail)$. For example, search for incoming DTN packet $d_j$ can be performed by checking $lut[d_j.src].found\stackrel{?}{=}1$. If found, $lut[d_j.src].index$ can be used for indexing the buffer.
+	
+	buffer is an array of  $(ready, address, data)$ with size \bufSize, where ready is a 1-bit signal, and address and data is logic vector of matching size. \textit{ready} is set whenever a data and address pair for a reservation gets available. In case of a reservation $r_i$, after marking $found$ in \textit{lut}, $buf[lut[r_i].index].address$ is set to $r_i$ without modifying $data$ ir $ready$ fields. Continuing with the previous example, arrival of data package with $d_j.src=r_i$ triggers modifying corresponding buffer entry as $buf[lut[d_j.src].index] = (ready=1, address= r_i, data= d_j.data)$.  
+	
+	Since FIFO ordering of reservation arrival is enforced, only $head$ of the buffer can be read in case it is ready. This means that ready entries superseded by a non-ready entry cannot be read and processesd by functional unit. Inspection and simulation of such cases has crucial importance for performance evaluation of the architecture.
+	
+	%ADD describe when MIB and DTN writes at same time
+	
+	\begin{table}[!htb]
+		\begin{tabular}{| l| l | l | p{8cm} |}
+			\hline
+			\textbf{name} & \textbf{direction} & \textbf{type} &  \textbf{description}\\ \hline
+			mib\_addr & input & logic\_vector(\addrW) & address to be reserved \\ \hline
+			mib\_en & input & logic & enable strobe for address reservation \\ \hline
+			dtn\_valid & input & logic & valid signal from DTN \\ \hline
+			dtn\_data & input & logic\_vector(\dataW) & data from DTN \\ \hline
+			dtn\_addr & input & logic\_vector(\addrW) & address from DTN \\ \hline
+			fu\_read & input & logic & read enable from functional unit. Data at the buf[head] is written to the output when this signal is asserted \\ \hline
+			available & output & logic & signals that an address/data pair is available at buf[head]. fu\_read is assumed to be set only when available is high \\ \hline
+			full & output & logic & buffer full signal. Any reservation attempt on a non empty buffer is ignored \\ \hline
+			empty & output & logic & buffer empty signal. This signal is obsolete and can be removed safely \\ \hline
+			data\_out & output & logic\_vector(\dataW) & data output to functional unit. This signal is stable during a clock cycle after fu\_read is set \\ \hline
+		\end{tabular}
+		
+		\caption{Input buffer ports \label{table:in_buffer_description}}
+		\centering
+	\end{table}
+	
+	\FloatBarrier
+	\subsection{Output buffer}
+	For storing results of operations inside FU, a single-channel FIFO buffer is used. It is a simple design that performs read/write and asserts empty/full. Every operation takes single cycle. Top-level scheme and port descriptions can be found in Figure \ref{fig:output_buffer} and Table \ref{table:out_buffer_description}, respectively.
+	\begin{figure}[htbp]
+		\centering
+		\def\svgscale{0.5}
+		\input{figures/fifo_buffer.pdf_tex}
+		\caption{FIFO buffer structure}
+		\label{fig:output_buffer} 
+	\end{figure}
+	
+	\FloatBarrier
+	
+	\begin{table}[!htb]
+		\begin{tabular}{| l| l | l | p{8cm} |}
+			\hline
+			\textbf{name} & \textbf{direction} & \textbf{type} &  \textbf{description}\\ \hline
+			rw & input & logic & when low, data is read from buf[head], otherwise input is written to buf[tail]\\ \hline
+			en & input & logic & enable strobe. rw is valid only when this signal is high \\ \hline
+			data\_in & input & logic\_vector(\dataW) & data input from functional unit \\ \hline
+			full & output & logic & buffer full signal. Writes are ignored when it is high \\ \hline
+			empty & output & logic & buffer empty signal. When set, read operations cannot be performed on controlling functional unit. \\ \hline
+			data\_out & output & logic\_vector(\dataW) & data output to functional unit \\ \hline
+		\end{tabular}
+		\label{table:out_buffer_description}
+		\caption{FIFO buffer ports}
+		\centering
+	\end{table}
