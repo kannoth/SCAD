@@ -9,7 +9,7 @@ USE work.instruction.ALL;
 
 ENTITY ctrl_branch IS
 	PORT(
-		clock: IN STD_LOGIC
+		clock: IN STD_LOGIC;
 		
 		-- Instruction input
 		instruction: IN instruction;
