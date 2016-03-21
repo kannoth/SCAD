@@ -111,14 +111,15 @@ PACKAGE common IS
 		dest: address_fu_buff;
 	END RECORD;
 	CONSTANT ctrl_mib_INIT:mib_ctrl_out := ( phase => CHECK,
-	                       valid => '0',
-	                       src =>(fu => (OTHERS =>'0'),buff=>'0'),
-	                       dest => (fu => (OTHERS =>'0'),buff=>'0'));
+                               valid => '0',
+                               src =>(fu => (OTHERS =>'0'),buff=>'0'),
+                               dest => (fu => (OTHERS =>'0'),buff=>'0'));
+        
 	
 	-- output of FU, input of CTRL
 	TYPE mib_stalls IS RECORD
-		src_stalled: STD_LOGIC;
-		dest_stalled: STD_LOGIC;
+		src_stalled: STD_LOGIC_VECTOR(FU_DATA_W -1 downto 0);
+		dest_stalled: STD_LOGIC_VECTOR(FU_DATA_W -1 downto 0);
 	END RECORD;
 	
 	TYPE mib_ctrl_bus is array (0 to FU_INPUT_W ) of  mib_ctrl_out;

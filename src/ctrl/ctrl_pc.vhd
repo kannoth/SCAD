@@ -12,11 +12,15 @@ USE work.instruction.ALL;
 ENTITY ctrl_pc IS
 	PORT(
 		clk: IN STD_LOGIC;
-		reset: IN STD_LOGIC;		
-		stall: IN STD_LOGIC;		
+		reset: IN STD_LOGIC;
+		
+		stall: IN STD_LOGIC;
+		
 		-- input that tells the pc whether a branch was taken.
-		taken: IN STD_LOGIC;		
-		branch_offset: IN data_word;		
+		taken: IN STD_LOGIC;
+		
+		branch_offset: IN data_word;
+		
 		pc: OUT data_word
 	);
 END ctrl_pc;
@@ -30,13 +34,13 @@ BEGIN
 		IF rising_edge(clk) THEN
 			
 			IF reset = '1' THEN
-				pc_var := X"0000";
+				pc_var := X"00000000";
 			ELSE
 				IF NOT stall = '1' THEN
 					IF taken = '1' THEN
 						offset := branch_offset;
 					ELSE
-						offset := X"0001";
+						offset := X"00000001";
 					END IF;
 					
 					pc_var := pc_var + offset;
