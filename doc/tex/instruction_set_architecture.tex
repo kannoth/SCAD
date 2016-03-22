@@ -1,11 +1,21 @@
 	\section{Instruction Set Architecture}
-		The basic instruction set architecture of a SCAD machine is similar to that of a transport triggered architecture CPU.
+		Like the Transport Triggered Architecture (TTA), the main feature of the SCAD machine instruction set is the move instruction.
+		Moves happen from the output buffer of one Functional Unit (FU) to the input of another.
+		Those moves have an order given by the program, and all parallel or out-of-order execution is done transparently by the hardware.
 		
-		Two possible means of getting initial data to the functional units were considered in design.
-		The first, having dedicated input and output FIFOs, was discarded in favor of an instruction set extension inspired by the bachelor thesis of Sebastian Schumb\cite{Schu15}.
+		While all operations are performed by moving data between functional units, some initial data is required, for example the addresses of where inputs and results are located in memory.
+		Two possible means of getting that initial data to the functional units were considered in design.
+		Those two were to either have dedicated FIFOs for inputs and outputs of the processor and program, or extend the ISA by instructions to load values for the data network.
+		For the first approach, all constants that are required for a program to run have to be made available through one or more FIFOs or ROMs that outputs data into the data network when a corresponding move instruction is issued.
+		The second, which is inspired by the bachelor thesis of Sebastian Schumb \cite{Schu15}, is to add at least one instruction to load immediate values.
 		
-		Aside from the mandatory move instruction, our Instruction Set Architecture (ISA) needs to have instructions for loading immediate values, jumping to fixed addresses and branching.
+		To make this design as simple to implement as possible, it was decided to have the control unit be part of the data network like the FUs, and both load immediate values into an output buffer, and take branch conditions from and input buffer. This is explained further in Section \ref{?}\todo{Add Section reference}.
+		
+		So, aside from the mandatory move instruction, the ISA has instructions for loading immediate values, jumping to fixed addresses and branching.
 		An overview of those instructions is given in Figure \ref{fig:instruction_table}.
+		
+		Example programs can be found in the Appendices \ref{app:simple} and \ref{app:fib}.
+		
 		
 		\begin{figure}[!ht]
 			\begin{center}
