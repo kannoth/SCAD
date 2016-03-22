@@ -73,19 +73,6 @@
 \renewcommand\maketitle{\par
   \begingroup
     \providecommand{\event}{}
-    \ifadraft
-      \providecommand{\publicationstatus}{\Large DRAFT\quad\today}
-    \else\ifsubmission
-      \providecommand{\publicationstatus}{Submitted to:\\
-      \event}
-    \else\ifpreliminary
-      \providecommand{\publicationstatus}{Preliminary Report. Final version to appear in:\\
-      \event}
-    \else
-      \providecommand{\publicationstatus}{To appear in EPTCS.}
-    \fi\fi\fi
-    \providecommand{\titlerunning}{Please define {\tt $\backslash$titlerunning}}
-    \providecommand{\authorrunning}{Please define {\tt $\backslash$authorrunning}}
     \providecommand{\copyrightholders}{\authorrunning}
     \renewcommand\thefootnote{\@fnsymbol\c@footnote}%
     \def\@makefnmark{\rlap{\@textsuperscript{\normalfont\@thefnmark}}}%
@@ -114,16 +101,13 @@
 \def\@maketitle{%                       adapted from article.cls
   \newpage
 \noindent
-\raisebox{-22.8cm}[0pt][0pt]{\footnotesize
-\begin{tabular}{@{}l}
-\publicationstatus
-\end{tabular}}
+\raisebox{-22.8cm}[0pt][0pt]{}
 \hfill\vspace{-1em}
 \raisebox{-22.8cm}[0pt][0pt]{\footnotesize
 \makebox[0pt][r]{
 \begin{tabular}{l@{}}
 \ifpublicdomain
-  This work is \href{http://creativecommons.org/publicdomain/zero/1.0/}
+  This work is \href{http://creativecommons.org/licenses/publicdomain/}
   {dedicated to the public domain}.
 \else
   \ifcopyright
@@ -175,7 +159,6 @@
     \vskip 1em%			       \date and extra space removed
   \end{center}%
   \par
-  \markboth{\hfill\titlerunning}{\authorrunning\hfill}
   \vskip .5em}
 
 \AtBeginDocument{
