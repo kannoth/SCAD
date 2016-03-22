@@ -1,0 +1,24 @@
+	\section{Instruction Set Architecture}
+		The basic instruction set architecture of a SCAD machine is similar to that of a transport triggered architecture CPU.
+		
+		Two possible means of getting initial data to the functional units were considered in design.
+		The first, having dedicated input and output FIFOs, was discarded in favor of an instruction set extension inspired by the bachelor thesis of Sebastian Schumb\cite{Schu15}.
+		
+		Aside from the mandatory move instruction, our Instruction Set Architecture (ISA) needs to have instructions for loading immediate values, jumping to fixed addresses and branching.
+		An overview of those instructions is given in Figure \ref{fig:instruction_table}.
+		
+		\begin{figure}[!ht]
+			\begin{center}
+				\begin{tabular}{| l | p{8cm} |}
+					\hline
+					\textbf{instruction} & \textbf{semantics} \\ \hline
+					\lstinline{move src, dest} & Move data from an output buffer to an input buffer by sending this instruction to the corresponding functional units. Data move will asynchronous \\ \hline
+					\lstinline{jump address} & Set PC to address. \\ \hline
+					\lstinline{immediate data} & Place data into output buffer of control unit. \\ \hline
+					\lstinline{branch address} & A no-op when the first data in the input buffer is a 0, jump to address otherwise. Will wait for data to arrive when there is none. \\ \hline
+				\end{tabular}
+				\label{fig:instruction_table}
+				\caption{SCAD Architecture Instructions}
+			\end{center}
+		\end{figure}
+

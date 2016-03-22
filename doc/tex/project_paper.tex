@@ -69,25 +69,8 @@
 	\tableofcontents \newpage
 	\listoftodos \newpage
 	
-	\section{Instruction Set Architecture}
-		Aside from the mandatory move instruction, our Instruction Set Architecture (ISA) needs to have instructions for loading immediate values, jumping to fixed addresses and branching.
-		An overview of those instructions is given in Figure \ref{fig:instruction_table}.
-		
-		\begin{figure}[!ht]
-			\begin{center}
-				\begin{tabular}{| l | p{7cm} |}
-					\hline
-					\textbf{instruction} & \textbf{semantics} \\ \hline
-					\lstinline{move src, dest} & Move data from an output buffer to an input buffer by sending this instruction to the corresponding functional units. Data move will asynchronous \\ \hline
-					\lstinline{jump address} & Set PC to address. \\ \hline
-					\lstinline{immediate data} & Place data into output buffer of control unit. \\ \hline
-					\lstinline{branch address} & A no-op when the first data in the input buffer is a 0, jump to address otherwise. Will wait for data to arrive when there is none. \\ \hline
-				\end{tabular}
-				\label{fig:instruction_table}
-				\caption{SCAD Architecture Instructions}
-			\end{center}
-		\end{figure}
-		
+	\include{instruction_set_architecture}
+	
 	\section{Move Instruction Bus}
 		\subsection{2-Phase Commit}
 			To take into account both stalls of source and destination functional units, the control unit sends move instructions in two phases, both of which are indicated by a rising edge of the "valid" flag\todo{Either the text, the diagram and/or the implementation need to be adapted (not in sync).}.
@@ -117,117 +100,28 @@
 
 	\section{Future Work}
 		Having duplication as a seperate functional unit may cause it to be a significant bottleneck.
-		One feasible solution to this is the extension of the move instruction by an additional "non-destructive" move, where data sent is kept in the output buffer.
+		One feasible solution to this is the extension of the move instruction by an additional "non-destructive" move, where data sent is kept in the output buffer of the sender.
 		
 		\todo[inline]{at least two more ideas}
 
-	\nocite{*}
-	\bibliographystyle{eptcs}
-	%\bibliography{todo}
-
 	\newpage
+	\section{Bibliography}
+		%\nocite{*}
+		\bibliographystyle{eptcs}
+		\bibliography{references}
+	\newpage
+	
 	\begin{appendices}
 		\newpage
 		\section{Memory Access and Branch}
-			\label{app:ex1}
-			
+			\label{app:simple}
 			Basic example for memory access and branching:
-			
-			\begin{lstlisting}
-// Basic function:
-// *result = *op1 == *op2 ? 33 : 27;
-
-// Load operands from memory
-immediate <op1_address> // op1_address into the control unit output
-move ctrl.o0, load.i0
-immediate <op2_address>
-move ctrl.o0, load.i0
-
-// Send result destination to "store" function unit
-immediate <result_address>
-move ctrl.o0, store.i0
-
-// Send parameters to compare unit
-move load.o0, cmp.i0
-move load.o0, cmp.i1
-
-move cmp.o0, ctrl.i0 //move to control unit input for branch
-branch yes // branch to yes if control unit input != 0
-no:
-	immediate 27
-	jump both
-yes:
-	immediate 33
-both:
-	move ctrl.o0, store.i1 // move to data input of the store unit
-			\end{lstlisting}
+			\lstinputlisting{assembler/simple.asm}
 		
 		\newpage
 		\section{Fibonacci}
 			\label{app:fib}
-			
-			\begin{lstlisting}
-// WORK IN PROGRESS: might be right - but could just as well be wrong
-
-setup:
-	immediate 0
-	move ctrl.o0 duplication.i0
-	
-	immediate N
-	move ctrl.o0 add.i0
-	move duplicaton.o0, add.i1
-	
-	immediate 1
-	immediate 0
-	move ctrl.o0 add.i0
-	move ctrl.o0 add.i1
-
-loop:
-	// Loop invariant: * output buffer of add contains: (n-i)
-	//                                             then fib(i)
-	//                 * output buffer of duplication contains: fib(i-1)
-	
-	immediate -1
-	move ctrl.o0, add.i1
-	
-	move duplication.o0, add.i1
-	// add.i1: -1, fib(i-1)
-	// add.o0: (n-i), fib(i)
-	
-	move add.o0, duplication.i0
-	// add.i1: -1, fib(i-1)
-	// add.o0: fib(i)
-	// duplication.o0: (n-i), (n-i)
-	
-	move duplication.o0 ctrl.i0
-	// add.i1: -1, fib(i-1)
-	// add.o0: fib(i)
-	// duplication.o0: (n-i)
-	// ctrl.i0: (n-i)
-	
-	move duplication.o0 add.i0
-	// add.i1: fib(i-1)
-	// add.o0: fib(i), (n-i-1)
-	// ctrl.i0: (n-i)
-	
-	move add.o0, duplication.i0
-	// add.i1: fib(i-1)
-	// add.o0: (n-i-1)
-	// duplication.o0: fib(i), fib(i)
-	// ctrl.i0: (n-i)
-	
-	move duplication.o0, add.i0
-	// add.o0: (n-i-1), fib(i+1)
-	// duplication.o0: fib(i)
-	// ctrl.i0: (n-i)
-	
-	// takes ctrl.i0 as branch condition
-	branch loop
-
-finished:
-	// TODO: write values to result place in ram?
-			\end{lstlisting}
-	
+			\lstinputlisting{assembler/fibonacci.asm}
 	\end{appendices}
 	
 \end{document}
