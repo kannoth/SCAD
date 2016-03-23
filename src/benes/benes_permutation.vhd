@@ -15,8 +15,10 @@ ENTITY benes_permutation IS
 	
 	PORT (
 		--input_messages: IN data_message(((2**log_size) - 1) DOWNTO 0);
-		input_messages: IN data_message_array(0 TO 2**log_size - 1);
-		output_messages: OUT data_message_array(0 TO ((2**log_size) - 1))
+		inputs: IN data_port_sending_array(0 TO 2**log_size - 1);
+		inputs_fb: OUT data_port_receiving_array(0 TO 2**log_size - 1);
+		outputs: OUT data_port_sending_array(0 TO ((2**log_size) - 1));
+		outputs_fb: IN data_port_receiving_array(0 TO ((2**log_size) - 1))
 	);
 	
 	CONSTANT size: INTEGER := 2**log_size;
@@ -37,11 +39,13 @@ BEGIN
 	BEGIN
 		
 		regular_case: IF inverse = '0' GENERATE
-			output_messages(dest_index) <= input_messages(index);
+			outputs(dest_index) <= inputs(index);
+			inputs_fb(index) <= outputs_fb(dest_index);
 		END GENERATE regular_case;
 		
 		inverse_case: IF inverse = '1' GENERATE
-			output_messages(index) <= input_messages(dest_index);
+			outputs(index) <= inputs(dest_index);
+			inputs_fb(dest_index) <= outputs_fb(index);
 		END GENERATE inverse_case;
 		
 	END GENERATE gen_mapping;

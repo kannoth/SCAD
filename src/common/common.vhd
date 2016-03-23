@@ -137,10 +137,12 @@ PACKAGE common IS
 		message: data_message;
 		valid: STD_LOGIC;
 	END RECORD;
+	TYPE data_port_sending_array IS ARRAY(NATURAL RANGE <>) OF data_port_sending;
 	
 	TYPE data_port_receiving IS RECORD
 		is_read: STD_LOGIC;
 	END RECORD;
+	TYPE data_port_receiving_array IS ARRAY(NATURAL RANGE <>) OF data_port_receiving;
 	
 -- TYPE DEFAULTS ----------------------------------------------------------------
 	
