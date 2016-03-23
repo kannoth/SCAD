@@ -31,7 +31,6 @@ ARCHITECTURE benes_switch_out OF benes_switch_out IS
 	SIGNAL out_regs: data_port_sending_array(0 TO 1);
 	SIGNAL fb_regs: data_port_receiving_array(0 TO 1);
 	
-	-- TODO: make sure this is correct
 	CONSTANT addr_bit: INTEGER := log_size_network - log_step;
 	
 	CONSTANT ADRZERO: address_fu_buff := (fu => (OTHERS => '0'), buff => '0');
@@ -44,17 +43,21 @@ ARCHITECTURE benes_switch_out OF benes_switch_out IS
 		)
 	);
 BEGIN
-	-- TODO: Not done
-
-	-- For conflict-free output switches
-	--straight <= (inputs(0).valid AND (NOT inputs(0).message.dest(addr_bit)))
-	--            OR ((NOT inputs(0).valid) AND inputs(1).valid AND inputs(1).message.dest(addr_bit));
-	--cross <= (inputs(0).valid AND inputs(0).message.dest(addr_bit))
-	--         OR ((NOT inputs(0).valid) AND inputs(1).valid AND (NOT inputs(1).message.dest(addr_bit)));
-	
+	-- connect output registers to outputs
 	outputs <= out_regs;
 	inputs_fb <= fb_regs;
 	
+	-- first input is always preferred when there's a conflict
+	-- basic idea:
+	--   if first output is empty or will be empty (is acknowledged) then
+	--       if first input needs to go to first output then
+	--           do that
+	--       elseif second input needs to go to the first output
+	--           do that
+	--       else
+	--           set first output to zero
+	--       end
+	--   end
 	behaviour: PROCESS(clk)
 	BEGIN
 		IF rising_edge(clk) THEN
