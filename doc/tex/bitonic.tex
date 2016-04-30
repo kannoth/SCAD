@@ -40,10 +40,12 @@
 				  that are not ready can feed an unknown \textit{Target-Address}. Two solutions were identified as the following.
 				  \subsubsection{Bitonic Network with additional Routers}
 					      This is a proposed solution before realizing the Bitonic-Banyan \cite{batcher_banyan_ref}( Batcher's Banyan)  network. In this case the invalid \textit{Target-Address} problem is sorted
-					      out by adding and two extra stages at the input and output of the Bitonic Sorter. At input we add an \textit{Address-Resolver} module for each comparators. In the architecture an invalid addresses
+					      out by adding and two extra stages at the input and output of the Bitonic Sorter. At input we add an \textit{Address-Resolver} module for each comparators. In the architecture an invalid 
+					      addresses\footnote{An invalid address here means when the a \textit{Function-Unit} has no outputs ready or no outpts at a given point of time to send to another \textit{Function-Unit}, 
+					      which can result in any address at the input of the DTN. The \textit{VALID} bit is asserted to a \textit{LOW} in every clock cycle whenever a \textit{Function-Unit} has no addresses to route}
 					      is identified by a \textit{VALID} bit in the \textit{Data-Packet} (Figure \ref{fig:Data_Packet}). All \textit{Functional-Unit} writes a \textit{LOW} to the \textit{VALID} bit of its output packets in every clock cycle unless an packet is ready. 
 					      In this way the network can interpret the validity of the \textit{Data-Packet} and act accordingly. The \textit{Address-Resolver} feeds the input of each comparator with a predefined hardcoded address according to the position of the comparator. 
-					      Figure \ref{fig:Address_Resolver} shows a implementation of the Address-Resolver.
+					      Figure \ref{fig:Address_Resolver} shows a implementation of the \textit{Address-Resolver}.
 					      \begin{figure}[!ht]
 							\includegraphics[width=\linewidth]{Address_Resolver.png}
 						      \caption{Address resolution}
@@ -51,71 +53,75 @@
 					      \end{figure}
 					      The \textit{Address-Resovler} is a simple combinatorial multiplexer which switches the address based on the \textit{VALID} bit of address and is connected to all the $N$ comparators of input.
 					      For an $N$ input Bitonic network the hardcoded address is defined as $N -1 + C$ , where $C$ is the position of the the comparator which ranges from $1$ to $N$. This ensures the 
-					      comparator is fed with an address which is greater that $N -1$, which enables the sorter to work even if some of the inputs are not ready. In other words the \textit{Address-Resovler}
+					      comparators are fed with an addresses which is greater that $N -1$, which enables the sorter to work even if some of the inputs are invalid. In other words the \textit{Address-Resovler}
 					      switches the input of the Bitonic network to  valid address at the instant when the \textit{VALID} bit is \textit{HIGH}. One  more problem that to be resolved
-					      still is the output of the network. The sorter will sort the \textit{Data-Packets} with all the hardcoded addresses positioned at last of the address sequence but still the actual addresses can
-					      be routed into wrong destinations. For eg: If the input is an addresse sequence $\langle31,X_{1},X_{2},..,X_{31}\rangle$ (where $X_{i}$ indicates invalid address) which results in the output 
-					      address sorted sequence of $\langle31,32,33,..,63\rangle$. The routing is wrong since the $31$ is routed to target $0$. To resolve this we have to use a stage of routers at the output of the network. 
+					      still is the sorted output sequence the network. The sorter will sort the \textit{Data-Packets} with all the hardcoded addresses positioned at last of the address sequence but still the actual addresses can
+					      be routed into wrong destinations. For eg: If the input is an address sequence $\langle31,X_{1},X_{2},..,X_{31}\rangle$ (where $X_{i}$ indicates invalid address) which results in the sorted output sequence 
+					      of $\langle31,32,33,..,63\rangle$. The routing is wrong since the $31$ is routed to target $0$. To resolve this we have to use a stage of sequencial routers at the output of the network.
+					      
+					      
 					      The routers have forward and reverse routing path and \textit{Data-packet} is routed to either forward or reverse path based on the distance to the target. The distance to each destination is hardcoded 
 					      in a routing table which enables faster decision making. The configuration is shown in Figure \ref{fig:RouterNetwork} .The drawback is a \textit{stall} signal is required
-					      to stop the network to take new Data-packets until the old ones are delivered to the corresponding target Functional-Units. The worst case time for a packet to reach the target
+					      to stop the network to take new  \textit{Data-packets} until the old ones are delivered to the corresponding target  \textit{Function-Units}. The worst case time for a packet to reach the target
 					      from the router network will be $N / 2$ .In other words in the worst case we have to stall network for $N/2$ clock cycles without doing anything useful in that time. The best
-					      case would be when all the inputs are valid. Besides the circuit is sequencial and the \textit{stall} is active which degrades the DTN performance. 
-					      Also a router element is a complicated state machine which consumes considerable amount of resources when we have $32$ instances of the same. This fact 
-					      lead us to use a Bitonic-Banyan\cite{batcher_banyan_ref} cascaded network which resolves this address permutation problem in constant time.
+					      case would be when all the inputs are valid. Besides the circuit is sequencial and the \textit{stall} is active which degrades the DTN performance. This is because the \textit{stall} creates backpressure which
+					      will be propegated to all the \textit{Function-Units} and the \textit{Control-Unit}.Also a router element is a complicated state machine which consumes considerable amount of resources when we have $32$ instances of the same. 
+					      This fact lead us to use a Bitonic-Banyan\cite{batcher_banyan_ref} cascaded network which resolves this address permutation problem in constant time.
 					      \begin{figure}[!ht]
 							\includegraphics[width=\linewidth]{RouterNetwork.png}
 						      \caption{Router Network}
 					      \label{fig:RouterNetwork}
 					      \end{figure}
 				  \subsubsection{Bitonic-Banyan Network}
-					      We utilize the self routing property of a Batcher-Banyan network \cite{batcher_banyan_ref} when the invalid Target-addresses are found at the input. The configuration contains
-					      a Bitonic Sorting Network cascaded with a Banyan routing network. As in the case of a Bitonic Network we use the 2 X 2 switching element(comparator) but the connection state of this
-					      element is determined by the destination tags of the input, in our case the Target address. A BitonicNetwork can is capable or realizing arbritary permutations of the inputs. 
-					      But still the routing is not proper with incomplete Data-packet at the inputs. Here comes the use of Banyan Network which can route the sorted outputs to appropriate
-					      Target addresses. As mentined before, special kind of modified switching elements are used which is quite differant from the configuration of normal Bitonic comparators.
-					      The switching elements are added with some extra logic to route the larger target address Data-packets to the direction pointed by the arrow. 
-					      Fig.6 depicts the switch configuration in different possible scenarios. An 'X' indicates incomplete inputs. This switch basically moves all the X inputs to the bottom of the list.
-					      Thus for any input sequence of Data-Packets with $U_{0},U_{1},..,U{r-1}$  are the invalid addresses, the Bitonic network will produce an output sequence of $A_{0},A_{1},..,A_{K},..,U,U,..U$ , where
-					      $ K = 32 - r -1$. Figure \ref{fig:Batcher_Switches} shows the modified switching element for the Bitonic Network of the SCAD machine. The Normal-switch is an ascending comparator which is shown in Fig.5 and
-					      the Modified swich the one which is shown in Figure \ref{fig:Switching_Element}.
-					      which handles our situation.
+					      We utilize the self routing property of a Bitonic-Banyan\footnote{A Bitonic-Banyan cascaded network is called a Batcher-Banyan network in the reference paper\cite{batcher_banyan_ref}.
+					      We call it as Bitonic-Banyan  network all over this paper to give an intuitive meaning how the network is constructed.} network \cite{batcher_banyan_ref} when the invalid 
+					      \textit{Target-addresses} are found at the input. The configuration contains
+					      a Bitonic Sorting Network cascaded with a Banyan routing network. As in the case of a Bitonic Network we use the $2 X 2$ switching element(comparator) but the connection state of this
+					      element is determined by the destination tags of the input, in our case the \textit{Target address}. A Bitonic network is capable or realizing arbritary permutations of the inputs. 
+					      But still the routing is not proper with invalid \textit{Data-packet} at the inputs. Here comes the use of Banyan network which can route the sorted outputs to appropriate
+					      \textit{Target addresses}. As mentined before, special kind of modified switching elements are used which is quite differant from the configuration of normal Bitonic comparators.
+					      The switching elements are added with some extra logic to route the larger target address \textit{Data-packets} to the direction pointed by the arrow. 
+					      Figure \ref{fig:Batcher_Switches} depicts the switch configuration in different possible scenarios. 
+					      
+					      An $X$ indicates incomplete inputs. This switch basically moves all the $X$s from the input sequence to the bottom of the sequence.
+					      Thus for any input sequence of Data-Packets with a set of  the invalid addresses $\{U_{0},U_{1},..,U_{r-1}\}$, the Bitonic network will produce an output sequence of $\langle A_{0},A_{1},..,A_{K},..,U,U,..,U \rangle$ , where
+					      $ K = 32 - r -1$. Figure \ref{fig:Batcher_Switches} shows the modified switching element for the Bitonic network of the DTN. The \textit{Normal-Switch} is an ascending comparator which is shown in Figure \ref{fig:Comparators} and
+					      the \textit{Modified-Switch} the one which is shown in Figure \ref{fig:Switching_Element}. which handles the invalid address situation.
 					      \begin{figure}[!ht]
 						      \includegraphics[width=\linewidth]{Batcher_Switches.png}
-						      \caption{Modified switches for handling incomplete Data-packets in Bitonic Network}
+						      \caption{Modified switch handles different scenarios in Bitonic network}
 					      \label{fig:Batcher_Switches}
 					      \end{figure}
 					      \begin{figure}[!ht]
 						      \includegraphics[width=\linewidth]{Switching_Element.png}
-						      \caption{Swiching element of Bitonic Network}
+						      \caption{Switching element of Bitonic network}
 					      \label{fig:Switching_Element}
 					      \end{figure}
 					      \begin{figure}[!ht]
 						      \includegraphics[width=\linewidth]{Banyan_Tree.png}
-						      \caption{8 input Banyan network}
+						      \caption{An 8 input Banyan network}
 					      \label{fig:Banyan_Tree}
 					      \end{figure}
-					      The next stage is a Banyan Network which takes up the sorted sequences by the BitonicNetwork and route to the proper destination. 
+					      The next stage is a Banyan Network which takes up the sorted sequences by the Bitonic network and route to the proper destination. 
 					      
 					      It is proven \cite{batcher_banyan_ref} that 
-					      an Banyan network can completely route a sorted list when the incomplete inputs appear either at high end or low end of the list. We have already moved all the incomplete Data-Packets
-					      to the lower end of the sequence with the help of modified switch. An 8 input Banyan Network configuraion is shown in Figure \ref{fig:Banyan_Tree}. We simply expand the same to 32.
-					      The Data-Packets in the Banyan Network is based on the $i^{th}$ bit of the Target-Adress, where $i$ is the stage index. For an $N$ input Banyan Network we have $log_{2}(N)$ 
-					      stages and combinatorial circuit depth.A Banyan Newtwork is collision free if the input sequences are sorted ascending
-					      thus in our case gurantees the delivery of Data-Packets at proper destination since the Bitonic Network in the previous stage will already produce an acending sequence. In our case 
-					      the sequence can also have invalid Data-Packets which is in the tail of the sequence. Different scenarios in handling of incomplete input for a Banyan switch is shown in Figure \ref{fig:Banyan_Switches}.
-					      A 'X' corresponds to incomplete inputs. The valid inputs are the bit position of the stage $i$ of the Target-Address. Beased on this bit the Data-packet is routed up or down.
+					      an Banyan network can completely route a sorted sequence when the incomplete inputs appear either at high end or low end of the list without any conflicts. We have already moved all the incomplete \textit{Data-Packets}
+					      to the lower end of the sequence with the help of modified switch. An 8 input Banyan network configuraion is shown in Figure \ref{fig:Banyan_Tree}. We simply expand the same to 32.
+					      The \textit{Data-Packets} in the Banyan network is based on the $i^{th}$ bit of the \textit{Target-Address}, where $i$ is the stage index. For an $N$ input Banyan network we have $log_{2}(N)$ 
+					      stages and combinatorial circuit depth. A Banyan newtwork is collision free if the input sequences are sorted ascending
+					      thus in our case gurantees the delivery of \textit{Data-Packets} at proper destination since the Bitonic network in the previous stage will already produce an acending sequence. In our case 
+					      the sequence can also have invalid \textit{Data-Packets} which is in the tail of the sequence. Different scenarios in handling of incomplete input for a Banyan switch is shown in Figure \ref{fig:Banyan_Switches}.
+					      A $X$ corresponds to incomplete inputs. The valid inputs are the bit position of the stage $i$ of the \textit{Target-Address}. Based on this bit the \textit{Data-packet} is routed up or down.
 					      \begin{figure}[!ht]
 						      \includegraphics[width=\linewidth]{Banyan_Switches.png}
-						      \caption{Modified switches for handling incomplete Data-packets in Banyan Network }
+						      \caption{Modified switch handles different scenarios in Banyan Network }
 					      \label{fig:Banyan_Switches}
 					      \end{figure}
-					      It has been proven \cite{sorting_network_on_fpgas} that for $N > 8$ the latency
-					      due to combinatorial depth of a Bitonic Network is more that when it is piplelined. So we have implemented 5 stage pipleline for th Bitonic Network and a 5 stage for 
-					      the Banyan Network.Altogether for the SCAD machine the synchronous Bitonic-Banyan version of DTN is shown in Figure \ref{fig:Batcher_Banyan_Combined}.
+					      It has also verified with benchmarks \cite{sorting_network_on_fpgas} that for $N > 8$ the latency due to combinatorial depth of a Bitonic network is more that when it is piplelined. So we have implemented 5 stage pipleline 
+					      for th Bitonic network and a 5 stage for the Banyan network.Altogether for the SCAD arhitecture the synchronous \textit{Bitonic-Banyan} version of DTN is shown in Figure \ref{fig:Batcher_Banyan_Combined}.
 					      \begin{figure}[!ht]
 						      \includegraphics[width=\linewidth]{Batcher_Banyan_Combined.png}
-						      \caption{DTN of SCAD machine}
+						      \caption{DTN of SCAD arhitecture with Bitonic-Banyan network}
 					      \label{fig:Batcher_Banyan_Combined}
 					      \end{figure}
 
