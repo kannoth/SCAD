@@ -1,13 +1,19 @@
-		The Data Trasport Network is the core part of the SCAD architecture. The 32 Fuctional-Units are identified by its physical address in the architecture which ranges from 0 to 31. Each Functional-Unit has output 
-		that can send the data packets to any other Functional-Unit in a given point of time. A Data Packet structure is shown in the Fig.3. The intention is to get all the data packets deliverd to the 
-		corresponding target Functional-Units in a minimum time, possibly constant time. A Cross-Bar switch network is a possible solution with a gurantee of constant time delivery of Data Packets to the target,
-		but we have to compramise the resource consumption which makes it fairly complicated for 32 Functional Units. In other words the 32 X 32 cross connection itself will consume a major part of the resources, 
-		which is not efficient. Another possible solution for this is to use memory mapped bus. But in this case, again it does not guarantee a constant time delivery to the 
-		Functional-Units , since there will be cases where we have to prioritize the Data-Packets based in addresses possibly by using an Arbeiter. So as a tradeoff between resource consumption and time to deliver
-		a Bitonic Network and a Benes Network are a good choices among many parallel sorting network. We implemented the DTN with a Bitonic as well as with a Benes Network. 
-		A Bitonic Network sort any possible permutations in of input in constant time which makes it an excellent choice as a Network Router.
-		Basically all the Fuctional-Units can be connected to each outputs of a Bitonic sorter with respect to the physical address and thus Bitonic Sorter acts Network Router. Before briefing further on the actual implementation
-		we would like to give a short introduction about Bitonic-Network.
+		
+		
+		The Data Trasport Network is the core part of the SCAD architecture. The 32 \textit{Fuction-Units} are identified by its physical address in the architecture which ranges from 0 to 31. Each \textit{Function-Unit} has output 
+		that can send the \textit{Data-packets} to any other \textit{Function-Unit} in a given point of time. The \textit{Data-Packet} structure is shown in the Figure \ref{fig:Data_Packet}. The intention is to get all the \textit{Data-packets}
+		deliverd to the corresponding target \textit{Function-Units} in minimum time, possibly constant time. A constant time means the time taken is deterministic. It can be several clock cycles and it will be the same for 
+		any permutations of set if input addresses.
+		
+		A \textit{Cross-Bar} switch network is a possible solution with a gurantee of constant time delivery of \textit{Data Packets} to the target, but we have to compramise the resource consumption which makes it fairly complicated 
+		for 32 \textit{Function-Units}. In other words the $32 X 32$ cross connection itself will consume a major part of the resources of the complete system, which is not efficient. Another possible solution for this is to use 
+		memory mapped bus. But in this case, again it does not guarantee a constant time delivery to the \textit{Function-Units}, since there will be cases where we have to prioritize the \textit{Data-Packets} based in addresses possibly 
+		by using an Arbeiter. 
+		
+		As a tradeoff between resource consumption and time to deliver a \textit{Data-Packet}, a {Bitonic Network} and a {Beneš Network} are indentified as good choices among many parallel sorting networks. 
+		We implemented the DTN with a Bitonic as well as with a Beneš Network. A {Bitonic Network} sort any possible permutations in of input in constant time which makes it an excellent choice as a network router.
+		Basically all the \textit{Fuction-Units} can be connected to each outputs of a \textit{Bitonic sorter} with respect to the physical address and thus {Bitonic sorter} acts network router. 
+		Before going deep on the actual implementation we would like to give a short introduction about {Bitonic sorter}.
 
 			\begin{figure}[!ht]
 				%\begin{center}
@@ -19,5 +25,6 @@
 				%  \end{center}
 				\includegraphics[width=\linewidth]{Data_Packet.png}
 				\caption{Data Packet struture}
+			\label{fig:Data_Packet}
 			\end{figure}
 
