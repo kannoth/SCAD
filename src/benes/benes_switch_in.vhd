@@ -16,10 +16,17 @@ ENTITY benes_switch_in IS
 	PORT (
 		clk: IN STD_LOGIC;
 		rst: IN STD_LOGIC;
+		
 		inputs: IN data_port_sending_array(0 TO 1);
 		inputs_fb: OUT data_port_receiving_array(0 TO 1);
 		outputs: OUT data_port_sending_array(0 TO 1);
 		outputs_fb: IN data_port_receiving_array(0 TO 1);
+		
+		up_stall_in: IN STD_LOGIC_VECTOR((2**log_step)-1 DOWNTO 0);
+		up_stall_out: OUT STD_LOGIC_VECTOR((2**log_step)-1 DOWNTO 0);
+		down_stall_in: IN STD_LOGIC_VECTOR((2**log_step)-1 DOWNTO 0);
+		down_stall_out: OUT STD_LOGIC_VECTOR((2**log_step)-1 DOWNTO 0);
+		
 		up_in: IN STD_LOGIC_VECTOR((2**log_step)-1 DOWNTO 0);
 		up_out: OUT STD_LOGIC_VECTOR((2**log_step)-1 DOWNTO 0);
 		down_in: IN STD_LOGIC_VECTOR((2**log_step)-1 DOWNTO 0);
@@ -46,7 +53,7 @@ ARCHITECTURE benes_switch_in OF benes_switch_in IS
 	SIGNAL reservation_mask_stall_up, reservation_mask_stall_down: STD_LOGIC_VECTOR((2**log_step)-1 DOWNTO 0);
 	
 	-- reservations including stalls at output
-	SIGNAL up_reserved_stalled, down_reserved_stalled: STD_LOGIC_VECTOR((2**log_step)-1 DOWNTO 0);
+	--SIGNAL up_reserved_stalled, down_reserved_stalled: STD_LOGIC_VECTOR((2**log_step)-1 DOWNTO 0);
 	-- reservations including first halfswitch
 	SIGNAL up_reserved_first, down_reserved_first: STD_LOGIC_VECTOR((2**log_step)-1 DOWNTO 0);
 	
@@ -71,17 +78,21 @@ BEGIN
 	reservation_mask_stall_down <= STD_LOGIC_VECTOR(
 		shift_left(resize(unsigned'("1"), up_in'length),
 		           to_integer(unsigned(output_regs(1).message.dest.fu))));
-	up_reserved_stalled <= (up_in OR reservation_mask_stall_up) WHEN stalls(0) = '1'
-	                        ELSE up_in;
-	down_reserved_stalled <= (down_in OR reservation_mask_stall_down) WHEN stalls(1) = '1'
-	                          ELSE down_in;
+	--up_reserved_stalled <= (up_in OR reservation_mask_stall_up) WHEN stalls(0) = '1'
+	--                        ELSE up_in;
+	--down_reserved_stalled <= (down_in OR reservation_mask_stall_down) WHEN stalls(1) = '1'
+	--                          ELSE down_in;
+	up_stall_out <= (up_stall_in OR reservation_mask_stall_up) WHEN stalls(0) = '1'
+	                        ELSE up_stall_in;
+	down_stall_out <= (down_stall_in OR reservation_mask_stall_down) WHEN stalls(1) = '1'
+	                          ELSE down_stall_in;
 	
 	
 	first_half: ENTITY work.benes_halfswitch_in
 		GENERIC MAP (log_step, log_size_network)
 		PORT MAP(inputs(0), inputs_fb_regs(0),
-		         up_reserved_stalled, up_reserved_first,
-		         down_reserved_stalled, down_reserved_first,
+		         up_in, up_reserved_first,
+		         down_in, down_reserved_first,
 		         stalls(0), stalls(1),
 		         first_up, first_down);
 	
