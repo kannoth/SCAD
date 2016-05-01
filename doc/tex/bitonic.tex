@@ -30,7 +30,7 @@
 			    An N input Bitonic Network consists of $O(N.log_{2}(N)^{2})$ comparators and has a combinatorial depth of $O(log_{2}(N)^{2})$.
 				    \begin{figure}[!ht]
 					      \includegraphics[width=\linewidth]{Comparators.png}
-					    \caption{Basic 2 x 2 comparator elements of a Bitonic sorter}
+					    \caption{Basic $2 x 2$ comparator elements of a Bitonic sorter}
 				    \label{fig:Comparators}
 				    \end{figure}
 			\subsubsection{Bitonic Network as Network Router}
@@ -41,8 +41,8 @@
 				  \subsubsection{Bitonic Network with additional Routers}
 					      This is a proposed solution before realizing the Bitonic-Banyan \cite{batcher_banyan_ref}( Batcher's Banyan)  network. In this case the invalid \textit{Target-Address} problem is sorted
 					      out by adding and two extra stages at the input and output of the Bitonic Sorter. At input we add an \textit{Address-Resolver} module for each comparators. In the architecture an invalid 
-					      addresses\footnote{An invalid address here means when the a \textit{Function-Unit} has no outputs ready or no outpts at a given point of time to send to another \textit{Function-Unit}, 
-					      which can result in any address at the input of the DTN. The \textit{VALID} bit is asserted to a \textit{LOW} in every clock cycle whenever a \textit{Function-Unit} has no addresses to route}
+					      addresses\footnote{An invalid address here means when the a \textit{Function-Unit} has no outputs ready at a given point of time to send to another \textit{Function-Unit}, 
+					      which can result in any address at the input of the DTN. The \textit{VALID} bit is asserted to a \textit{LOW} in every clock cycle by the \textit{Function-Unit} when not \textit{Data-Packets} are ready.}
 					      is identified by a \textit{VALID} bit in the \textit{Data-Packet} (Figure \ref{fig:Data_Packet}). All \textit{Functional-Unit} writes a \textit{LOW} to the \textit{VALID} bit of its output packets in every clock cycle unless an packet is ready. 
 					      In this way the network can interpret the validity of the \textit{Data-Packet} and act accordingly. The \textit{Address-Resolver} feeds the input of each comparator with a predefined hardcoded address according to the position of the comparator. 
 					      Figure \ref{fig:Address_Resolver} shows a implementation of the \textit{Address-Resolver}.
@@ -114,7 +114,7 @@
 					      A $X$ corresponds to incomplete inputs. The valid inputs are the bit position of the stage $i$ of the \textit{Target-Address}. Based on this bit the \textit{Data-packet} is routed up or down.
 					      \begin{figure}[!ht]
 						      \includegraphics[width=\linewidth]{Banyan_Switches.png}
-						      \caption{Modified switch handles different scenarios in Banyan Network }
+						      \caption{Different scenarios in Banyan network switch }
 					      \label{fig:Banyan_Switches}
 					      \end{figure}
 					      It has also verified with benchmarks \cite{sorting_network_on_fpgas} that for $N > 8$ the latency due to combinatorial depth of a Bitonic network is more that when it is piplelined. So we have implemented 5 stage pipleline 
