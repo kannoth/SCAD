@@ -137,7 +137,7 @@ begin
 			phase 					:= mib_inp.phase;
 			idx						:= mib_inp.dest.buff;
 			
-			mib_fu_to_buf_en 		<= '0'
+			mib_fu_to_buf_en 		<= '0';
 			
 			if mib_valid = '1' then
 				reg_dout.valid <= '0';
@@ -152,11 +152,9 @@ begin
 						mib_fu_to_buf_en <= '0';
 						buf_out_en <= '1';
 						buf_out_rw <= '0';
-					else
+					elsif fu_addr = mib_inp.dest.fu then
 						mib_fu_to_buf_en <= '1';
 					end if;
-				else
-					mib_fu_to_buf_en <= '0';
 				end if;
 			end if;
 			

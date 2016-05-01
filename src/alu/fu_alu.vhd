@@ -202,12 +202,7 @@ begin
 							mib_fu_to_buf1_en <= '0';
 							mib_fu_to_buf2_en <= '1';
 						end if;
-					else
-						null;
 					end if;
-				else
-					mib_fu_to_buf1_en <= '0';
-					mib_fu_to_buf2_en <= '0';
 				end if;
 			end if;
 			
@@ -227,9 +222,6 @@ begin
 		end if;
 	end if;
 end process;
-
-
-
 
 end Structural;
 

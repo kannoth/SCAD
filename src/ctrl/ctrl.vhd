@@ -31,8 +31,7 @@ ARCHITECTURE ctrl OF ctrl IS
 	SIGNAL current_instr:instruction;	
 	SIGNAL pc_out: data_word;
 	SIGNAL taken_wire:STD_LOGIC;
-	SIGNAL branch_offset_wire:data_word;
-	SIGNAL valid_IF_gen:STD_LOGIC;	
+	SIGNAL branch_offset_wire:data_word;	
 	SIGNAL reg_active : STD_LOGIC;
 
 	
@@ -81,8 +80,5 @@ BEGIN
 		
 		to_mib : ctrl_move_instr PORT MAP (instruction_input => mem_instr, ctrl_mib => mib_out, clk => clk, reset => reset, stall => fu_stalls, active => reg_active,  
 		valid_IF => mem_data_valid, dtn_data_out => dtn_data_out, dtn_data_in => dtn_data_in);
-    
-		
-		
 
 END ctrl;

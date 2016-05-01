@@ -23,7 +23,7 @@ signal reg_output : instruction;
 
 -- TODO: the functional unit addresses are strictly imaginary
 --       and only for demonstration for now
-CONSTANT content: instruction_array(0 TO 16) := (
+CONSTANT content: instruction_array(0 TO 64) := (
 	-- Insert a faux instruction to first index
 	--0 => to_instruction(MOVE, 0,0 , 1,0),
 	0 => to_instruction(IMMEDIATE, 512),
@@ -50,6 +50,19 @@ CONSTANT content: instruction_array(0 TO 16) := (
 	5	=> to_instruction(MOVE, 0,0 , 28,1), -- immediate to store.1
 	
 	6	=> to_instruction(MOVE, 1,0 , 28,0), -- immediate to store.1
+	
+	7 => to_instruction(IMMEDIATE, 16),
+	8	=> to_instruction(MOVE, 0,0 , 24,1), -- immediate to store.1
+	
+	9	=> to_instruction(MOVE, 24,0 , 2,0), -- immediate to store.1
+	
+	10 => to_instruction(IMMEDIATE, 520),
+	11	=> to_instruction(MOVE, 0,0 , 2,1), -- immediate to store.1
+	
+	12 => to_instruction(IMMEDIATE, 32),
+	13	=> to_instruction(MOVE, 0,0 , 28,1), -- immediate to store.1
+	
+	14	=> to_instruction(MOVE, 2,0 , 28,0), -- immediate to store.1
 	
 	OTHERS => to_instruction(JUMP, 0)
 	);
