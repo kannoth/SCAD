@@ -1,0 +1,15 @@
+\begin{frame}
+\frametitle{Data Transport Network}
+  \itemize{
+    \item DTN is the core part of SCAD \\
+    \item Intention is to acheive low latency in deliveing \textit{Data-Packets} from a source \textit{Function-Unit} to destination \textit{Function-Unit}  \\
+    \item Low latency means the time taken for deliveing \textit{Data-Packets} is expected to be constant , ie; independent of \textit{Function-Unit} address permuations \\
+    \item Many possible solutions\\
+     \itemize{
+      \item Memory mapped buses - Best in terms of resource but worst in latency\\
+      \item Cross Bar switch - Worst in terms of resources but best in terms of latency\\
+      \item Parllel sorting Networks like Bitonic Sorter , Benes Network etc - Tradeoff between latency and resource\\
+     }
+     \item We selected a Bitonic sorter and Benes network.
+  }
+\end{frame}

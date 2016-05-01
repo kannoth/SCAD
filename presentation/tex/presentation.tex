@@ -1,0 +1,82 @@
+\documentclass{beamer}
+\mode<presentation>
+
+  \usetheme{Madrid}
+  \usecolortheme{default}
+  \usefonttheme{default}
+  \setbeamertemplate{navigation symbols}{}
+  \setbeamertemplate{caption}[numbered]
+\usepackage{ragged2e}
+\usepackage[english]{babel}
+\usepackage[utf8x]{inputenc}
+\usepackage{svg}
+\usepackage{calc}
+\usepackage{amsmath}
+\usepackage{subfig}
+\usepackage{graphicx}
+\graphicspath{ {figures/} }
+\setbeamersize{text margin left=0.5cm,text margin right=0.5cm}
+\title[SCAD Architecture]{Synchronous Control Asynchronous Dataflow Architecture}
+\author{Julius Roob \\ Mahircan G{\"u}l \\ Maisum Haider \\ Subash Kannoth }
+\institute[TU Kaiserslautern]
+{
+	Technische Universit{\"a}t Kaiserslautern \\
+	\medskip
+}
+\date{\today}
+
+\begin{document}
+
+\begin{frame}
+  \titlepage
+\end{frame}
+
+\begin{frame}[allowframebreaks]{Outline}
+\frametitle{Overview}
+\tableofcontents
+\end{frame}
+
+\section{What is SCAD architecure ?}
+  \input{what_is_scad}
+  
+\section{Instruction set architecture}
+  \input{instruction_set_architechure}
+  
+\section{Move Instruction bus}
+  \input{move_instruction_bus}
+  
+\section{Control Unit}
+  \input{control_unit}
+  
+\section{Data trasport network - DTN}
+  \input{data_transport_network}
+  
+  \subsection{Bitnoic Network}
+    \input{bitonic_network}
+    \input{bitonic_network_2}
+    
+     \subsection{Challenges with Bitnoic Network}
+	\input{bitonic_challenges}
+	
+	\subsubsection{Bitnoic Network with Routers}
+	\input{bitonic_with_network_routers}
+      
+	\subsubsection{Bitnoic-Banyan Network}
+	\input{bitonic_banyan_network}
+	
+	\subsubsection{Resource Utilization}
+	  \input{bitonic_resource_util}
+      
+  \subsection{Benes Network}
+		\input{benes_network}
+
+\section{Memory and Fucntion Units}
+  \input{Memory_and_Function_Units}
+  
+\section{Challenges}
+  \input{challenges}
+  
+\section{Future Work}
+  \input{future_work}
+  
+\end{document}
