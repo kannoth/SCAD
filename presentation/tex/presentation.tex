@@ -1,7 +1,7 @@
 \documentclass{beamer}
 \mode<presentation>
 
-  \usetheme{Warsaw}
+  \usetheme{Madrid}
   \usecolortheme{default}
   \usefonttheme{default}
   \setbeamertemplate{navigation symbols}{}
@@ -9,9 +9,13 @@
 \usepackage{ragged2e}
 \usepackage[english]{babel}
 \usepackage[utf8x]{inputenc}
-
+\usepackage{svg}
+\usepackage{calc}
+\usepackage{amsmath}
+\usepackage{subfig}
+\setbeamersize{text margin left=0.5cm,text margin right=0.5cm}
 \title[SCAD Architecture]{Synchronous Control Asynchronous Dataflow Architecture}
-\author{Julius Roobs \\ Mahircan G{\"u}l \\ Maisum Haider \\ Subash Kannoth }
+\author{Julius Roob \\ Mahircan G{\"u}l \\ Maisum Haider \\ Subash Kannoth }
 \institute[TU Kaiserslautern]
 {
 	Technische Universit{\"a}t Kaiserslautern \\
@@ -25,21 +29,38 @@
   \titlepage
 \end{frame}
 
-\begin{frame}
+\begin{frame}[allowframebreaks]{Outline}
 \frametitle{Overview}
 \tableofcontents
 \end{frame}
 
 \section{What is SCAD architecure ?}
+  \input{what_is_scad}
+  
 \section{Instruction set architecture}
+  \input{instruction_set_architechure}
+  
 \section{Move Instruction bus}
-  \subsection{Two phase commit}
+  \input{move_instruction_bus}
+  
+\section{Control Unit}
+  \input{control_unit}
+  
 \section{Data trasport network - DTN}
-  \subsection{Bitnoic-Banyan Network}
-  \subsection{Benes Network}
-\section{Memory Heirarchy}
-\section{Functional Units - FUs}
-\section{Challenges}
-\section{Future Work}
+  \input{data_transport_network}
+  
+  \subsection{Bitnoic Network}
+    \input{bitonic_network}
+      
+  \subsection{Beneš Network}
 
+\section{Memory and Fucntion Units}
+  \input{Memory_and_Function_Units}
+  
+\section{Challenges}
+  \input{challenges}
+  
+\section{Future Work}
+  \input{future_work}
+  
 \end{document}
