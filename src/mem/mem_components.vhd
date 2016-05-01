@@ -108,7 +108,6 @@ end component;
 
 
 component memory_top is
-
 Port (
 		clk 		: in std_logic;
 		rst 		: in std_logic;

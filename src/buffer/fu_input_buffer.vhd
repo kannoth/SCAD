@@ -138,7 +138,7 @@ begin
 							buf(tail).ready 	<= '0';
 						end if;
 						lut(to_integer(unsigned(mib_addr))).found 	<= '1';
-						lut(to_integer(unsigned(mib_addr))).idx 		<= num_elements;
+						lut(to_integer(unsigned(mib_addr))).idx 		<= tail;
 						num_elements <= num_elements + 1;
 						if num_elements = BUF_SIZE - 1 then
 							reg_full <= '1';
@@ -174,9 +174,12 @@ begin
 							nxt := 0;
 							head <= 0;
 						end if;
-						reg_empty <= '0';
-					else
+					end if;
+					
+					if num_elements = 1 then
 						reg_empty <= '1';
+					else
+						reg_empty <= '0';
 					end if;
 					
 					if buf(nxt).ready = '1' then

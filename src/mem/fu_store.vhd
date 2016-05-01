@@ -96,16 +96,16 @@ inp_2 : fu_input_buffer
 		
 store_component : store
 	port map (
-		clk 		=> clk,
-		en			=> mem_enable,
+		clk 			=> clk,
+		en				=> mem_enable,
 		fu_data		=> buf1_dout,
 		fu_addr		=> buf2_dout(addr'range),
-		busy		=> mem_busy,
-		valid		=> mem_valid,
-		data		=> data,
+		busy			=> mem_busy,
+		valid			=> mem_valid,
+		data			=> data,
 		ack			=> mem_ack,
-		addr		=> addr,
-		we			=> we
+		addr			=> addr,
+		we				=> we
 );
 		
 
@@ -120,30 +120,40 @@ status.dest_stalled <= mem_busy or available or mem_enable;
 dtn_fu_to_buf1_addr <= dtn_data_in.message.src.fu when dtn_data_in.valid = '1' else (others => 'X');
 dtn_fu_to_buf2_addr <= dtn_data_in.message.src.fu when dtn_data_in.valid = '1' else (others => 'X');
 
-available 		<= buf1_available and buf2_available;
-fu_to_buf1_read <= available and not mem_busy;
-fu_to_buf2_read <= available and not mem_busy;
+available 				<= buf1_available and buf2_available;
+fu_to_buf1_read 		<= available and not mem_busy;
+fu_to_buf2_read 		<= available and not mem_busy;
 
 process(clk)
-variable mib_valid : std_logic;
-variable idx	: std_logic;
-variable phase	: mib_phase;
-
+variable mib_valid 		: std_logic;
+variable idx				: std_logic;
+variable phase				: mib_phase;
+variable dest_addr 		: address_fu;
 begin
 	if rising_edge(clk) then
 		if rst = '1' then
-			mib_valid := '0';
-			idx	:= '0';
-			phase	:= CHECK;
-			mem_enable <= '0';
+			mib_valid 		:= '0';
+			idx				:= '0';
+			phase				:= CHECK;
+			mem_enable 		<= '0';
 		else
-			dtn_fu_to_buf1_valid <= dtn_data_in.valid;
-			dtn_fu_to_buf2_valid <= dtn_data_in.valid;
+			if dtn_data_in.message.dest.buff = '0' then
+				dtn_fu_to_buf1_valid <= dtn_data_in.valid;
+				dtn_fu_to_buf2_valid <= '0';
+			else
+				dtn_fu_to_buf1_valid <= '0';
+				dtn_fu_to_buf2_valid <= dtn_data_in.valid;
+			end if;
+			mib_fu_to_buf1_en <= '0';
+			mib_fu_to_buf2_en <= '0';	
 			mib_valid := mib_inp.valid;
+			
 			phase := mib_inp.phase;
 			idx	:= mib_inp.dest.buff;
+			dest_addr 		:= mib_inp.dest.fu;
+			
 			if mib_valid = '1' then
-				if phase = COMMIT then
+				if phase = COMMIT and  fu_addr = dest_addr then
 					if idx = '0' then
 							mib_fu_to_buf1_en <= '1';
 							mib_fu_to_buf2_en <= '0';
@@ -151,19 +161,15 @@ begin
 							mib_fu_to_buf1_en <= '0';
 							mib_fu_to_buf2_en <= '1';
 					end if;
-				else
-					mib_fu_to_buf1_en <= '0';
-					mib_fu_to_buf2_en <= '0';
 				end if;
-			else
-				if available = '1' and mem_busy = '0' then
-					mem_enable <= '1';
-				else
-					mem_enable <= '0';
-				end if;
-				mib_fu_to_buf1_en <= '0';
-				mib_fu_to_buf2_en <= '0';					
 			end if;
+			
+			if available = '1' and mem_busy = '0' then
+				mem_enable <= '1';
+			else
+				mem_enable <= '0';
+			end if;
+	
 		end if;
 	end if;
 end process;

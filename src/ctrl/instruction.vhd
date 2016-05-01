@@ -36,6 +36,12 @@ PACKAGE instruction IS
 		RETURN instruction;
 	FUNCTION to_instruction(op:opcode; from_fu, from_buff, to_fu, to_buff: INTEGER)
 		RETURN instruction;
+	FUNCTION get_destination_addr(instr: instruction)
+		RETURN std_logic_vector;
+	FUNCTION get_source_addr(instr: instruction)
+		RETURN std_logic_vector;
+	FUNCTION get_destination_buf(instr: instruction)
+		RETURN std_logic;
 END instruction;
 
 PACKAGE BODY instruction IS
@@ -90,6 +96,27 @@ PACKAGE BODY instruction IS
 		return result;
 	END to_instruction;
 	
+	FUNCTION get_destination_addr(instr: instruction)
+		RETURN std_logic_vector IS
+	BEGIN
+		return instr.param((DATA_WIDTH - ADDRESS_FU_WIDTH - ADDRESS_BUFF_WIDTH - 1) DOWNTO
+			(DATA_WIDTH - (2 * ADDRESS_FU_WIDTH) - ADDRESS_BUFF_WIDTH));
+	END get_destination_addr;
+	
+	FUNCTION get_source_addr(instr: instruction)
+		RETURN std_logic_vector IS
+	BEGIN
+		return instr.param((DATA_WIDTH - 1) DOWNTO
+			(DATA_WIDTH - ADDRESS_FU_WIDTH));
+	END get_source_addr;
+	
+	
+	FUNCTION get_destination_buf(instr: instruction)
+		RETURN std_logic IS
+	BEGIN
+		return instr.param((DATA_WIDTH - (2 * ADDRESS_FU_WIDTH) - ADDRESS_BUFF_WIDTH - 1));
+	END get_destination_buf;
+	
 	FUNCTION to_instruction(op:opcode; param: INTEGER)
 		RETURN instruction IS
 		VARIABLE result: instruction :=
@@ -108,7 +135,7 @@ PACKAGE BODY instruction IS
 		VARIABLE intermediate_from_buff: STD_LOGIC_VECTOR (0 TO 0);
 		VARIABLE intermediate_to_buff: STD_LOGIC_VECTOR (0 TO 0);
 		VARIABLE intermediate: move_instruction :=
-			(op => JUMP, OTHERS => (buff => '0', OTHERS => (OTHERS => '0')));
+			(op => JUMP, OTHERS => (( fu=> (others=>'0'), buff => '0')));
 			
 		VARIABLE result: instruction :=
 			(op => JUMP, param => (OTHERS => '0'));

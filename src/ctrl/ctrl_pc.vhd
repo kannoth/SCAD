@@ -14,7 +14,7 @@ ENTITY ctrl_pc IS
 		clk: IN STD_LOGIC;
 		reset: IN STD_LOGIC;
 		
-		stall: IN STD_LOGIC;
+		active: IN STD_LOGIC;
 		
 		-- input that tells the pc whether a branch was taken.
 		taken: IN STD_LOGIC;
@@ -36,15 +36,15 @@ BEGIN
 			IF reset = '1' THEN
 				pc_var := X"00000000";
 			ELSE
-				IF NOT stall = '1' THEN
+				offset := (others => '0');
+				IF NOT active = '1' THEN
 					IF taken = '1' THEN
 						offset := branch_offset;
 					ELSE
 						offset := X"00000001";
 					END IF;
-					
-					pc_var := pc_var + offset;
 				END IF;
+				pc_var := pc_var + offset;
 			END IF;
 			
 			pc <= pc_var;
