@@ -10,7 +10,7 @@ use IEEE.numeric_std.all;
 use IEEE.std_logic_unsigned.all;
 
 library work;
-use work.glbSharedTypes.all;
+use work.common.all;
 
 entity BitonicStage3Swap is
   port (

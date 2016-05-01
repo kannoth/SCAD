@@ -159,12 +159,20 @@ begin
 			idx	:= '0';
 			phase	:= CHECK;
 		else
+			inp_stall 		<= buf1_full or buf2_full;
+			--Controller is very conservative about buffer conditions, so we do not check
+			--buf_outp_empty since it stalls the CPU for every empty output buffer.
+			--outp_stall 		<= buf_outp_full or buf_outp_empty;
+			outp_stall 		<= buf_outp_full;
 			dtn_fu_to_buf1_valid <= dtn_data_in.valid;
 			dtn_fu_to_buf2_valid <= dtn_data_in.valid;
+			--we are snooping MIB now
+			--mib_valid := mib_inp.valid;
 			mib_valid := mib_inp.valid;
 			phase := mib_inp.phase;
 			idx	:= mib_inp.dest.buff;
 			if mib_valid = '1' then
+			reg_dout.valid <= '0';
 				if phase = COMMIT then
 					if fu_addr = mib_inp.src.fu then --we are source
 						--assemble output packet and send
@@ -177,8 +185,7 @@ begin
 						mib_fu_to_buf2_en <= '0';
 						buf_out_en <= '1';
 						buf_out_rw <= '0';
-					else
-						reg_dout.valid <= '0';
+					elsif fu_addr = mib_inp.dest.fu then
 						if idx = '0' then
 							mib_fu_to_buf1_en <= '1';
 							mib_fu_to_buf2_en <= '0';
@@ -186,12 +193,12 @@ begin
 							mib_fu_to_buf1_en <= '0';
 							mib_fu_to_buf2_en <= '1';
 						end if;
+					else
+						null;
 					end if;
 				else
 					mib_fu_to_buf1_en <= '0';
 					mib_fu_to_buf2_en <= '0';
-					inp_stall 		<= buf1_full or buf2_full;
-					outp_stall 		<= buf_outp_full or buf_outp_empty;
 				end if;
 			else
 				if alu_valid = '1' then

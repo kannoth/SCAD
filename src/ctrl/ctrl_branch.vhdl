@@ -21,7 +21,7 @@ ENTITY ctrl_branch IS
 		-- ctrl internal
 		branch_offset: OUT data_word;
 		branch_taken: OUT STD_LOGIC;
-		stall_pc: OUT STD_LOGIC := (others => '1');
+		stall_pc: OUT STD_LOGIC := (others => '1')
 	);
 END ctrl_branch;
 
@@ -39,6 +39,7 @@ BEGIN
 				stall_pc <= '1';
 			ELSE
 				stall_pc <= '0';
+			END IF;
 		END IF;
 	END PROCESS;
 END ctrl_branch;

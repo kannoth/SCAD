@@ -2,7 +2,7 @@ library IEEE;
 use IEEE.std_logic_1164.all;
 
 library work;
-use work.glbSharedTypes.all;
+use work.common.all;
 
 entity BitonicExtTop is 
 	port (

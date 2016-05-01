@@ -109,7 +109,8 @@ load_component : load
 mib_fu_to_buf_addr 	<= mib_inp.src.fu ;
 
 status.src_stalled  <= buf_full;
-status.dest_stalled <= buf_outp_full or buf_outp_empty or mem_busy or buf_available or mem_enable ;
+--status.dest_stalled <= buf_outp_full or buf_outp_empty or mem_busy or buf_available or mem_enable ;
+status.dest_stalled <= buf_outp_full or mem_busy or buf_available or mem_enable ;
 
 dtn_fu_to_buf_addr 	<= dtn_data_in.message.src.fu when dtn_data_in.valid = '1' else (others => 'X');
 
@@ -136,6 +137,7 @@ begin
 			phase := mib_inp.phase;
 			idx	:= mib_inp.dest.buff;
 			if mib_valid = '1' then
+				reg_dout.valid <= '0';
 				if phase = COMMIT then
 					if fu_addr = mib_inp.src.fu then --we are source
 						--assemble output packet and send

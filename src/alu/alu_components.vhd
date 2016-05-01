@@ -26,7 +26,7 @@ end component;
 
 
 component fu_alu is
-		Generic ( 		fu_addr 		: address_fu := (others => '0');
+		Generic ( 	fu_addr 		: address_fu := (others => '0');
 						fu_type		: fu_alu_type := ADD );
 
 		Port 	( 		clk	 		: in std_logic;

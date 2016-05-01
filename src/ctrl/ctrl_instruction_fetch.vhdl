@@ -9,14 +9,8 @@ USE work.instruction.ALL;
 
 ENTITY ctrl_instruction_fetch IS
 	PORT(
-		-- Instruction To Sub Components
-		instr_to_sub_comp: OUT instruction;
-		-- memory interface for instruction fetch
-		instr_from_mem:IN instruction;
 		read_en:OUT STD_LOGIC;
 		mem_addr:OUT data_word;
-		valid_IF:OUT STD_LOGIC;
-		mem_data_valid:IN STD_LOGIC;
 		-- PC Interface for instruction address
 		pc_addr:IN data_word;		
 		-- Global Stall 
@@ -28,21 +22,24 @@ END ctrl_instruction_fetch;
 
 ARCHITECTURE ctrl_instruction_fetch OF ctrl_instruction_fetch IS
 	SIGNAL pc_addr_reg:data_word;
+	signal read_reg : std_logic;
 	SIGNAL change : STD_LOGIC;
 BEGIN		
 	change <= '0' when(pc_addr_reg = pc_addr) else '1';
-	valid_IF <= mem_data_valid; 
-	process(clk,reset,pc_addr)
+	read_en <= read_reg;
+	process(clk)
 	begin
 		if(rising_edge(clk))then
-			if(stall /= '1')then
-				if change = '1' then
-					-- Instruction fetch from mem
-					read_en <= '1';
-					mem_addr <= pc_addr;
-					pc_addr_reg <= pc_addr;									
-				end if;
-				instr_to_sub_comp <= instr_from_mem;
+			if reset = '1' then
+				pc_addr_reg <= (others => '0');
+				read_reg		<= '0';
+			elsif(stall /= '1')then
+					if change = '1' then
+						-- Instruction fetch from mem
+						read_reg <= '1';
+						mem_addr <= pc_addr;
+						pc_addr_reg <= pc_addr;									
+					end if;
 			end if;	
 		end if;
 	end process;

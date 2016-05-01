@@ -35,17 +35,21 @@ begin
 		wait for 20 ns;
 		inp_a_s.fifoIdx <= "1";
 		inp_a_s.data    <= "00000";
-		inp_a_s.address <= "11111";
+		inp_a_s.tarAddr <= "111111";
+		inp_a_s.srcAddr <= "11111";
 		inp_b_s.fifoIdx <= "1";
 		inp_b_s.data    <= "00000";
-		inp_b_s.address <= "11110";
+		inp_b_s.tarAddr <= "111110";
+		inp_b_s.srcAddr <= "11110";
 		wait for 20 ns;		
 		inp_a_s.fifoIdx <= "1";
 		inp_a_s.data    <= "00000";
-		inp_a_s.address <= "11100";
+		inp_a_s.tarAddr <= "111100";
+		inp_a_s.srcAddr <= "11100";
 		inp_b_s.fifoIdx <= "1";
 		inp_b_s.data    <= "00000";
-		inp_b_s.address <= "11110";
+		inp_b_s.tarAddr <= "111110";
+		inp_b_s.srcAddr <= "11110";
 		wait for 20 ns;
 		
 		wait;
