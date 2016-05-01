@@ -1,3 +1,16 @@
-\begin{frame}
-  
+\begin{frame}[shrink=20,fragile]
+	\frametitle{Instruction Set Architecture}
+	
+	\begin{table}
+		\begin{tabular}{| l | p{8cm} |}
+			\hline
+			\textbf{instruction} & \textbf{semantics} \\ \hline
+			\lstinline{move src, dest} & Move data from an output buffer to an input buffer by sending this instruction to the corresponding functional units. Data move will asynchronous \\ \hline
+			\lstinline{jump address} & Set PC to address. \\ \hline
+			\lstinline{immediate data} & Place data into output buffer of control unit. \\ \hline
+			\lstinline{branch address} & A no-op when the first data in the input buffer is a 0, jump to address otherwise. Will wait for data to arrive when there is none. \\ \hline
+		\end{tabular}
+		\label{fig:instruction_table}
+		\caption{SCAD Architecture Instructions}
+	\end{table}
 \end{frame}

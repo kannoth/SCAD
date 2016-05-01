@@ -69,3 +69,20 @@ For this structure, the routing decision of the output switches is based on just
 	With the recursive structure of the Beneš network and possible stalling at each input step, this constraint can not be guaranteed and is a case for which the network might work incorrectly.
 	This does not apply to the Banyan part of the network, since relevant message pairs take the same path and do not overtake each other.
 	
+\subsubsection{Resource Utilisation}
+	\begin{table}
+		\begin{tabular}{l | c | c }
+			\textbf{Site Type}  & \textbf{Benes(\%)}&\textbf{Stalling Banyan(\%)} \\
+			\hline \hline
+			Slice LUTs          & 51.23             & 13.86 \\
+			\quad LUT as Logic  & 51.23             & 13.86 \\
+			\quad LUT as Memory & 0.00              & 0.00  \\
+			Slice Registers     & 12.28             & 06.61 \\
+			\quad Register as Flip Flop & 12.28     & 06.61 \\
+			\quad Register as Latch     & 0.00      & 0.00  \\
+			F7 Muxes                    & 1.53      & 0.00  \\
+			F8 Muxes                    & 0.63      & 0.00 \\
+		\end{tabular}
+		\caption{Resource utilization of DTN with Benes network}
+	\end{table}
+	

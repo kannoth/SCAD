@@ -13,8 +13,39 @@
 \usepackage{calc}
 \usepackage{amsmath}
 \usepackage{subfig}
+\usepackage{eslistings}
 \usepackage{graphicx}
 \graphicspath{ {figures/} }
+
+
+
+% Define Language
+\lstdefinelanguage{SCAD}
+{
+  % list of keywords
+  morekeywords={ immediate, move, branch, jump },
+  sensitive=false, % keywords are not case-sensitive
+  morecomment=[l]{//}, % l is for line comment
+  morecomment=[s]{/*}{*/}, % s is for start and end delimiter
+  morestring=[b]" % defines that strings are enclosed in double quotes
+}
+
+%TODO: center listings
+\lstset{language=SCAD,frame=L,style=ESStyle,tabsize=2,basicstyle=\small\ttfamily}
+%\lstset{language=C,frame=L,style=ESStyle,tabsize=2,basicstyle=\small\ttfamily}
+%\lstset{language=C,frame=L,basicstyle=\small\ttfamily,tabsize=2}
+\lstset{numbersep=10pt}
+\lstset{xleftmargin=5.0ex}
+\lstset{numbers=left}
+% Captions to the bottom
+\lstset{captionpos=b}
+\lstset{breaklines=false}
+
+% Not used and has a tendency to break code.
+\lstset{mathescape=false}
+
+
+
 \setbeamersize{text margin left=0.5cm,text margin right=0.5cm}
 \title[SCAD Architecture]{Synchronous Control Asynchronous Dataflow Architecture}
 \author{Julius Roob \\ Mahircan G{\"u}l \\ Maisum Haider \\ Subash Kannoth }
