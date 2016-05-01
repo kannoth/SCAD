@@ -1,19 +1,28 @@
-\begin{frame}
-  \subsection{Challenges on Bitnoic Network}
-    Text
-    
-      \subsection{Solution 1}
-      Text
-      
-	\subsubsection{Before Sorting : Fix invalid Address with $N - 1 + C$ }
-	Text
-	
-	\subsubsection{After Sorting : Routers to route wrong destined Data-Packet}
-	Text
-      
-    \subsection{Solution 2 : Bitnoic-Banyan Network}
-    	Text
-    	
-	\subsubsection{Bitnoic-Banyan Network implmentation}
-        Text
+\begin{frame}[shrink=15]%[allowframebreaks]{Outline}
+\frametitle{Bitonic network}
+  \itemize{
+    \item A Bitonic Sort is a comparison based parallel sorting algorithm. \\
+    \item A random input sequence in first converted into monotonically increasing and then decreasing thus the name Bitonic - \textit{Bitonic split} \\
+    \item A \textit{Bitonic merge} converts Bitonic sequence to sorted sequence. \\
+    \item Formally the alogorthim can be expressed as below \\
+			      Let \[ 
+				  S = \langle x_0,x_1,..x_{n-1}\rangle 
+				\] be Bitonic sequence such that
+				\[
+				    x_0 \leq x_1 \leq ... \leq x_{n/2-1} \quad \textrm{and} \quad  x_{n/2} \leq x_{n/2+1} \leq ... \leq x_{n-1}  \quad \textrm{holds}
+				\]
+			    Consider the following subsequences
+				\[
+				  S_{1} =  \langle min(x_0,x_{n/2}), min(x_1,x_{n/2+1}),..,min(x_{n/2-1},x_{n-1})\rangle
+				\]
+				\[
+				  S_{2} =  \langle max(x_0,x_{n/2}), max(x_1,x_{n/2+1}),..,max(x_{n/2-1},x_{n-1})\rangle
+				\]
+			    with
+				\[
+				  \forall _{x} \forall _{y}. x \in S_{1}  \wedge  y \in S_{2} \quad x < y
+				\]
+  }
+  \item S1 and S2 recursively yields a sorted sequence.
+
 \end{frame}
