@@ -1,3 +1,22 @@
 \begin{frame}
-  
+\frametitle{Move Instruction Bus (MIB)}
+\begin{columns}
+	 \begin{column}{0.48\textwidth}
+	 		\itemize{
+	 			\item \textit{1-to-N} control bus for distributing instructions (from controller to FUs) and transmitting status signals(from FUs to controller)
+	 			\item Initial design uses demultiplexer for sending instructions, and multiplexer to encode status signals : N control and status lines
+	 			\item Final design uses only one control line for FUs to snoop, however status signals are still transmitted separately (with N lines)
+	 		}
+	 \end{column}
+	 \begin{column}{0.48\textwidth}
+	 	\begin{figure}[htbp]
+	 		\raggedright
+	 		\def\svgscale{0.40}
+	 		\input{figures/mib.pdf_tex}
+	 		\caption{MIB structure}
+	 		\label{fig:mib} 
+	 	\end{figure}
+	 \end{column}
+\end{columns}
+
 \end{frame}
