@@ -25,13 +25,13 @@ signal reg_output : instruction;
 --       and only for demonstration for now
 CONSTANT content: instruction_array(0 TO 16) := (
 	-- Insert a faux instruction to first index
-	0 => to_instruction(MOVE, 0,0 , 1,0),
-	1 => to_instruction(IMMEDIATE, 512),
+	--0 => to_instruction(MOVE, 0,0 , 1,0),
+	0 => to_instruction(IMMEDIATE, 512),
 	-- move(src.fu, src.buff, dest.fu, dest.buff)
-	2 => to_instruction(MOVE, 0,0 , 1,0), -- immediate to load.0
+	1 => to_instruction(MOVE, 0,0 , 1,0), 
 	
-	3 => to_instruction(IMMEDIATE, 8),
-	4 => to_instruction(MOVE, 0,0 , 1,1), -- immediate to load.0
+	2 => to_instruction(IMMEDIATE, 8),
+	3 => to_instruction(MOVE, 0,0 , 1,1), 
 	
 --	4 => to_instruction(IMMEDIATE, 3),
 --	5 => to_instruction(MOVE, 0,0 , 2,0), -- immediate to store.0
@@ -46,10 +46,10 @@ CONSTANT content: instruction_array(0 TO 16) := (
 --	10 => to_instruction(IMMEDIATE, 27),
 --	11 => to_instruction(JUMP, 13),
 	
-	--4 => to_instruction(IMMEDIATE, 16),
-	5	=> to_instruction(MOVE, 2,0 , 28,0), -- immediate to store.1
+	4 => to_instruction(IMMEDIATE, 16),
+	5	=> to_instruction(MOVE, 0,0 , 28,1), -- immediate to store.1
 	
-	6	=> to_instruction(MOVE, 1,0 , 28,1), -- immediate to store.1
+	6	=> to_instruction(MOVE, 1,0 , 28,0), -- immediate to store.1
 	
 	OTHERS => to_instruction(JUMP, 0)
 	);

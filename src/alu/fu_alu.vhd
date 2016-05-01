@@ -151,7 +151,8 @@ process(clk)
 variable mib_valid : std_logic;
 variable idx	: std_logic;
 variable phase	: mib_phase;
-
+variable dest_addr : address_fu;
+variable src_addr : address_fu;
 begin
 	if rising_edge(clk) then
 		if rst = '1' then
@@ -160,21 +161,29 @@ begin
 			phase	:= CHECK;
 		else
 			inp_stall 		<= buf1_full or buf2_full;
-			--Controller is very conservative about buffer conditions, so we do not check
-			--buf_outp_empty since it stalls the CPU for every empty output buffer.
-			--outp_stall 		<= buf_outp_full or buf_outp_empty;
-			outp_stall 		<= buf_outp_full;
-			dtn_fu_to_buf1_valid <= dtn_data_in.valid;
-			dtn_fu_to_buf2_valid <= dtn_data_in.valid;
-			--we are snooping MIB now
-			--mib_valid := mib_inp.valid;
-			mib_valid := mib_inp.valid;
-			phase := mib_inp.phase;
-			idx	:= mib_inp.dest.buff;
+			outp_stall 		<= buf_outp_full or buf_outp_empty;
+			
+			if dtn_data_in.message.dest.buff = '0' then
+				dtn_fu_to_buf1_valid <= dtn_data_in.valid;
+				dtn_fu_to_buf2_valid <= '0';
+			else
+				dtn_fu_to_buf1_valid <= '0';
+				dtn_fu_to_buf2_valid <= dtn_data_in.valid;
+			end if;
+			
+			mib_valid 		:= mib_inp.valid;
+			phase 			:= mib_inp.phase;
+			idx				:= mib_inp.dest.buff;
+			dest_addr 		:= mib_inp.dest.fu;
+			src_addr 		:= mib_inp.src.fu;
+			
+			mib_fu_to_buf1_en 	<= '0';
+			mib_fu_to_buf2_en 	<= '0';
+			
 			if mib_valid = '1' then
-			reg_dout.valid <= '0';
+				reg_dout.valid <= '0';
 				if phase = COMMIT then
-					if fu_addr = mib_inp.src.fu then --we are source
+					if fu_addr = src_addr then --we are source
 						--assemble output packet and send
 						reg_dout.message.src.fu <= fu_addr;
 						reg_dout.message.src.buff <= 'X';
@@ -185,7 +194,7 @@ begin
 						mib_fu_to_buf2_en <= '0';
 						buf_out_en <= '1';
 						buf_out_rw <= '0';
-					elsif fu_addr = mib_inp.dest.fu then
+					elsif fu_addr = dest_addr then
 						if idx = '0' then
 							mib_fu_to_buf1_en <= '1';
 							mib_fu_to_buf2_en <= '0';
@@ -200,23 +209,21 @@ begin
 					mib_fu_to_buf1_en <= '0';
 					mib_fu_to_buf2_en <= '0';
 				end if;
-			else
-				if alu_valid = '1' then
-					buf_out_en <= '1';
-					buf_out_rw <= '1';
-				else
-					buf_out_en <= '0';
-				end if;
-				
-				if available = '1' and alu_busy = '0' then
-					alu_enable <= '1';
-				else
-					alu_enable <= '0';
-				end if;
-				
-				mib_fu_to_buf1_en <= '0';
-				mib_fu_to_buf2_en <= '0';					
 			end if;
+			
+			if alu_valid = '1' then
+				buf_out_en <= '1';
+				buf_out_rw <= '1';
+			else
+				buf_out_en <= '0';
+			end if;
+			
+			if available = '1' and alu_busy = '0' then
+				alu_enable <= '1';
+			else
+				alu_enable <= '0';
+			end if;
+					
 		end if;
 	end if;
 end process;

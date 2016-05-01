@@ -30,7 +30,6 @@ END ctrl;
 ARCHITECTURE ctrl OF ctrl IS
 	SIGNAL current_instr:instruction;	
 	SIGNAL pc_out: data_word;
-	SIGNAL gstall:STD_LOGIC;
 	SIGNAL taken_wire:STD_LOGIC;
 	SIGNAL branch_offset_wire:data_word;
 	SIGNAL valid_IF_gen:STD_LOGIC;	
@@ -71,24 +70,18 @@ ARCHITECTURE ctrl OF ctrl IS
 		valid_IF:IN STD_LOGIC;
 		dtn_data_in	: in data_port_sending;
 		dtn_data_out: out data_port_sending;
-		stall: IN STD_LOGIC);
+		stall: IN mib_status_bus);
 	END COMPONENT;
 	
-	COMPONENT gen_OR IS
-	Port ( 	input: IN mib_status_bus;
-				output:OUT STD_LOGIC
-	);
-	END COMPONENT;
 BEGIN
 
 		pc : ctrl_pc PORT MAP (clk => clk, reset => reset, active => reg_active, taken => taken_wire, branch_offset => branch_offset_wire,pc => pc_out);
 	
 		instr_fetch: ctrl_instruction_fetch PORT MAP(read_en => read_en_wire ,mem_addr => mem_addr_wire,pc_addr => pc_out,stall => reg_active,clk => clk,reset => reset);
 		
-		to_mib : ctrl_move_instr PORT MAP (instruction_input => mem_instr, ctrl_mib => mib_out, clk => clk, reset => reset, stall => gstall, active => reg_active,  
+		to_mib : ctrl_move_instr PORT MAP (instruction_input => mem_instr, ctrl_mib => mib_out, clk => clk, reset => reset, stall => fu_stalls, active => reg_active,  
 		valid_IF => mem_data_valid, dtn_data_out => dtn_data_out, dtn_data_in => dtn_data_in);
     
-		or_stalls: gen_OR PORT MAP (input => fu_stalls , output =>gstall);
 		
 		
 

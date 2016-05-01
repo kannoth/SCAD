@@ -108,13 +108,12 @@ load_component : load
 		
 mib_fu_to_buf_addr 	<= mib_inp.src.fu ;
 
-status.src_stalled  <= buf_full;
---status.dest_stalled <= buf_outp_full or buf_outp_empty or mem_busy or buf_available or mem_enable ;
-status.dest_stalled <= buf_outp_full or mem_busy or buf_available or mem_enable ;
+status.src_stalled  	<= buf_full;
+status.dest_stalled 	<= buf_outp_full or buf_outp_empty or mem_busy or buf_available or mem_enable ;
+--status.dest_stalled <= buf_outp_full or mem_busy or buf_available or mem_enable ;
 
 dtn_fu_to_buf_addr 	<= dtn_data_in.message.src.fu when dtn_data_in.valid = '1' else (others => 'X');
-
-dtn_data_out		<= reg_dout;
+dtn_data_out			<= reg_dout;
 
 --TODO: Handle the case where HEAD of input get available when output buffer is full
 fu_to_buf_read 		<= buf_available and not mem_busy;
@@ -132,10 +131,14 @@ begin
 			phase	:= CHECK;
 			mem_enable <= '0';
 		else
-			dtn_fu_to_buf_valid <= dtn_data_in.valid;
-			mib_valid := mib_inp.valid;
-			phase := mib_inp.phase;
-			idx	:= mib_inp.dest.buff;
+			dtn_fu_to_buf_valid 	<= dtn_data_in.valid;
+			
+			mib_valid 				:= mib_inp.valid;
+			phase 					:= mib_inp.phase;
+			idx						:= mib_inp.dest.buff;
+			
+			mib_fu_to_buf_en 		<= '0'
+			
 			if mib_valid = '1' then
 				reg_dout.valid <= '0';
 				if phase = COMMIT then
@@ -155,21 +158,21 @@ begin
 				else
 					mib_fu_to_buf_en <= '0';
 				end if;
-			else
-				if mem_valid = '1' then
-					buf_out_en <= '1';
-					buf_out_rw <= '1';
-				else
-					buf_out_en <= '0';
-				end if;
-				
-				if buf_available = '1' and mem_busy = '0' then
-					mem_enable <= '1';
-				else
-					mem_enable <= '0';
-				end if;
-				mib_fu_to_buf_en <= '0';					
 			end if;
+			
+			if mem_valid = '1' then
+				buf_out_en <= '1';
+				buf_out_rw <= '1';
+			else
+				buf_out_en <= '0';
+			end if;
+			
+			if buf_available = '1' and mem_busy = '0' then
+				mem_enable <= '1';
+			else
+				mem_enable <= '0';
+			end if;				
+			
 		end if;
 	end if;
 end process;
