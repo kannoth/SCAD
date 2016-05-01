@@ -49,3 +49,18 @@
 	\end{center}
 \end{frame}
 	
+\begin{frame}
+	\frametitle{Benes Network: Message Ordering}
+	\begin{itemize}
+		\item packet from source $s$ and destination $d$
+		\item for program order of move instructions $m_n(s_n, d_n) \prec m_{n+1}(s_{n+1}, d_{n+1})$
+		\item and delivery order of network $m_n \lhd m_k$
+		\item input buffers require:\\
+		      $(m_n(s_n, d_n) \prec m_k(s_k, d_k)) \wedge (s_n = s_k \wedge d_n = d_k) \\
+		      \Rightarrow (m_n(s_n, d_n) \lhd m_k(s_k, d_k))$
+		
+		\item Possible stalling and recursive structure $\Rightarrow$ no guarantee so far
+		\item (packets with same source and destination might overtake each other)
+	\end{itemize}
+\end{frame}
+	

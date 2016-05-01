@@ -56,3 +56,16 @@ For this structure, the routing decision of the output switches is based on just
 
 \todo{move this} A lookup table for the first stage of a $32\times32$ benes network would require around $2.92\times10^{48}$ bytes.
 
+\subsubsection{Message Ordering}
+
+		For each packet from source $s$ and destination $d$ and for the program order of move instructions $m_n(s_n, d_n) \prec m_{n+1}(s_{n+1}, d_{n+1})$, and delivery order of network $m_n \lhd m_k$, the following constraint has to hold:
+	\begin{align*}
+		& $(m_n(s_n, d_n) \prec m_k(s_k, d_k)) \wedge (s_n = s_k \wedge d_n = d_k) \\
+		& \Rightarrow (m_n(s_n, d_n) \lhd m_k(s_k, d_k))$
+	\end{align*}
+
+	This is necessary since the input buffers cannot distinguish between different packets that have equal sources and destinations.
+	
+	With the recursive structure of the Beneš network and possible stalling at each input step, this constraint can not be guaranteed and is a case for which the network might work incorrectly.
+	This does not apply to the Banyan part of the network, since relevant message pairs take the same path and do not overtake each other.
+	

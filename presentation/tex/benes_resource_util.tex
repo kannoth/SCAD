@@ -1,0 +1,26 @@
+\begin{frame}[shrink=20]
+\frametitle{Benes Resource Utilization}
+
+\begin{table}
+	\begin{tabular}{l | c | c }
+		\textbf{Site Type}  & \textbf{Benes(\%)}&\textbf{Stalling Banyan(\%)} \\
+		\hline \hline
+		Slice LUTs          & 51.23             & 13.86 \\
+		\quad LUT as Logic  & 51.23             & 13.86 \\
+		\quad LUT as Memory & 0.00              & 0.00  \\
+		Slice Registers     & 12.28             & 06.61 \\
+		\quad Register as Flip Flop & 12.28     & 06.61 \\
+		\quad Register as Latch     & 0.00      & 0.00  \\
+		F7 Muxes                    & 1.53      & 0.00  \\
+		F8 Muxes                    & 0.63      & 0.00 \\
+	\end{tabular}
+	\caption{Resource utilization of DTN with Benes network}
+\end{table}
+\itemize{
+  \item Benes network most complex and does not appear to be competitive.
+	\item Other networks probably better
+  \item Stalling Banyan network very small for the throughput possible, may be used in constrained implementations.
+}
+
+\end{frame}
+
