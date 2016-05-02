@@ -18,6 +18,7 @@
 \usepackage{todonotes}
 
 \usepackage{tikz-timing}
+\input{preamble}
 
 \renewcommand{\abstractname}{Abstract}
 
@@ -99,7 +100,7 @@
 					\caption{2-Phase Commit on Move Instruction Bus with Destination Stalling}
 				\end{center}
 			\end{figure}
-
+	\input{mib}
 	\section{Control Unit and Data Network}
 		\todo{remove this section? -julius}
 		To keep the MIB simple, we will have the control unit send immediate values, and receive branch conditions through the data network.
@@ -114,6 +115,9 @@
 		\FloatBarrier
 		\subsection{Beneš Network}
 			\input{benes}
+		\input{buffers}
+		\input{functional_units}
+	
 
 	\section{Future Work}
 		Having duplication as a seperate functional unit may cause it to be a significant bottleneck.
