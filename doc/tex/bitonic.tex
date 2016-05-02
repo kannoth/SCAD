@@ -124,4 +124,27 @@
 						      \caption{DTN of SCAD arhitecture with Bitonic-Banyan network}
 					      \label{fig:Batcher_Banyan_Combined}
 					      \end{figure}
+				 \subsubsection{Resource utilization}
+					      The resource ulitzation on the FPGA shows significant advantage on Bitonic-Banyan over the sequencial implementation with routers. The table \ref{fig:bitonic_utilisation}
+					      shows a comparison table for both the implementation. It is clear to see that the Bitonic-Banyan consumes not much than a the sequencial version , but still has benifit in
+					      terms of constant time in delivering \textit{Data-Packets} to its destination.
+					    \begin{table}
+					    \begin{center}
+					      \begin{tabular}{l | c | c }
+						\textbf{Site Type}  & \textbf{Bitonic with routers (\%)} & \textbf{Bitonic-Banyan (\%)} \\
+						\hline \hline
+						Slice LUTs 			& 30.85 & 37.65 \\ 
+						\quad LUT as Logic		& 30.85 & 37.65 \\
+						\quad LUT as Memory		& 0.00 & 0.00 	\\
+						Slice Registers 		& 11.12	& 13.53 \\
+						\quad Register as Flip Flop	& 11.12	& 13.53	\\
+						\quad Register as Latch	& 0.00	& 0.00	\\
+						F7 Muxes			& 0.00	& 0.00	\\
+						F8 Muxes 			& 0.00	& 0.00	\\
+					      \end{tabular}
+					      \end{center}
+					      \caption{Resource utilization of DTN with Bitonic network}
+					      \label{fig:bitonic_utilisation}
+					    \end{table}
+
 
