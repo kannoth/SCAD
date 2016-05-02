@@ -1,3 +1,44 @@
 \begin{frame}
-  
+\frametitle{Control Unit}
+\begin{itemize}
+\item Synchronous
+\item Non-pipelined.
+\item System Scope
+\item Instruction Mechanism
+\end{itemize}
+\end{frame}
+%--------------------------------
+\begin{frame}
+\frametitle{Control Unit:System Scope}
+\begin{center}
+\includegraphics[width=0.9\linewidth]{CU_Sys.png}
+\end{center}
+\end{frame}
+%--------------------------------
+\begin{frame}
+\frametitle{Instruction Mechanism:Two Step Commit}
+\begin{columns}[c] % The "c" option specifies centered vertical alignment while the "t" option is used for top vertical alignment
+
+\column{.45\textwidth} % Left column and width
+\textbf{Heading}
+\begin{itemize}
+\item Instruction Broadcast
+\item Check Phase
+\item Handle Stalls
+\item Commit Phase
+\end{itemize}
+
+\column{.5\textwidth} % Right column and width
+\begin{figure}
+\begin{center}
+\begin{tikztimingtable}
+	src & Z12D{source address}Z \\
+	dest & Z12D{destination address}Z \\
+	phase & LLLLLLLHHHHLL \\
+	valid & LHHHHLLHHHHLL \\
+\end{tikztimingtable}
+\caption{2-Phase Commit on Move Instruction Bus with Destination Stalling}
+\end{center}
+\end{figure}
+\end{columns}
 \end{frame}
