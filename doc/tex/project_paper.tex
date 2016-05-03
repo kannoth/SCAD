@@ -16,6 +16,7 @@
 \usepackage{url}
 \usepackage{breakurl}
 \usepackage{todonotes}
+\usepackage{amssymb}
 
 \usepackage{tikz-timing}
 \input{preamble}
@@ -82,7 +83,7 @@
 	
 	\section{Move Instruction Bus}
 		\subsection{2-Phase Commit}
-			To take into account both stalls of source and destination functional units, the control unit sends move instructions in two phases, both of which are indicated by a rising edge of the "valid" flag\todo{Either the text, the diagram and/or the implementation need to be adapted (not in sync).}.
+			To take into account both stalls of source and destination functional units, the control unit sends move instructions in two phases, both of which are indicated by a rising edge of the "valid" flag.%\todo{Either the text, the diagram and/or the implementation need to be adapted (not in sync).}.
 			First, with phase low, the functional units only check whether there is space in the corresponding input and output buffers.
 			When stalls are asserted, the control unit waits some time until retrying.
 			When no functional unit stalls, the phase being high signals a "write".
@@ -102,11 +103,11 @@
 			\end{figure}
 	\input{mib}
 	\section{Control Unit and Data Network}
-		\todo{remove this section? -julius}
+		%\todo{remove this section? -julius}
 		To keep the MIB simple, we will have the control unit send immediate values, and receive branch conditions through the data network.
-		While broadcasting immediate values through either the MIB or a separate bus may be the faster alternative, having the control unit send them through the data network keeps the architecture cleaner\todo{better formulation please}.
+		While broadcasting immediate values through either the MIB or a separate bus may be the faster alternative, having the control unit send them through the data network keeps the architecture cleaner.%\todo{better formulation please}.
 
-	\section{Data Trasport Network - DTN}
+	\section{Data Trasport Network(DTN)}
 		\input{dtn}
 
 		\subsection{Bitonic Network}
@@ -120,10 +121,16 @@
 	
 
 	\section{Future Work}
+	
+	
 		Having duplication as a seperate functional unit may cause it to be a significant bottleneck.
 		One feasible solution to this is the extension of the move instruction by an additional "non-destructive" move, where data sent is kept in the output buffer of the sender.
 		
-		\todo[inline]{at least two more ideas}
+		
+		Currently, load and store operations to same address in a given cycle is resolved by serializing the instructions such that write is given precedence over read. Evidently, this scheme does not provide any form of guarantees on memory access ordering.
+		A future work is to enforce a memory consistency model, which can be implemented in memory bank controllers.
+		
+		%\todo[inline]{at least two more ideas}
 
 	\newpage
 	\section{Bibliography}
@@ -133,7 +140,7 @@
 	\newpage
 	
 	\begin{appendices}
-		\newpage
+% 		\newpage
 		\section{Memory Access and Branch}
 			\label{app:simple}
 			Basic example for memory access and branching:

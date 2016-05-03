@@ -38,7 +38,7 @@
 				  are ready to send the \textit{Data-Packets} to its target. But this is not the case most of the times. Many \textit{Function-Units} can still be in a state where its outputs are not ready,
 				  at the same time some of the \textit{Function-Units} are ready with their outputs. In this case Bitonic Network can fail in routing the \textit{Data-packets} to the right destinations because all
 				  that are not ready can feed an unknown \textit{Target-Address}. Two solutions were identified as the following.
-				  \subsubsection{Bitonic Network with additional Routers}
+				  \subsubsection{Bitonic Network with Routers}
 					      This is a proposed solution before realizing the Bitonic-Banyan \cite{batcher_banyan_ref}( Batcher's Banyan)  network. In this case the invalid \textit{Target-Address} problem is sorted
 					      out by adding and two extra stages at the input and output of the Bitonic Sorter. At input we add an \textit{Address-Resolver} module for each comparators. In the architecture an invalid 
 					      addresses\footnote{An invalid address here means when the a \textit{Function-Unit} has no outputs ready at a given point of time to send to another \textit{Function-Unit}, 
@@ -102,14 +102,14 @@
 						      \caption{An 8 input Banyan network}
 					      \label{fig:Banyan_Tree}
 					      \end{figure}
-					      The next stage is a Banyan Network which takes up the sorted sequences by the Bitonic network and route to the proper destination. 
-					      
+					      The next stage is a Banyan Network which takes up the sorted sequences by the Bitonic network and route to the proper destination. Note that a shuffle permutaion is added at the input of the Banyan network.
+					      This is shown in Figure \ref{fig:Banyan_Tree} for an 8 input Banyan network configuration. The input shuffle permutation is such that two destination tags (\textit{Target-Address} in our case) are different in MSB. We simply expand the same to 32. 
 					      It is proven \cite{batcher_banyan_ref} that 
-					      an Banyan network can completely route a sorted sequence when the incomplete inputs appear either at high end or low end of the list without any conflicts. We have already moved all the incomplete \textit{Data-Packets}
-					      to the lower end of the sequence with the help of modified switch. An 8 input Banyan network configuraion is shown in Figure \ref{fig:Banyan_Tree}. We simply expand the same to 32.
+					      an Banyan network with a the given input shuffle permutation as shown in \ref{fig:Banyan_Tree} can completely route a sorted sequence when the incomplete inputs appear either at high end or low end of the list without any conflicts. We have already moved all the incomplete \textit{Data-Packets}
+					      to the lower end of the sequence with the help of modified switch. 
 					      The \textit{Data-Packets} in the Banyan network is based on the $i^{th}$ bit of the \textit{Target-Address}, where $i$ is the stage index. For an $N$ input Banyan network we have $log_{2}(N)$ 
-					      stages and combinatorial circuit depth. A Banyan newtwork is collision free if the input sequences are sorted ascending
-					      thus in our case gurantees the delivery of \textit{Data-Packets} at proper destination since the Bitonic network in the previous stage will already produce an acending sequence. In our case 
+					      stages and combinatorial circuit depth. Also a Banyan newtwork is collision free if the input sequences are sorted ascending
+					      thus strongly guaranteeing the delivery of \textit{Data-Packets} at proper destination. In our case 
 					      the sequence can also have invalid \textit{Data-Packets} which is in the tail of the sequence. Different scenarios in handling of incomplete input for a Banyan switch is shown in Figure \ref{fig:Banyan_Switches}.
 					      A $X$ corresponds to incomplete inputs. The valid inputs are the bit position of the stage $i$ of the \textit{Target-Address}. Based on this bit the \textit{Data-packet} is routed up or down.
 					      \begin{figure}[!ht]
