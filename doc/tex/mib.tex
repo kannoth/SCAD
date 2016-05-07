@@ -1,9 +1,9 @@
-\section{MIB Controller}
+%%\section{MIB Controller}
 	MIB controller is the bridge between control unit and FU network. It establishes communication for both control and status signals, where the former is routed from controller to target and latter is from target to controller, both unidirectionally. Table \ref{table:mib_description} describes input/output ports.  
 	
 	
 	
-	\begin{table}[htbp]
+	\begin{table}[!htbp]
 		\begin{tabular}{| l| l | l | p{9cm} |}
 			\hline
 			\textbf{name} & \textbf{direction} & \textbf{type} &  \textbf{description}\\ \hline
@@ -21,7 +21,7 @@
 	
 	Assuming target address $N$, Figures \ref{fig:ctrl_to_target} and \ref{fig:status_from_target} illustrate control and status packet transfers from controller to target, and from target to controller, respectively. Since availability of both source and destination is checked by controller before performing control operations, packet is held at the bus for a cycle duration only. 
 	
-	\begin{figure}[!hbp]
+	\begin{figure}[!h]
 	\centering
 	\subfloat[Control packet to target] {
 			\begin{tikztimingtable}[timing/lslope=0]
@@ -55,7 +55,7 @@
 	\end{figure}
 	
 		Design is straightforward, consisting of $1\times\nrFUS$ de-multiplexer for controller to network routing and $\nrFUS\times 1$ multiplexer for opposite direction. Target functional unit is selected by destination address field of MIB control input, regardless of the operation type.  Due to lack of tri-state ic in FPGA fabric to be used, there is many-to-one relationship for status signals between functional units and control unit. Output of every unit is encoded in bus controller using destination address from control unit as line select. However, the opposite is not necessarily true, since a single line from controller for control packages can be snooped by functional units. For simplicity, we prefer using separate lines for control messages as well, by steering packet from controller to target line using destination address as line select. Bus snooping for control messages will be featured after validating main functionality. Figure \ref{fig:mib} shows structure of bus controller.
-	\begin{figure}[htbp]
+	\begin{figure}[!htbp]
 		\centering
 		\def\svgscale{0.50}
 		\input{figures/mib.pdf_tex}

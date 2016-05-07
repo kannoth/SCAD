@@ -1,0 +1,33 @@
+\contentsline {section}{\numberline {1}abstract}{2}{section.1}
+\contentsline {section}{\numberline {2}Instruction Set Architecture}{4}{section.2}
+\contentsline {section}{\numberline {3}Control Unit}{4}{section.3}
+\contentsline {section}{\numberline {4}Move Instruction Bus}{6}{section.4}
+\contentsline {subsection}{\numberline {4.1}MIB Controller}{6}{subsection.4.1}
+\contentsline {section}{\numberline {5}Data Trasport Network(DTN)}{8}{section.5}
+\contentsline {subsection}{\numberline {5.1}Bitonic Network}{9}{subsection.5.1}
+\contentsline {subsubsection}{\numberline {5.1.1}Bitonic Network as Network Router}{9}{subsubsection.5.1.1}
+\contentsline {subsubsection}{\numberline {5.1.2}Bitonic Network with Routers}{10}{subsubsection.5.1.2}
+\contentsline {subsubsection}{\numberline {5.1.3}Bitonic-Banyan Network}{12}{subsubsection.5.1.3}
+\contentsline {subsubsection}{\numberline {5.1.4}Resource utilization}{14}{subsubsection.5.1.4}
+\contentsline {subsection}{\numberline {5.2}Bene\IeC {\v s} Network}{15}{subsection.5.2}
+\contentsline {subsubsection}{\numberline {5.2.1}Message Ordering}{19}{subsubsection.5.2.1}
+\contentsline {subsubsection}{\numberline {5.2.2}Resource Utilisation of the Bene\IeC {\v s} Network}{19}{subsubsection.5.2.2}
+\contentsline {section}{\numberline {6}Buffers}{19}{section.6}
+\contentsline {subsection}{\numberline {6.1}Input buffer}{20}{subsection.6.1}
+\contentsline {subsection}{\numberline {6.2}Output buffer}{21}{subsection.6.2}
+\contentsline {section}{\numberline {7}Functional Units(FU)}{22}{section.7}
+\contentsline {subsection}{\numberline {7.1}Arithmetical operations}{22}{subsection.7.1}
+\contentsline {subsubsection}{\numberline {7.1.1}Generic operation}{23}{subsubsection.7.1.1}
+\contentsline {subsubsection}{\numberline {7.1.2}FU design}{23}{subsubsection.7.1.2}
+\contentsline {subsection}{\numberline {7.2}Memory operations}{24}{subsection.7.2}
+\contentsline {subsubsection}{\numberline {7.2.1}RAM}{26}{subsubsection.7.2.1}
+\contentsline {subsubsection}{\numberline {7.2.2}Memory bank}{26}{subsubsection.7.2.2}
+\contentsline {subsubsection}{\numberline {7.2.3}Load/store unit}{27}{subsubsection.7.2.3}
+\contentsline {paragraph}{Load}{27}{section*.40}
+\contentsline {paragraph}{Store}{28}{section*.42}
+\contentsline {subsubsection}{\numberline {7.2.4}FU design}{28}{subsubsection.7.2.4}
+\contentsline {section}{\numberline {8}Future Work}{30}{section.8}
+\contentsline {section}{\numberline {9}Bibliography}{31}{section.9}
+\contentsline {section}{Appendices}{32}{section*.46}
+\contentsline {section}{\numberline {A}Memory Access and Branch}{32}{Appendix.1.A}
+\contentsline {section}{\numberline {B}Fibonacci}{33}{Appendix.1.B}

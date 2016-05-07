@@ -65,7 +65,7 @@
 	\vspace{1.5cm}
 	{\huge\bfseries Implementation of SCAD processor \par}
 	\vspace{2cm}
-	{\Large Julius Roob \\ Mahircan G{\"u}l \\ Maisum Haider \\ Subash Kannoth \par}
+	{\Large Julius Roob \\ Mahircan G{\"u}l \\ Syed Maisum Haider \\ Subash Kannoth \par}
 	\vfill
 	supervised by\par
 	\Large{Tripti Jain}
@@ -75,38 +75,19 @@
 \end{titlepage}
 
 	%\maketitle \newpage
-	\input{abstract} \newpage
-	\tableofcontents \newpage
-	\listoftodos \newpage
+	\section{abstract}	
+		\input{abstract} \newpage
+		\tableofcontents \newpage
 	
+		
 	\input{instruction_set_architecture}
-	
-	\section{Move Instruction Bus}
-		\subsection{2-Phase Commit}
-			To take into account both stalls of source and destination functional units, the control unit sends move instructions in two phases, both of which are indicated by a rising edge of the "valid" flag.%\todo{Either the text, the diagram and/or the implementation need to be adapted (not in sync).}.
-			First, with phase low, the functional units only check whether there is space in the corresponding input and output buffers.
-			When stalls are asserted, the control unit waits some time until retrying.
-			When no functional unit stalls, the phase being high signals a "write".
-			
-			\begin{figure}
-				\begin{center}
-					\begin{tikztimingtable}
-						src & Z18D{source address}Z \\
-						dest & Z18D{destination address}Z \\
-						phase & LLLLLLLLLLLLLLHHHHLL \\
-						valid & LLLHHHHHHHHHHHHHHHLL \\
-						src\_stalled & LLLLLLLLLLLLLLLLLLLL \\
-						dest\_stalled & LLLLLHHHHHLLLLLLLLLL \\
-					\end{tikztimingtable}
-					\caption{2-Phase Commit on Move Instruction Bus with Destination Stalling}
-				\end{center}
-			\end{figure}
-	\input{mib}
-	\section{Control Unit and Data Network}
-		%\todo{remove this section? -julius}
-		To keep the MIB simple, we will have the control unit send immediate values, and receive branch conditions through the data network.
-		While broadcasting immediate values through either the MIB or a separate bus may be the faster alternative, having the control unit send them through the data network keeps the architecture cleaner.%\todo{better formulation please}.
-
+	\section{Control Unit}
+		\input{ctrl}	
+	\section{Move Instruction Bus}	
+			\input{2phase}
+		\subsection{MIB Controller}
+			\input{mib}
+	\newpage
 	\section{Data Trasport Network(DTN)}
 		\input{dtn}
 
@@ -123,7 +104,7 @@
 	\section{Future Work}
 	
 	
-		Having duplication as a seperate functional unit may cause it to be a significant bottleneck.
+		Having duplication as a separate functional unit may cause it to be a significant bottleneck.
 		One feasible solution to this is the extension of the move instruction by an additional "non-destructive" move, where data sent is kept in the output buffer of the sender.
 		
 		
@@ -134,7 +115,6 @@
 
 	\newpage
 	\section{Bibliography}
-		%\nocite{*}
 		\bibliographystyle{eptcs}
 		\bibliography{references}
 	\newpage
