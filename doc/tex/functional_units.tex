@@ -1,5 +1,5 @@
 \section{Functional Units(FU)}
-	FUs are fundamental processing elements in this architecture. Connected to controller and rest of the units via MIB and DTN, each FU has the capability of storing operands/results and performing single operation. FUs are classified into \textit{Arithmetic-logic unit (ALU)} and \textit{memory} depending on the type of processing performed. Next, design for both subsystems is explained.
+	FUs are fundamental processing elements in this architecture. Connected to controller and rest of the units via MIB and DTN, each FU has the capability of storing operands/results and performing single operation. FUs are classified as \textit{Arithmetic-logic unit (ALU)} and \textit{memory}, depending on the type of processing performed. Next, design for both subsystems is explained.
 	
 	\begin{table}
 		\begin{tabular}{| l| l | l | p{8cm} |}
@@ -75,7 +75,7 @@
 		\label{fig:mem_top} 
 	\end{figure}
 	
-	Parameters defined in glossary section \ref{glossary_mem} represents size, word-length and number of banks for memory system. Next, design of load and store FUs are explained. Figures of MIB and DTN signals are omitted since they are identical to those used in arithmetic FUs.
+	%Parameters defined in glossary section \ref{glossary_mem} represents size, %word-length and number of banks for memory system. Next, design of load and %store FUs are explained. Figures of MIB and DTN signals are omitted since they %are identical to those used in arithmetic FUs.
 	\subsubsection{RAM}
 	Main memory blocks are designed to infer synchronous read/write, dual-port, word-addressed RAM using BRAM blocks on fabric. With usage of acknowledgment signals for request, it resembles a synchronous master/slave bus protocol. Enable strobes for read/write are not driven directly by functional units, but via \textit{bank controller}, so RAM block does not check for conflicting read/write addresses. 
 	

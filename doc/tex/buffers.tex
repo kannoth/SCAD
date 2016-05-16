@@ -18,7 +18,7 @@
 		\label{fig:input_buffer} 
 	\end{figure}
 	
-	For managing the buffer, variables $head$, $tail$, and $num\_elements$ are used. $head$ points to first element of the buffer and is incremented when a read is performed. $tail$ points to last element and is incremented on every write. $num\_elements$ keeps track of number of elements in the buffer and is incremented or decremented in case of write and read respectively. Since buffer is single channel, these signals are not subject to concurrent updates. Input/output ports are described in \ref{table:in_buffer_description}.
+	For managing the buffer, variables $head$, $tail$, and $num\_elements$ are used. $head$ points to first element of the buffer and is incremented when a read is performed. $tail$ points to last element and is incremented on every write. $num\_elements$ keeps track of number of elements in the buffer and is incremented or decremented in case of write and read respectively. Since buffer is single channel, these signals are not subject to concurrent updates. Input/output ports are described in Table \ref{table:in_buffer_description}.
 	
 	lut is an array of 2-tuple $(found, index)$ with size \nrFUS, where found is a 1-bit signal and index is a logic vector of size $log_2\bufSize$. For index $i$, \textit{found} states where address $i$ is reserved in  buffer. Source address of the MIB control packet is used as index to table for marking the corresponding entry in case of a reservation $r_i$ by marking lut[$r_i$] $(found=1,index=tail)$. For example, search for incoming DTN packet $d_j$ can be performed by checking $lut[d_j.src].found\stackrel{?}{=}1$. If found, $lut[d_j.src].index$ can be used for indexing the buffer.
 	
@@ -72,7 +72,7 @@
 			empty & output & logic & buffer empty signal. When set, read operations cannot be performed on controlling functional unit. \\ \hline
 			data\_out & output & logic\_vector(\dataW) & data output to functional unit \\ \hline
 		\end{tabular}
-		\label{table:out_buffer_description}
 		\caption{FIFO buffer ports}
+		\label{table:out_buffer_description}
 		\centering
 	\end{table}

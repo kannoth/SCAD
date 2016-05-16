@@ -1,5 +1,4 @@
-To take into account both stalls of source and destination functional units, the control unit sends move instructions in two phases, both of which are indicated by a rising edge of the "valid" flag.%\todo{Either the text, the diagram and/or the implementation need to be adapted (not in sync).}.
-First, with phase low, the functional units only check whether there is space in the corresponding input and output buffers.
+To take into account both stalls of source and destination functional units, the control unit sends move instructions in two phases, both of which are indicated by a rising edge of the "valid" flag. First, with phase low, the functional units only check whether there is space in the corresponding input and output buffers.
 When stalls are asserted, the control unit waits until the signals are dropped.When no functional unit of the current instruction stalls, the phase being high signals a "write".
 \begin{figure}[!h]
 \begin{center}

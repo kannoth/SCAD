@@ -45,7 +45,7 @@ The second half of the Beneš network, the stalling Banyan, is built using only 
 Causing more complexity, the routing decisions for the input switches of the Beneš network depend on all inputs of the network.
 This is due to the fact that each pair of messages comes to an output switch has to arrive from two different subnetworks.
 An example illustrating this is shown in Figure \ref{fig:benes_companions}.
-For each destinationation address there is a "companion" address that is routed to the same output switch.
+Each destination address has a "companion", that is routed to the same output switch.
 
 \begin{figure}[!ht]
 	\centering
@@ -61,11 +61,11 @@ For each destinationation address there is a "companion" address that is routed 
 	\label{fig:benes_switch_in}
 \end{figure}
 
-To handle these dependencies properly, the input switch column of the recursive benes network uses reservation signals, where specific destinations are reserved by the switches sending packets to them so they are sent only once.
+To handle these dependencies properly, the input switch column of the recursive Beneš network uses reservation signals, where specific destinations are reserved by the switches sending packets to them so they are sent only once.
 This is shown in Figure \ref{fig:benes_switchcolumn_in}, along with the lines for reservations from stalled packets, which need to have the highest priority because they can not be held back in the current architecture.
 A detailed overview of an input switch is given in Figure \ref{fig:benes_switch_in}.
 
-As a more simple solution, a lookup table for the first stage of a $32\times32$ benes network would require around $2.92\times10^{48}$ bytes.
+As a more simple solution, a lookup table for the first stage of a $32\times32$ Beneš network would require around $2.92\times10^{48}$ bytes.
 
 
 \FloatBarrier
@@ -84,8 +84,8 @@ As a more simple solution, a lookup table for the first stage of a $32\times32$ 
 	
 \subsubsection{Resource Utilisation of the Beneš Network}
 	\label{sec:benes_resource_utilisation}
-	\begin{figure}[!ht]
-		\label{fig:benes_utilisation}
+	\begin{table}[!ht]
+		
 		\begin{center}
 			\begin{tabular}{l | c | c }
 				\textbf{Site Type}  & \textbf{Benes(\%)}&\textbf{Stalling Banyan(\%)} \\
@@ -99,11 +99,12 @@ As a more simple solution, a lookup table for the first stage of a $32\times32$ 
 				F7 Muxes                    & 1.53      & 0.00  \\
 				F8 Muxes                    & 0.63      & 0.00 \\
 			\end{tabular}
-			\caption{Resource utilization of DTN with Benes network}
 		\end{center}
-	\end{figure}
+		\caption{Resource utilization of DTN with Benes network}
+		\label{fig:benes_utilisation}
+	\end{table}
 	
-	As shown in Figure \ref{fig:benes_utilisation}, the Beneš network takes significantly more logic than all other DTNs.
+	As shown in Table \ref{fig:benes_utilisation}, the Beneš network takes significantly more logic than all other DTNs.
 	This, together with the high circuit depth required, make this implementation an unsuitable candidate for the SCAD architecture data network.
 	
 	The stalling banyan network may be considered for applications where a small DTN is required.
